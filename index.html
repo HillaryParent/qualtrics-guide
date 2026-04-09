@@ -126,7 +126,7 @@
       font-size: 1rem !important;
     }
 
-    nav#sidebar::-webkit-scrollbar { width: 4px; }
+    nav#sidebar::-webkit-scrollbar { width: 6px; }
     nav#sidebar::-webkit-scrollbar-track { background: transparent; }
     nav#sidebar::-webkit-scrollbar-thumb { background: #6a7fa8; border-radius: 4px; }
 
@@ -732,6 +732,56 @@
     #resources > ul:not(.short-ul) > li {
       margin-bottom: 2rem;
     }
+    
+    /* ── Copy button for code blocks ── */
+    
+    .code-snippet {
+      position: relative;
+    }
+    
+    .copy-btn {
+      position: absolute;
+      top: 0.4rem;
+      right: 0.4rem;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem 0.2rem;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      
+      transition: background 0.15s, color 0.15s;
+      opacity: 0;
+      transition: opacity 0.15s, background 0.15s, color 0.15s;
+    }
+    
+    .code-snippet:hover .copy-btn {
+      opacity: 1;
+    }
+    
+    @media (hover: none) {
+      .copy-btn {
+        opacity: 1;
+      }
+      .code-snippet code {
+        padding-top: 2rem; /* push code below the button */
+      }
+    }
+    
+    .copy-btn:hover {
+      background: var(--nav-bg);
+      color: #fff;
+      border-color: var(--nav-bg);
+    }
+    
+    .copy-btn.copied {
+      background: var(--bp-bg);
+      color: var(--bp-icon);
+      border-color: var(--bp-border);
+      opacity: 1;
+    }
 
     /* ── Pre-Launch Checklist ── */
     
@@ -1084,13 +1134,14 @@
   <div class="nav-section-label">Resources</div>
     <a class="only-section" href="#links">Links</a>
     <a href="#code-bank-css">CSS Code Bank</a>
-        <a href="#code-bank-css-gen" class="nav-sub">General CSS Rulesets</a>
+        <a href="#code-bank-css-gen" class="nav-sub">General Rulesets</a>
+        <a href="#code-bank-css-text" class="nav-sub">Inserting Text Rulesets</a>
         <a href="#code-bank-css-q-type" class="nav-sub">Question Type Rulesets</a>
           <a href="#code-bank-css-mc" class="nav-sub2">Multiple Choice</a>
           <a href="#code-bank-css-mt" class="nav-sub2">Matrix Tables</a>
           <a href="#code-bank-css-te" class="nav-sub2">Text Entry</a>
           <a href="#code-bank-css-ff" class="nav-sub2">Form Fields</a>
-        <a href="#code-bank-css-indvdl" class="nav-sub">Individual CSS Rulesets</a>
+        <a href="#code-bank-css-indvdl" class="nav-sub">Individual Question Rulesets</a>
         <a href="#code-bank-css-indvdl-mt" class="nav-sub2">Matrix Tables</a>
         <a href="#code-bank-css-indvdl-ff" class="nav-sub2">Form Fields</a>
       <a href="#code-bank-js">JavaScript Code Bank</a>
@@ -1345,6 +1396,7 @@
     </p>
   
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>.question .question-display, .question-content, #progress-bar-percent {
 	color: #232323;
 }
@@ -1941,6 +1993,7 @@ A menu will appear containing all available question types — select the one yo
     <p>For copy & paste purposes:</p>
    
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>Strongly&lt;br&gt;disagree
 &amp;nbsp;
 &amp;nbsp;
@@ -2111,6 +2164,7 @@ Strongly&lt;br&gt;agree</code>
 <p>I changed the side of the textbox that the caret is in to be on the <code>right</code> (the default is <code>left</code>). If you want to change this, you'll have to change this in the custom CSS:</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>.question.te .text-input {
   text-align: right;
 }
@@ -3095,6 +3149,7 @@ You will be redirected back to Prolific once you proceed to the next page.</p></
 <p>Below I will paste the code you have to add to your custom End of Survey message:</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>&lt;iframe width=‘100%’ height=‘200’ id=“cr_secretcode”&gt;&lt;/iframe&gt;
 &lt;script&gt;
     function createIFrame() {
@@ -3110,6 +3165,7 @@ You will be redirected back to Prolific once you proceed to the next page.</p></
 <p>This is slightly different than the code I have saved, which is:</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>&lt;iframe height="200" sandbox="" src="https://app.cloudresearch.com/TakeLaunchedSurvey/DynamicKey" width="100%"&gt;&lt;/iframe&gt;</code>
 </div>
 
@@ -3484,6 +3540,7 @@ You will be redirected back to Prolific once you proceed to the next page.</p></
             <ul class="short-ul">
               <li>add this to the <span class="kw-data">addOnload</span> function, but change the <code>fruit-condition</code> to be whatever you named your <code>span</code> in the Question Text
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>var conditionSpan = this.getQuestionContainer().querySelector("#fruit-condition");
 if (conditionSpan) { 
   conditionSpan.innerText = Qualtrics.SurveyEngine.getJSEmbeddedData("condition"); 
@@ -3498,6 +3555,7 @@ if (conditionSpan) {
               <li>add this to the <span class="kw-data">addOnload</span> function, but change the "Do you like " + conditionText + "?" to fit your question.<br>
               Note that this will replace the <em>entire</em> Question text, so you have to reproduce it exactly as you want it.
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>var conditionText = Qualtrics.SurveyEngine.getJSEmbeddedData("condition");
 if (conditionText) {
   this.getQuestionTextContainer().innerText = "Do you like " + conditionText + "?";
@@ -3805,7 +3863,8 @@ if (conditionText) {
 
 <p>You can also list multiple IDs together to apply the ruleset to multiple questions. Just put the <span class="kw-data">internal IDs</span> (each preceded by <code>#question-</code>) as a comma-separated list within the <code>:is()</code> selector, like so:</p>
 
-<div class="code-snippet"><code class="language-css">:is(#question-QID18, #question-QID3, #question-QID177).question {
+<div class="code-snippet">
+<code class="language-css">:is(#question-QID18, #question-QID3, #question-QID177).question {
   color: blue;
 }</code>
 </div>
@@ -3817,7 +3876,8 @@ if (conditionText) {
 
 <p>What if you want to apply the ruleset to all <em>but</em> a specific question or questions? You can do that, too! Just put the <span class="kw-data">internal IDs</span> as a comma-separated list within the <code>:not()</code> selector, like so:</p>
 
-<div class="code-snippet"><code class="language-css">:not(#question-QID18, #question-QID3, #question-QID177).question {
+<div class="code-snippet">
+<code class="language-css">:not(#question-QID18, #question-QID3, #question-QID177).question {
   color: blue;
 }</code>
 </div>
@@ -3840,6 +3900,7 @@ if (conditionText) {
     <ul  class="short-ul">
       <li>If you <em>only</em> have Matrix Table Questions with less than 3 statements, just remove this code from the <span class="kw-sub-menu">Look and Feel</span> CSS:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.matrix.table .matrix-content > :where(.matrix-row:nth-child(odd)) :is(.matrix-statement-header, .statement-wrapper) {
   background: color-mix(in srgb, #eaeaea 50%, transparent);
 }</code>
@@ -3853,6 +3914,7 @@ if (conditionText) {
     <ul  class="short-ul">
       <li>If you <em>only</em> have Matrix Table Questions with less than 3 scale points, just remove this code from the <span class="kw-sub-menu">Look and Feel</span> CSS:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.matrix.table .matrix-accordion .foldout-items .likert-input:nth-child(odd):not(:hover) {
   background: color-mix(in srgb, #eaeaea 50%, transparent);
 }</code>
@@ -3875,6 +3937,7 @@ if (conditionText) {
 <p>This is the what I used for the Paranormal Beliefs scale in the Survey Template:</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">#question-QID18 .matrix-content {
   grid-template-columns: minmax(6.25rem, 55%) 1fr !important;
   max-width: 900px !important;
@@ -3892,6 +3955,7 @@ if (conditionText) {
 <p>They decided, from some reason, to use this:</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.matrix-content {
   grid-template-columns: minmax(6.25rem, 23%) 1fr;
 }</code>
@@ -3951,6 +4015,7 @@ if (conditionText) {
 <p>If you are using these for numeric responses, you can make the textboxes identical to the text entry ones. Just put this in the custom CSS in <span class="kw-sub-menu">Look and Feel</span>.</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.form .text-input {
 	text-align: right !important;
 	width: 55px !important;
@@ -3964,6 +4029,7 @@ if (conditionText) {
 <p>This is what I used for the Ice Cream Question in the Survey Template:</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">#question-QID26.question.form .choice-label label {
   width: 120px;
 }</code>
@@ -4111,6 +4177,7 @@ if (conditionText) {
 <p>You only need to change (at most) the first two lines (that start with <code>var</code>).</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>// whitespace will be preserved, so if you need to, 
 // you can add spaces to adjust the space between the label and the textbox
 // Insert your text between the quotation marks "" in the 2 lines below:
@@ -4137,6 +4204,7 @@ if (afterText) {
 <p>For the example above, this is what I used (note the space at the end of <code>beforeText</code> and the beginning of <code>afterText</code>):</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>var beforeText = "0.875 is the same as ";
 var afterText = " / 8";
 </code>
@@ -4145,6 +4213,7 @@ var afterText = " / 8";
 <p>If you don't have the accompanying CSS (specifically, the <code>.beforeSpan</code> and <code>.afterSpan</code> rulesets) use this:</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>// whitespace will be preserved, so if you need to, 
 // you can add spaces to adjust the space between the label and the textbox
 // Insert your text between the quotation marks "" in the 2 lines below:
@@ -4193,6 +4262,7 @@ if (afterText) {
 <p>You only need to change the <code>var afterText = "";</code> line.</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>// whitespace will be preserved, so if you need to, 
 // you can add spaces to adjust the space between the label and the textbox
 // insert your text between the quotation marks "" in the line below:
@@ -4211,6 +4281,7 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 <p>If you don't have the accompanying CSS (specifically, <code>.afterSpan</code> ruleset) use this:</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>// whitespace will be preserved, so if you need to, 
 // you can add spaces to adjust the space between the label and the textbox
 // insert your text between the quotation marks "" in the line below:
@@ -4235,6 +4306,7 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 <p>Add this JavaScript to the <span class="kw-data">addOnReady</span> function if you want the textbox to be auto-focused, so the respondent can start typing right away.</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>setTimeout(() => {
   const input = this.getQuestionContainer().querySelector('.text-input');
   if (input) input.focus();
@@ -4244,6 +4316,7 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 <p>For a more generic function that will work on the <em>first</em> textbox element on the page (in case you have multiple questions and the items are randomized), add this to the <span class="kw-data">addOnReady</span> function of <em>one</em> question (not all of them!).</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>setTimeout(() => {
   const input = document.querySelector('.question .text-input');
   if (input) input.focus();
@@ -4275,6 +4348,7 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 <p>Note that here, there is code in <span class="kw-data">addOnload</span> and <span class="kw-data">addOnUnload</span> and <span class="kw-data">top level</span> code <em>outside</em> the functions. For that reason, I have provided the <strong><em>entire</em></strong> block of code, which you should copy and paste into the JavaScript Dialogue in its entirety, overwriting what's already there.</p>
   
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>(function() {
 	// global variables
 	var container; // question container
@@ -4339,6 +4413,7 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 <p>And just like the above, this <em><strong>entire</strong></em> block of code should be pasted in the JavaScript Editor, overwriting the default code that's already in there.</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>(function() {
 	// global variables
 	var container; // question container
@@ -4423,6 +4498,7 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 <p>Say you have the following CSS ruleset:</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>#question-QID18 .matrix-content {
 	grid-template-columns: minmax(6.25rem, 55%) 1fr !important;
 	max-width: 900px !important;
@@ -4437,6 +4513,7 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 <p>Simply put this in the <span class="kw-data">addOnload</span> function:</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>var style = document.createElement("STYLE");
 style.innerHTML = `
 #question-` + this.questionId + ` .matrix-content {
@@ -4450,6 +4527,7 @@ this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
 <p>For a more general form:</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>var style = document.createElement("STYLE");
 style.innerHTML = `
 #question-` + this.questionId + ` [REST OF SELECTORS] {
@@ -4469,6 +4547,7 @@ this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
 <p>Add this to <span class="kw-data">addOnload</span> for <em>each</em> Matrix Table Question and fiddle with <code>900</code> and the <code>55%</code> in the code below until it looks right:</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>var style = document.createElement("STYLE");
 style.innerHTML = `
 #question-` + this.questionId + ` .matrix-content {
@@ -4493,6 +4572,7 @@ this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
 <p>Add this to <span class="kw-data">addOnload</span> and fiddle with the <code>120</code> below until the text boxes line up:</p>
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>var style = document.createElement("STYLE");
 style.innerHTML = `
 #question-` + this.questionId + ` .choice-label {
@@ -4541,6 +4621,7 @@ this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
         Builder Panel ⟶  Question Behavior ⟶  Default choices ⟶  Survey Question ⟶  (select the question) ⟶  (select the option which shows the text of the question)</li>
         <li>Add the following JavaScript to the <span class="kw-data">onLoad</span> function:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>var input = this.getQuestionContainer().querySelector(".text-input");
 input.disabled = true;
 input.style.webkitUserSelect = "none";
@@ -4714,13 +4795,31 @@ input.style.backgroundColor = "#e5e5e5";</code>
 <p>Labels are human-readable but harder to analyze statistically, while Values are easier to work with in R/SPSS but meaningless without the codebook. </p>
   
 
-<div class="screenshot-wrap">
-  <div class="screenshot-placeholder" id="screenshot-export-dialog">
-    <span class="icon">🖼</span>
-    <span>Screenshot placeholder: Export Data dialog with More Options expanded</span>
+<div class="carousel-wrap">
+  <div class="carousel" id="carousel-download-menu">
+    <div class="carousel-track">
+
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/U6K4umy.png" alt="Data Download Menu" />
+        <div class="slide-caption">Screenshot: Data Download Menu</div>
+      </div>
+
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/X1zwLCX.png" alt="Data Download Menu with More Options Menu Expanded" />
+        <div class="slide-caption">Screenshot: Data Download Menu with More Options Menu Expanded</div>
+      </div>
+
+    </div>
+
+    <button class="carousel-btn prev" onclick="carouselMove(this.parentElement.id, -1)">‹</button>
+    <button class="carousel-btn next" onclick="carouselMove(this.parentElement.id, 1)">›</button>
+    <button class="carousel-expand" onclick="openCarouselLightbox(this.parentElement.id)">⤢</button>
   </div>
-  <button class="screenshot-expand" onclick="openLightbox(this.previousElementSibling.id)">⤢</button>
+
+  <div class="carousel-dots" id="carousel-NAME-dots"></div>
 </div>
+
+
 
 <div class="callout best-practice">
   <div class="callout-header"><span class="callout-icon">✅</span><span class="callout-label" style="color:var(--bp-icon)"><span class="label-keyword">Best Practice</span></span></div>
@@ -4900,11 +4999,14 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <h2>CSS Code Bank</h2>
 
+<p>Append these to the beginning of a CSS ruleset.</p>
+
 <ul> 
 
 <li>Target a specific <span class="kw-concept">Question</span> using its <span class="kw-data">internal Qualtrics ID</span>:
   
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">#question-QID</code>
 </div>
 </li>
@@ -4912,13 +5014,15 @@ input.style.backgroundColor = "#e5e5e5";</code>
 <li>Target multiple specific <span class="kw-concept">Questions</span> using their <span class="kw-data">internal Qualtrics IDs</span>:
   
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">:is(#question-QID1, #question-QID2, #question-QID3, ..., #question-QIDN)</code>
 </div>
 </li>
   
-<li>Exclude multiple specific <span class="kw-concept">Questions</span> using their <span class="kw-data">internal Qualtrics IDs</span>:
+<li>Exclude specific <span class="kw-concept">Question(s)</span> using their <span class="kw-data">internal Qualtrics ID(s)</span>:
   
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">:not(#question-QID1, #question-QID2, #question-QID3, ..., #question-QIDN)</code>
 </div>
 </li>
@@ -4926,13 +5030,14 @@ input.style.backgroundColor = "#e5e5e5";</code>
 </ul> 
   
 <hr class="section-divider" id="code-bank-css-gen" /> 
-<h3>General CSS Rulesets</h3>
+<h3>General Rulesets</h3>
 
 <ul>
   
 <li>Change the font colour of the question text and progress bar % (if you have one):
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question .question-display, .question-content, #progress-bar-percent {
 	color: #232323;
 }</code>
@@ -4942,6 +5047,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 <li>Change the border colour of the radio buttons:
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question .radio-button.radio {
   border-color: #5c5c5c;
 }</code>
@@ -4951,18 +5057,44 @@ input.style.backgroundColor = "#e5e5e5";</code>
 <li>Add space below the progress bar (if you have one):
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">#progress-bar-fill {
 	margin-bottom: 12px !important;
 }</code>
 </div>
 </li> 
 
-</ul> 
+</ul>
+
+
+<hr class="section-divider" id="code-bank-css-text" /> 
+<h3>Rulesets for Inserting Text Around Textboxes</h3>
+
+<ul>
+  
+<li>These are user-defined classes for the <code class="language-html">span</code> elements that will be injected around the textboxes with JavaScript.
+
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code class="language-css">span.spanBefore, span.spanAfter {
+	white-space: pre;
+	vertical-align: middle;
+}
+span.spanAfter {
+	margin-left: 6px;
+}
+span.spanBefore {
+	margin-right: 6px;
+}</code>
+</div>
+</li>
+
+</ul>
 
 <hr class="section-divider" id="code-bank-css-q-type" /> 
-<h3>Question Type CSS Rulesets</h3>
+<h3>Question Type Rulesets</h3>
 
-<p>Optional CSS to apply to specific Question Types.</p>
+<p>Optional CSS rulesets that apply to all Questions of a specific Question Type.</p>
 
 
 <hr class="section-divider" id="code-bank-css-mc" />
@@ -4973,6 +5105,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
   
 <li>Add an outline to the choices:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.mc .choice-label {
 	outline: 2px solid #eaeaea;
 }</code>
@@ -4981,6 +5114,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <li>Increase the minimum width of horizontally aligned choices:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.mc.horizontal .choice-label {
 	min-width: 5.75rem !important;
 }</code>
@@ -4989,6 +5123,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <li>Increase the minimum width of choices on Mobile:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">@media (max-width: 540px) {
 	.question.mc:is(.horizontal, .vertical) .choice-label {
 		min-width: 7rem !important;
@@ -5006,6 +5141,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <li>Add padding to the element above Matrix Tables:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.matrix.table .question-display-wrapper {
 	padding-bottom: 20px;
 }</code>
@@ -5014,6 +5150,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <li>Give Matrix Tables a rounded outline and adjust their position:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.matrix.table .matrix-content {
 	outline: 0.2rem solid #eaeaea;
 	border-radius: 0.5rem;
@@ -5024,6 +5161,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <li>Preserve the whitespace of the scale point labels:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.matrix.table .matrix-scale-points-item {
 	white-space: pre !important;
 }</code>
@@ -5032,6 +5170,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <li>Shade every other row of Matrix Tables:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.matrix.table .matrix-content > :where(.matrix-row:nth-child(odd)) :is(.matrix-statement-header, .statement-wrapper) {
 	background: color-mix(in srgb, #eaeaea 50%, transparent);
 }</code>
@@ -5042,6 +5181,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <li>Shade every other row of Matrix Tables using <code>:has()</code>:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.matrix.table .matrix-content:has( > :nth-child(5)) > :where(.matrix-row:nth-child(odd)) :is(.matrix-statement-header, .statement-wrapper) {
 	background: color-mix(in srgb, #eaeaea 50%, transparent);
 }</code>
@@ -5058,6 +5198,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
   
 <li>Add some padding to the question text, to improve the alignment:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.matrix.table .matrix-accordion .foldout-header {
 	padding-left: 1rem;
 }</code>
@@ -5067,6 +5208,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 <li>Add some space between the questions, to improve readability:
 
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.matrix.table .matrix-accordion .matrix-statement.without-summary:not(:last-child) {
 	margin-bottom: 2rem;
 }</code>
@@ -5075,6 +5217,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <li>Give Matrix Tables a rounded outline:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.matrix.table .matrix-statement.without-summary {
 	outline: 0.2rem solid #eaeaea;
 	border-radius: 0.5rem;
@@ -5084,6 +5227,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <li>Give the choices an outline:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.matrix.table .matrix-accordion .likert-input {
 	outline: 2px solid #eaeaea;
 }</code>
@@ -5092,6 +5236,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <li>Shade every other choice of a Matrix Question:<br>
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.matrix.table .matrix-accordion .foldout-items .likert-input:nth-child(odd):not(:hover) {
 	background: color-mix(in srgb, #eaeaea 50%, transparent);
 }</code>
@@ -5101,6 +5246,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <li>Shade every other choice of a Matrix Question using <code>:has()</code>:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.matrix.table .matrix-accordion .foldout-items:has( > :nth-child(3)) .likert-input:nth-child(odd):not(:hover) {
 	background: color-mix(in srgb, #eaeaea 50%, transparent);
 }</code>
@@ -5117,6 +5263,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
   
 <li>Align the caret to the right:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.te .text-input {
 	text-align: right !important;
 }</code>
@@ -5127,6 +5274,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <li>Set the width of the textbox and adjust padding and text alignment:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.te .text-input:not(.multi-line) {
 	width: 55px !important;
 	padding: 5px !important;
@@ -5139,6 +5287,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <li>Set the width of the textbox and adjust padding and text alignment:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.te .text-input.multi-line {
 	max-width: 100% !important;
 	min-width: 150px !important;
@@ -5150,26 +5299,11 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <li>Set the width of the textbox to be the width of the screen for Mobile:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">@media (max-width: 420px) {
 	.question.te .text-input.multi-line {
 		min-width: 100% !important;
 	}
-}</code>
-</div>
-</li>
-
-<li>Defines two classes for the text that will be inserted around a textbox using JavaScript:
-
-<div class="code-snippet">
-<code class="language-css">span.spanBefore, span.spanAfter {
-	white-space: pre;
-	vertical-align: middle;
-}
-span.spanAfter {
-	margin-left: 6px;
-}
-span.spanBefore {
-	margin-right: 6px;
 }</code>
 </div>
 </li>
@@ -5184,6 +5318,7 @@ span.spanBefore {
 
 <li>Add padding to the element above Form Fields:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.form .question-display-wrapper {
 	padding-bottom: 20px;
 }</code>
@@ -5192,6 +5327,7 @@ span.spanBefore {
 
 <li>Increase the font size for the labels and add some padding:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.form ul.choices .choice-label {
 	padding-top: 5px;
 	font-size: 1.25rem;
@@ -5201,6 +5337,7 @@ span.spanBefore {
 
 <li>Switch the flex-direction, so the label will be in front of the text box:
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.form ul.choices .choice-content {
 	flex-direction: row !important;
 }</code>
@@ -5209,6 +5346,7 @@ span.spanBefore {
 
 <li>Set the width of the textbox and adjust padding and text alignment
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.form .text-input {
 	text-align: right !important;
 	width: 55px !important;
@@ -5223,9 +5361,9 @@ span.spanBefore {
 
 <hr class="section-divider" id="code-bank-css-indvdl" /> 
 
-<h3>Individual CSS Rulesets</h3>
+<h3>Individual Question Rulesets</h3>
 
-<p>Optional CSS to apply to individual questions. Note that these will need to be adjusted for your specific question and you will need to use the <span class="kw-data">internal Qualtrics ID</span>.</p>
+<p>Optional CSS rulesets for use with individual Questions. Note that these will need to be adjusted for your specific question and you will need to use the <span class="kw-data">internal Qualtrics ID</span>.</p>
 
 <hr class="section-divider" id="code-bank-css-indvdl-mt" /> 
 
@@ -5239,6 +5377,7 @@ span.spanBefore {
 <li>Adjust the max % of the width (<code>55%</code>) the statements take up</li>
 </ul>
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.matrix.table .matrix-content {
 	grid-template-columns: minmax(6.25rem, 55%) 1fr !important;
 	max-width: 900px !important;
@@ -5260,6 +5399,7 @@ span.spanBefore {
 Adjust the width (<code>120px</code>) of the labels</li>
 </ul>
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.form .choice-label label {
 	width: 120px;
 }</code>
@@ -5295,6 +5435,7 @@ Adjust the width (<code>120px</code>) of the labels</li>
 <li>Add to <span class="kw-data">addOnload</span></li>
 </ul>
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>var style = document.createElement("STYLE");
 style.innerHTML = `
 #question-` + this.questionId + `.question.matrix.table .matrix-content {
@@ -5318,6 +5459,7 @@ this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
 <li>Add to <span class="kw-data">addOnload</span></li>
 </ul>
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>var style = document.createElement("STYLE");
 style.innerHTML = `
 #question-` + this.questionId + `.question.form .choice-label {
@@ -5343,6 +5485,7 @@ this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
   <li>Add to <span class="kw-data">addOnload</span></li>
 </ul>
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>var style = document.createElement("STYLE");
 style.innerHTML = `
 #question-` + this.questionId + ` [REST OF SELECTORS] {
@@ -5373,6 +5516,7 @@ this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
 <li>If you have the .spanBefore and .spanAfter rulesets in the custom CSS in <span class="kw-sub-menu">Look and Feel</span>
 <ul class="short-ul"><li>Add to <span class="kw-data">addOnload</span></li></ul>
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>// whitespace will be preserved, so if you need to, 
 // you can add spaces to adjust the space between the label and the textbox
 // Insert your text between the quotation marks "" in the 2 lines below:
@@ -5401,6 +5545,7 @@ if (afterText) {
 <li>If you <em>don't</em> have the .spanBefore and .spanAfter rulesets in the custom CSS in <span class="kw-sub-menu">Look and Feel</span>
 <ul class="short-ul"><li>Add to <span class="kw-data">addOnload</span></li></ul>
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>// whitespace will be preserved, so if you need to, 
 // you can add spaces to adjust the space between the label and the textbox
 // Insert your text between the quotation marks "" in the 2 lines below:
@@ -5440,6 +5585,7 @@ if (afterText) {
 <li>If you have the .spanBefore and .spanAfter rulesets in the custom CSS in <span class="kw-sub-menu">Look and Feel</span>
 <ul class="short-ul"><li>Add to <span class="kw-data">addOnload</span></li></ul>
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>// whitespace will be preserved, so if you need to, 
 // you can add spaces to adjust the space between the label and the textbox
 // insert your text between the quotation marks "" in the line below:
@@ -5460,6 +5606,7 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 <li>If you <em>don't</em> have the .spanBefore and .spanAfter rulesets in the custom CSS in <span class="kw-sub-menu">Look and Feel</span>
 <ul class="short-ul"><li>Add to <span class="kw-data">addOnload</span></li></ul>
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>// whitespace will be preserved, so if you need to, 
 // you can add spaces to adjust the space between the label and the textbox
 // insert your text between the quotation marks "" in the line below:
@@ -5489,6 +5636,7 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 <li><h5>Pages with One Question</h5>
 <ul class="short-ul"><li>Add to <span class="kw-data">addOnReady</span></li></ul>
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>setTimeout(() => {
   const input = this.getQuestionContainer().querySelector('.text-input');
   if (input) input.focus();
@@ -5499,6 +5647,7 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 <li><h5>Pages with Multiple Questions</h5>
 <ul class="short-ul"><li>Add to <span class="kw-data">addOnReady</span> of <em><strong>one</strong></em> <span class="kw-concept">Question</span></li></ul>
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>setTimeout(() => {
   const input = document.querySelector('.question .text-input');
   if (input) input.focus();
@@ -5519,6 +5668,7 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 <li><h5 id="code-bank-js-gen-auto-submit-one">Pages with One Question</h5>
 <ul class="short-ul"><li>Replace <em><strong>everything</strong></em> in the JavaScript Editor with this:</li></ul>
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>(function() {
 	// global variables
 	var container; // question container
@@ -5576,6 +5726,7 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 <li><h5 id="code-bank-js-gen-auto-submit-multi">Pages with Multiple Questions</h5>
 <ul class="short-ul"><li>Replace <em><strong>everything</strong></em> in the JavaScript Editor of <em><strong>one</strong></em> <span class="kw-concept">Question</span> with this:</li></ul>
 <div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>(function() {
 	// global variables
 	var container; // question container
@@ -5891,6 +6042,23 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
       if (window.innerWidth <= 768) toggleSidebar();
     });
   });
+  
+  // ── Copy button (code) ──
+  
+  function copyCode(btn) {
+    const code = btn.nextElementSibling;
+    navigator.clipboard.writeText(code.innerText).then(() => {
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copy';
+        btn.classList.remove('copied');
+      }, 1500);
+    }).catch(() => {
+      btn.textContent = 'Failed';
+      setTimeout(() => { btn.textContent = 'Copy'; }, 1500);
+    });
+  }
 
 </script>
 
