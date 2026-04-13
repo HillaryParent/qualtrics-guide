@@ -201,7 +201,7 @@
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--text);
-      margin: 2rem 0 0.75rem;
+      margin: 2rem 0 1.25rem;
     }
 
     h4 {
@@ -209,7 +209,7 @@
       font-size: 1.25rem;
       font-weight: 700;
       color: var(--text);
-      margin: 1.5rem 0 0.5rem;
+      margin: 1.5rem 0 1rem;
     }
     
     h5 {
@@ -218,7 +218,7 @@
       font-weight: 700;
       font-style: italic;
       color: var(--text);
-      margin: 1.5rem 0 0.5rem;
+      margin: 1.5rem 0 1rem;
     }
 
     p {
@@ -229,7 +229,11 @@
     a { color: var(--kw-ui); }
     a:hover { text-decoration: underline; }
     
-    /* My Stuff */
+    /* My Extra Stuff */
+    
+    .emph {
+      font-size: 1.15rem;
+    }
     
     .small-note {
       font-size: 0.9rem;
@@ -291,47 +295,61 @@
     img.qIcon {
       margin-bottom: -5px;
     }
-    
-    .no-gap {
-      margin-bottom: 0 !important;
-    }
-    
-    .pathway {
+
+    .pathway, .pathway-indent {
       width: fit-content;
       line-height: 1.5em;
-      margin: 0.5em 2em 1em;
+      margin-top: 1em;
+      margin-bottom: 1em;
       padding: 0.05em 0.4em;
       border-radius: 4px;
       border: 1px solid rgba(181, 194, 217, 0.5);
       background-color: rgba(255, 255, 255, 0.5);
     }
     
-    .pathway div {
-      margin-top: 0.5rem;
+    .pathway-indent {
+      margin-left: 2em;
     }
     
-    .mono, .monoUp {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.9rem;
-      
+    :is(section, div) > :is(ul, ol) {
+      margin-bottom: 1rem;
     }
     
-    .monoUp {
-      letter-spacing: 0.08em;
+    .inline-ul {
+      margin-left: 1.2rem;
+    }
+    
+    .inline-ul > li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .indent-ul {
+      margin-left: 3rem;
+    }
+    
+    :is(.indent-ul, .inline-ul) :is(ul, ol) {
+      margin-left: 2.5rem;
+    }
+    
+    .no-gap > li, li:last-child, p.no-gap {
+      margin-bottom: 0;
+    }
+    
+    .gap-1 > li:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+    
+    .gap-2 > li:not(:last-child), h3.gap-2 {
+      margin-bottom: 2rem !important;
+    }
+    
+    ol li::marker {
+      font-weight: 600;
+    }
+    
+    .muted {
       color: var(--text-muted);
     }
-    
-    :is(ul, ol) .pathway {
-      margin-left: 0;
-    }
-    
-    .standard-ul, .standard-ul :is(ul, ol), .short-ul { 
-      margin-left: 40px; 
-    }
-    p + :is(.standard-ul, .short-ul) { margin-bottom: 1em; }
-
-    .standard-ul > li:not(:last-child) { margin-bottom: 0.75em; }
-
 
     /* ── Keyword spans ── */
     .kw-menu { color: var(--kw-menu); font-weight: 600; }
@@ -386,6 +404,10 @@
 
     .callout .callout-body {
       padding-left: 1.9rem;
+    }
+    
+    .callout-body :last-child:is(p, ul, ol) {
+      margin-bottom: 0;
     }
 
     .callout.best-practice { background: var(--bp-bg); border-color: var(--bp-border); }
@@ -575,10 +597,14 @@
     
     .carousel-slide img {
       max-width: 100%;
-      max-height: 500px;
       display: block;
       margin: 0 auto;
       border-radius: 8px;
+    }
+    
+    .carousel .carousel-track .scroll {
+      overflow: auto;
+      max-height: 750px;
     }
     
     .carousel-slide .slide-caption, .carousel-slide .slide-caption p {
@@ -634,8 +660,8 @@
     }
     
     .carousel-dot {
-      width: 6px;
-      height: 6px;
+      width: 0.6rem;
+      height: 0.6rem;
       border-radius: 50%;
       background: var(--border);
       border: none;
@@ -679,13 +705,24 @@
       display: flex;
       transition: transform 0.35s ease;
     }
-    
-    .lightbox-carousel .carousel-slide img {
-      max-width: 80vw;
-      max-height: 75vh;
-      height: auto;
+
+    .lightbox-carousel .carousel-slide > img {
       display: block;
       margin: 0 auto;
+      max-height: 75vh;
+      max-width: 80vw;
+      border-radius: 6px;
+    }
+    
+    .lightbox-carousel .carousel-slide .scroll {
+      overflow: auto;
+      max-height: 75vh;
+    }
+    
+    .lightbox-carousel .carousel .carousel-track .scroll img {
+      display: block;
+      margin: 0 auto;
+      max-width: 80vw;
       border-radius: 6px;
     }
     
@@ -723,14 +760,6 @@
     
     .code-snippet-comp code {
       flex: 1;
-    }
-    
-    #resources > ul:not(.short-ul) {
-      margin-top: 2rem;
-    }
-    
-    #resources > ul:not(.short-ul) > li {
-      margin-bottom: 2rem;
     }
     
     /* ── Copy button for code blocks ── */
@@ -978,10 +1007,9 @@
       }
     
       /* Pathway boxes don't overflow */
-      .pathway {
+      .pathway, .path-indent {
         overflow-x: auto;
         white-space: normal;
-        margin: 0.5em 0 1em;
       }
     
       /* Carousels */
@@ -1024,7 +1052,9 @@
 <!-- ── Sidebar navigation ── -->
 <nav id="sidebar">
   
+  <div class="nav-section-label" style="display:none">Introduction</div>
   <a href="#introduction">Introduction</a>
+    <a href="#before-begin">Before you Begin</a>
 
   <div class="nav-section-label">Section 1</div>
   <a href="#getting-started">Getting Started</a> 
@@ -1032,8 +1062,8 @@
     <a href="#interface">The Interface</a>
     <a href="#first-steps">First Steps</a>
       <a href="#add-collaborators" class="nav-sub">Add Collaborators</a>
+      <a href="#survey-options" class="nav-sub">Survey Options</a>
       <a href="#first-appearance" class="nav-sub">Look and Feel</a>
-      <a href="#key-survey-options" class="nav-sub">Key Survey Options</a>
       <a href="#preview-button" class="nav-sub">Preview Button</a>
       <a href="#publish-button" class="nav-sub">Publish Button</a>
 
@@ -1091,7 +1121,7 @@
         <a href="#conditions-piped-text" class="nav-sub">Piped Text</a>
         <a href="#conditions-javascript" class="nav-sub">JavaScript</a>
       <a href="#conditions-orders-how">How to Set Up Order Conditions</a>
-        <a href="#order-conditions" class="nav-sub">Order Conditions</a>
+        <a href="#conditions-order-conditions" class="nav-sub">Order Conditions</a>
         <a href="#conditions-counterbalancing" class="nav-sub">Counterbalancing</a>
   
   <div class="nav-section-label">Section 5</div>
@@ -1179,19 +1209,126 @@
 
 <!-- Introduction -->
 <section class="section" id="introduction">
-  <div class="section-label">Introduction</div>
+<div class="section-label">Introduction</div>
+
+<h2>Introduction</h2>
+
+<p>This guide walks you through the process of building a survey in Qualtrics for your research project. Qualtrics is a powerful survey platform widely used in academic research, and while it has a lot of features, you only need a handful of them to build a clean, functional experiment.</p>
+
+<p>Unfortunately, it also has a lot of pitfalls. I have tried to include the most common (and most frustrating) issues as <span class="kw-warn">Warnings</span> throughout this guide.</p>
+
+<p>Work through this guide section by section as you build your survey — each section introduces the tools and concepts you'll need as they become relevant. You'll also find it useful to return to specific sections later, both during the survey creation process and when preparing your data for analysis.</p>
+
+<p>This guide is still very much a work in progress. As you can imagine, it is difficult to put yourself back into the mindset of someone opening Qualtrics for the first time. If you have any thoughts or suggestions about this guide at any point, please share them in the <a href="#feedback" class="feedback-link">Feedback Form</a> at the end of the guide.</p>
+
+<p>Your feedback at this stage would be invaluable and will help me continue to refine this guide for its intended audience. I have even set it up so that you can send comments anonymously. Personally, I sometimes hesitate to provide feedback on minor issues if I have to attach my name to it — so I'm providing this option for you in the hopes removing this potential barrier.</p>
+
+<p>However, if you have immediate issues (with the guide or with Qualtrics), please email me directly: <a href="mailto:hillary.parent@yale.edu">hillary.parent@yale.edu</a>.</p>
+
+
+<hr class="section-divider" id="before-begin" />
+
+<h3>Before you Begin</h3>
+
+<p>I know you might be tempted, but don't charge ahead and start creating your survey just yet.</p>
+
+<p>You will save yourself both time and headaches down the road if you do things in a certain order, both because there are things to <span class="kw-concept" style="color:#bf0000;">watch out for</span> and because adding <em><strong>complexity</strong></em> (such as random assignment) to your survey too early will just slow you down. There are also a few things to keep in mind before you begin.</p>
+
+<ul class="inline-ul gap-1">
+<li><strong class="emph">Don't have your survey open in multiple tabs!</strong><br>
+  I'm putting this warning up front because if you're like me, you'll be tempted to have different tabs open to edit different parts of your survey. Well... <strong><em>Don't do this!!</em></strong> Qualtrics even <a target="_blank" href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-tools/saving-and-restoring/">warns people about this</a> — the way they have auto save set up may cause one tab to overwrite the changes you made in another tab, even across different areas / aspects of your survey.
+</li>
+
+<li><strong class="emph">Be cautious when multiple people are editing simultaneously</strong><br>
+  Qualtrics does not handle simultaneous editing well. If multiple collaborators are editing the survey at the same time, changes may conflict or behave unexpectedly. Try to coordinate with your team so only one person is editing at a time. (This likely stems from the above.)</li>
   
-  <h2>Introduction</h2>
+<li><strong class="emph">Preview your survey!</strong><br>
+  You should be previewing your survey <em><strong>frequently</strong></em> — it is much easier to notice typos and wording issues when you are reading your items in a different context (i.e., while previewing it instead of in the <span class="kw-sub-menu">Builder</span>). You should (in my opinion) care how the survey both works <em>and</em> looks from a participant's point of view.
+</li>
+</ul>
+
+<hr class="section-divider" />
+
+<p>This is roughly the order you should create your survey in:</p>
+<ol class="inline-ul gap-1">  
+<li>
+  <strong class="emph">Start with your main question(s)</strong><br>
+  Start with the wording and then explore the formatting options. Don't worry about the logic of your survey at this point (i.e., random assignment and conditions). There are <em>multiple</em> ways to set up conditions (which will be discussed in <a href="#conditions">Section 4: How to Set Up Conditions</a>), but at this stage you should focus on perfecting your items.<br>
+    Once everything looks right, you can start adding basic functionality, such as setting up two-part questions to appear dynamically, randomizing response options, etc.<br>
+  In short:
+  <ol>
+    <li>Just get the words down</li>
+    <li>Then make it look nice</li>
+    <li>Then make it work</li>
+  </ol>
+
+</li>
+
+<li>
+  <strong class="emph">Set up the pages of your survey</strong><br>
+  Once your items have been perfected (the wording and how they are displayed), you can focus on setting up your survey properly — fully configuring each page of your survey. (This means finalizing your <span class="kw-concept">Questions</span> (e.g., setting up Recode Values) and setting up the <span class="kw-concept">Blocks</span> which contain them.)
+</li>
+
+<li>
+  <strong class="emph">Set up the logic of your survey</strong><br>
+  Once your Blocks are set up, you can set up the logic of your survey. You should test your survey extensively at this stage to make sure you have everything set up properly.
+</li>
+
+<li>
+  <strong class="emph">Add the Consent / Demographics / Screeners / Standard parts of your survey</strong><br>
+  Having a lot of "bulk" in the way when you preview your survey will just slow you down, so don't do this until the main part of your survey is fully configured (<em>and</em> tested). The Survey Template will also have this done for you (although you may need to change the screeners, depending on your research question / design).
+</li>
   
-  <p>This guide walks you through the process of building a survey in Qualtrics for your research project. Qualtrics is a powerful survey platform widely used in academic research, and while it has a lot of features, you only need a handful of them to build a clean, functional experiment.</p>
-  
-  <p>Unfortunately, it also has a lot of pitfalls. I have tried to include the most common (and most frustrating) issues as <span class="kw-warn">Warnings</span> throughout this guide.</p>
-  
-  <p>Work through this guide section by section as you build your survey — each section introduces the tools and concepts you'll need as they become relevant. You'll also find it useful to return to specific sections later, both during the survey creation process and when preparing your data for analysis.</p>
-  
-  <p>This guide is still very much a work in progress. As you can imagine, it is difficult to put yourself back into the mindset of someone opening Qualtrics for the first time. If you have any thoughts or suggestions about this guide at any point, please share them in the <a href="#feedback" class="feedback-link">Feedback Form</a> at the end of the guide.</p>
-  
-  <p>Your feedback at this stage would be invaluable and will help me continue to refine this guide for its intended audience. I have even set it up so that you can send comments anonymously. Personally, I sometimes hesitate to provide feedback on minor issues if I have to attach my name to it — so I'm providing this option for you in the hopes removing this potential barrier.</p>
+</ol>
+
+<hr class="section-divider" />
+
+<p>Below is a flow chart which shows the basic survey structure.</p>
+
+<div class="screenshot-wrap">
+  <div class="screenshot-placeholder" id="screenshot-flow-chart">
+    <img src="https://i.imgur.com/JHSTCyV.png" style="background-color: #fff;" alt="Flow Chart: The flow / logic of a basic survey." />
+    <span>Flow Chart: The flow / logic of a basic survey.</span><br>
+    <p style="text-align:right;margin:auto;display:inline-block;padding-right:12px;">
+      Purple:<br>
+      Grey:<br>
+      Blue:<br>
+      Diamond:<br>
+      Rounded rect:</p>
+      <p style="text-align:left;margin:auto;display:inline-block;">
+      Survey Flow Element (not visible to participants)<br>
+      Optional parts of the survey<br>
+      Optional for participants<br>
+      Branch<br>
+      Instructions — no data collected</p>
+  </div>
+  <button class="screenshot-expand" onclick="openLightbox(this.previousElementSibling.id)">⤢</button>
+</div>
+
+<hr class="section-divider" />
+
+<p>I'm going to be using a running example to explain how to use Qualtrics. It may seem overly simple, but that's just to help simplify the explanations and make this guide easier to digest.</p>
+
+<p>You are interested in asking people if they like one of three types of fruit:</p>
+    
+<div class="flexDiv" style="text-align:center;">
+  <div>
+    Do you like <strong>apples</strong>?<br>
+    Yes / No
+  </div>
+  <div>
+    Do you like <strong>bananas</strong>?<br>
+    Yes / No
+  </div>
+  <div>
+    Do you like <strong>oranges</strong>?<br>
+    Yes / No
+  </div>
+</div>
+
+<p>With that in mind, let's begin!</p>
+
+
 </section>
 
 <!-- Section 1 -->
@@ -1202,23 +1339,27 @@
   
 <h3 id="new-survey">New Survey</h3>
     
-<p>Go to:</p>
+<p class="no-gap">Go to:</p>
 
-<ul class="short-ul">
+<ul class="indent-ul">
   <li>
-    <a href="https://yale.qualtrics.com/" target="_blank">yale.qualtrics.com</a> OR<br>
-    <a href="https://yalesurvey.qualtrics.com/" target="_blank">yalesurvey.qualtrics.com</a> if the above doesn't work
+    <a href="https://yale.qualtrics.com/" target="_blank">yale.qualtrics.com</a>︎ ⟵ SOM Qualtrics<br>
+    <a href="https://yalesurvey.qualtrics.com/" target="_blank">yalesurvey.qualtrics.com</a> ⟵ University-wide Qualtrics (try this if the above doesn't work)<br>
   </li>
   <li>Log in with your Yale NetID and password</li>
 </ul>
 
-<p>Once logged in, you'll land on your <span class="kw-ui">Dashboard</span>.</p>
+<p>Once logged in, you'll land on your <span class="kw-ui">Home</span> page.</p>
 
 <p>To create a new survey:</p>
 
-<p class="pathway"><span class="kw-ui">Create a new project</span> → <span class="kw-ui">Survey</span> → <span class="kw-ui">Get Started</span></p>
+<p class="pathway"><span class="kw-ui">Create a new project</span> (bottom left) → <span class="kw-ui">Survey</span>  → <span class="kw-ui">Get Started</span> (bottom right)</p>
 
-<p>You can choose whether to start from scratch or import an existing survey.</p>
+<p>From here, you can choose whether to start from scratch or import an existing survey.</p>
+
+<div class="img-container-wrap">
+<img src="https://i.imgur.com/miLT46j.png" alt="Create new survey">
+</div>
 
 <p>A survey template has been provided for you to use as a starting point — it includes a custom design and some basic structure, so you don't have to start from scratch.</p>
 
@@ -1236,107 +1377,133 @@
 
 <h3>The Interface</h3>
 
-<div>
-  
-  <div class="carousel-wrap">
-    <div class="carousel" id="carousel-interface">
-      <div class="carousel-track">
+<p>Here is a quick overview of what you'll see once you're inside a survey and the key menus you'll need to know.</p>
 
-        <div class="carousel-slide">
-          <img src="https://i.imgur.com/uN6tS8g.png" alt="Survey Builder Interface" />
-          <div class="slide-caption">Screenshot: Survey Builder Interface</div>
-        </div>
 
-        <div class="carousel-slide">
-          <img src="https://i.imgur.com/OjKSRw3.png" alt="Survey Builder Interface Annotated" />
-          <div class="slide-caption">Annotated Screenshot: Survey Builder Interface</div>
-        </div>
-        
+<div class="carousel-wrap">
+  <div class="carousel" id="carousel-interface">
+    <div class="carousel-track">
+
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/uN6tS8g.png" alt="Survey Builder Interface" />
+        <div class="slide-caption">Screenshot: Survey Builder Interface</div>
       </div>
 
-      <button class="carousel-btn prev" onclick="carouselMove(this.parentElement.id, -1)">‹</button>
-      <button class="carousel-btn next" onclick="carouselMove(this.parentElement.id, 1)">›</button>
-      <button class="carousel-expand" onclick="openCarouselLightbox(this.parentElement.id)">⤢</button>
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/OjKSRw3.png" alt="Survey Builder Interface Annotated" />
+        <div class="slide-caption">Annotated Screenshot: Survey Builder Interface</div>
+      </div>
+      
     </div>
 
-    <div class="carousel-dots" id="carousel-interface-dots"></div>
+    <button class="carousel-btn prev" onclick="carouselMove(this.parentElement.id, -1)">‹</button>
+    <button class="carousel-btn next" onclick="carouselMove(this.parentElement.id, 1)">›</button>
+    <button class="carousel-expand" onclick="openCarouselLightbox(this.parentElement.id)">⤢</button>
   </div>
 
-  <p>Here is a quick overview of what you'll see once you're inside a survey and the key menus you'll need to know.</p>
-
-  <div class="key-settings">
-    <div class="key-settings-label">Interface Overview</div>
-    <ul>
-      <li>
-        <span class="kw-menu" style="font-size:1.3rem;">Top Menu</span> — (full width, runs across the top)
-        <ul>
-          <li>
-            <span class="kw-sub-menu">Survey</span><br>
-            <ul>
-              <li>your survey</li>
-            </ul>
-          </li>
-          <li>
-            <span class="kw-sub-menu">Distributions</span>
-              <ul>
-                <li>where to get the anonymous link to your survey, once your survey is published/activated<br>
-                <span style="display:block;margin-top: 0.4rem 0 0 0;" class="pathway"><span class="kw-sub-menu">Distributions</span> → <span class="kw-ui">Anonymous Link</span></span>
-                </li>
-            </ul>
-          </li>
-          <li><span class="kw-sub-menu">Data &amp; Analysis</span>
-          <ul><li>where you download your data<br>
-                <span style="display:block;margin: 0.4rem 0 0 0;" class="pathway"><span class="kw-sub-menu">Data &amp; Analysis</span> → [<span class="kw-ui">Export & Import</span> ▾] → <em>Export Data...</em></span></li></ul>
-          </li>
-        </ul>
-      </li>
-      
-      <li>
-        <span class="kw-menu">Toolbar</span> — (far left, vertical, icons)<br>
-        Navigate to different pages to edit different aspects of your survey.<br>
-        The key tabs are the top four:
-        <ul>
-          <li><span class="kw-sub-menu"><img class="qIcon" src="https://i.imgur.com/xW6oKat.png"> Builder</span>
-          <ul><li>where you edit your questions</li></ul>
-          </li>
-          <li><span class="kw-sub-menu"><img class="qIcon" src="https://i.imgur.com/gLKAV7p.png"> Survey Flow</span>
-            <ul><li>where you add conditions, randomizers, etc.</li></ul>
-          </li>
-          <li><span class="kw-sub-menu"><img class="qIcon" src="https://i.imgur.com/3d9Ghea.png"> Look and Feel</span>
-          <ul><li>where you can change the appearance of your survey</li></ul></li>
-          <li><span class="kw-sub-menu"><img class="qIcon" src="https://i.imgur.com/4m4vbAI.png"> Survey Options</span>
-          <ul><li>miscellanious survey options</li></ul>
-          </li>
-        </ul>
-        The toolbar can be expanded to show text labels alongside the icons.
-      </li>
-      
-      <li>
-        <span class="kw-menu">Builder Toolbar</span> — (horizontal, only in the Builder)
-        <ul>
-          <li><span class="kw-sub-menu">Tools Menu</span> (left)<br>
-            <ul>
-              <li><em>Collaborate</em></li>
-              <li><em>Version</em> — create and restore previous versions</li>
-              <li><em>Import / Export</em> — get the QSF file of your survey<br>
-              (you can also get a PDF or .docx file of your survey, but it won't look right — I recommend taking screenshots of your survey instead)</li>
-            </ul>
-          </li>
-          <li><span class="kw-ui">Preview Button</span> (right)</li>
-          <li><span class="kw-ui">Publish Button</span> (far right)</li>
-        </ul>
-      </li>
-      
-      <li>
-        <span class="kw-menu">Options Panel</span> — (to the right of the Toolbar)<br>
-        This is where options will appear, depending on what page you're on.<br>
-        The most important one is the <span class="kw-sub-menu">Builder Panel</span>, which is where <span class="kw-concept">Block</span> and <span class="kw-concept">Question</span> options will be when you are in the <span class="kw-sub-menu">Builder</span>.<br>
-        This panel can be collapsed to give you more room to view your survey.
-        </li>
-    </ul>
-  </div>
-
+  <div class="carousel-dots" id="carousel-interface-dots"></div>
 </div>
+
+<div class="key-settings">
+  <div class="key-settings-label">Interface Overview</div>
+  <ul>
+    <li>
+      <span class="kw-menu" style="font-size:1.3rem;">Top Menu</span><br>
+      <div class="img-container-wrap" style="margin-top:1rem;">
+        <div class="img-container">
+          <img src="https://i.imgur.com/yFMPqwI.png">
+        </div>
+      </div>
+      <p class="no-gap">Horizontal, runs across the top</p>
+      <p>The 3 key tabs are:</p>
+      <p style="display:inline-block;margin-left:1.2rem;">
+        <span class="kw-sub-menu emph">Survey</span><br>
+        <span class="kw-sub-menu emph">Distributions</span><br>
+        <span class="kw-sub-menu emph">Data &amp; Analysis</span>
+      </p>
+      <p style="display:inline-block;line-height:1.84rem;margin-left:6px;">
+      — &nbsp;your survey<br>
+      — &nbsp;where to get the anonymous link to your survey, once your survey is published/activated<br>
+      — &nbsp;where you download your data
+      </p>
+    </li>
+    
+    <li>
+      <span class="kw-menu">Toolbar</span>
+        <div class="img-container-wrap" style="margin-top:1rem;">
+          <div class="img-container">
+            <img src="https://i.imgur.com/qCGNXK2.png">
+          </div>
+        </div>
+      <p class="no-gap" style="margin-top:1rem;">Vertical, icons, left</p>
+      <p class="no-gap">Navigate to different pages to edit different aspects of your survey.</p>
+      <p>The key tabs are the top four:</p>
+      <div>
+
+      <div style="display:inline-block;vertical-align:top;line-height:48px;padding-top:4px;font-size:1.15rem;">
+        <span class="kw-sub-menu">Builder</span><br>
+        <span class="kw-sub-menu">Survey Flow</span><br>
+        <span class="kw-sub-menu">Look and Feel</span><br>
+        <span class="kw-sub-menu">Survey Options</span> 
+      </div>
+      <div style="display:inline-block;vertical-align:top;line-height:48px;padding-top:4px;padding-left:6px;">
+        ( <img class="qIcon" src="https://i.imgur.com/MBqIh9d.png"> )<br>
+        ( <img class="qIcon" src="https://i.imgur.com/oi5TSqo.png"> )<br>
+        ( <img class="qIcon" src="https://i.imgur.com/aaFPmZH.png"> )<br>
+        ( <img class="qIcon" src="https://i.imgur.com/guocGqw.png"> )
+      </div>
+      <div style="display:inline-block;vertical-align:top;line-height:48px;padding-top:4px;">
+        &nbsp; — &nbsp; where you edit your questions<br>
+        &nbsp; — &nbsp; where you edit the logic of your survey (add conditions, add randomizers, etc.)<br>
+        &nbsp; — &nbsp; where you change the appearance of your survey<br>
+        &nbsp; — &nbsp; where you change miscellanious survey options
+      </div>
+      </div>
+      
+      <p>The toolbar can be expanded to show text labels alongside the icons.</p>
+    </li>
+    
+    <li>
+      <span class="kw-menu">Builder Toolbar</span>
+     <div class="img-container-wrap" style="margin-top:1rem;">
+        <div class="img-container">
+          <img src="https://i.imgur.com/SnnKDuL.png">
+        </div>
+      </div>
+   
+      <p class="no-gap">Only in the <span class="kw-sub-menu">Builder</span></p>
+      <p>Contains the:</p>
+      <div style="margin-left:1.2rem;">
+      <span class="kw-sub-menu emph">Tools Menu</span>
+      <ul>
+        <li><em>Collaborate</em></li>
+        <li><em>Version</em> — create and restore previous versions</li>
+        <li><em>Import / Export</em> — get the QSF file of your survey<br>
+        (you can also get a PDF or .docx file of your survey, but it won't look right — I recommend taking screenshots of your survey instead)</li>
+      </ul>
+      <span class="kw-ui emph">Preview Button</span><br>
+      <span class="kw-ui emph">Publish Button</span>
+      </div>
+    </li>
+    
+    <li>
+      <span class="kw-menu">Side Panel</span><br>
+      <div class="img-container-wrap" style="margin-top:1rem;">
+        <div class="img-container">
+          <div><img src="https://i.imgur.com/eEcjDdK.png" alt="Side Panel - Block Options">
+          Side Panel - Block Options</div>
+          <div><img src="https://i.imgur.com/OmROZwl.png" alt="Side Panel - Question Options">
+          Side Panel - Question Options</div>
+        </div>
+      </div>
+      <p class="no-gap">To the left of the <span class="kw-menu" style="font-size:1rem;">Toolbar</span>.</p>
+      This is where options will appear, depending on what page you're on and what you have selected.<br>
+      This is referred to as the <span class="kw-sub-menu">Builder Panel</span> when you are in the <span class="kw-sub-menu">Builder</span>, and it's where <span class="kw-concept">Block</span> and <span class="kw-concept">Question</span> options will be.<br>
+      This panel can be collapsed to give you more room to view your survey.
+      </li>
+  </ul>
+</div>
+
 
 <hr class="section-divider" id="first-steps" />
 
@@ -1353,61 +1520,146 @@
   
   <p>Give anyone who needs to edit the survey <span class="kw-ui">Edit</span> access.</p>
   
-  <p>At this stage, feel free to add me (<code>hillary.parent@yale.edu</code> <span style="cursor:pointer;" onclick="navigator.clipboard.writeText(this.previousElementSibling.innerText)">📋</span>) as a collaborator, as well (or not). I'm happy to help troubleshoot should any issues arise, so adding me now might be a good idea. I will not access or edit your survey unless specifically requested to do so.</p>
-  
-  <div class="callout warning">
-    <div class="callout-header">
-      <span class="callout-icon">🛑</span><span class="callout-label" style="color:var(--warn-icon)"><span class="label-keyword">Warning</span></span>
-    </div>
-    <div class="callout-body">
-      <p>Qualtrics does not handle simultaneous editing well. If multiple collaborators are editing the survey at the same time, changes may conflict or behave unexpectedly. Try to coordinate with your team so only one person is editing at a time.</p>
-    </div>
-  </div>
+  <p>At this stage, you should add me (<code>hillary.parent@yale.edu</code> <span style="cursor:pointer;" onclick="navigator.clipboard.writeText(this.previousElementSibling.innerText)">📋</span>) as a collaborator. I will help troubleshoot any issues that may arise. But I will not access or edit your survey unless specifically requested to do so.</p>
+
 
 </div>
+
+<hr class="section-divider" id="survey-options" />
+
+<h4>Survey Options</h4>
+    
+<p><span class="kw-sub-menu">Survey Options</span> ( <img class="qIcon" src="https://i.imgur.com/guocGqw.png"> in the <span class="kw-menu">Toolbar</span> on the left)  that you should set up now:</p>
+
+<ol class="inline-ul gap-2">
+  <li>
+    Under <span class="kw-ui">General</span> (in the side panel), turn on <strong>New Survey Taking Experience</strong>
+    
+    <div class="img-container-wrap" style="margin-top:1rem;">
+    <img src="https://i.imgur.com/l4qNqIV.png" alt="New Survey Taking Experience toggle.">
+    </div>
+    
+  <div class="callout warning">
+    <div class="callout-header">
+      <span class="callout-icon">🛑️</span><span class="callout-label" style="color:var(--warn-icon)"><span class="label-keyword">Warning</span> — New Survey Taking Experience</span>
+    </div>
+    <div class="callout-body">
+      <p>You <strong>MUST</strong> opt into the <span class="kw-ui">New Survey Taking Experience</span> or much of the information provided in this guide will be <strong>incorrect</strong>.
+    </div>
+  </div>
+   
+  </li>
+  
+  <li>
+    Under <span class="kw-ui">Security</span> (in the side panel), turn on <strong>Prevent Multiple Submissions</strong>
+    
+    <div class="img-container-wrap" style="margin-top:1rem;">
+    <img src="https://i.imgur.com/KypbwQt.png" alt="Prevent Multiple Submissions toggle.">
+    </div>
+    
+        <p>You can read more about this feature <a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-checker/fraud-detection/#PreventBallotBoxStuffing" target="_blank">here</a>.</p>
+
+  </li>
+</ol>
 
 <hr class="section-divider" id="first-appearance" />
 
 <h4>Look and Feel</h4>
+
+<p><span class="kw-sub-menu">Look and Feel</span> ( <img class="qIcon" src="https://i.imgur.com/aaFPmZH.png"> in the <span class="kw-menu">Toolbar</span> on the left)</p>
+
+<p>Below are my recommended settings. If you are using the Survey Template, you should verify that everything is set up as expected.</p>
+
+<div class="flexDiv">
   
-<p><img class="qIcon" src="https://i.imgur.com/3d9Ghea.png"> <span class="kw-sub-menu">Look and Feel</span> is located in the <span class="kw-menu">Toolbar</span> (left).</p>
+<div class="carousel-wrap">
+  <div class="carousel" id="carousel-look-and-feel-setup">
+    <div class="carousel-track">
 
-<p>If you are using the Survey Template, you should verify that everything is set up as expected.</p>
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/apicyzC.png" alt="Look and Feel - Theme" />
+        <div class="slide-caption">Screenshot: Look and Feel - Theme</div>
+      </div>
 
-<p>This is how you would set it up yourself:</p>
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/H6rF4wv.png" alt="Look and Feel - General" />
+        <div class="slide-caption">Screenshot: Look and Feel - General</div>
+      </div>
 
-<ol class="short-ul">
-  <li>
-    Use a Blank theme:
-    <p class="pathway">
-      <span class="kw-sub-menu">Look and Feel</span> → <span class="kw-ui">Theme</span> → <em>Blank</em>
-    </p>
+      <div class="carousel-slide">
+        <div class="scroll"><img src="https://i.imgur.com/8Zkk2qs.png" alt="Look and Feel - Style" /></div>
+        <div class="slide-caption">Screenshot: Look and Feel - Style</div>
+      </div>
+      
+      <div class="carousel-slide">
+        <div class="scroll"><img src="https://i.imgur.com/SpIeHPU.png" alt="Look and Feel - Background" /></div>
+        <div class="slide-caption">Screenshot: Look and Feel - Background</div>
+      </div>
+
+    </div>
+
+    <button class="carousel-btn prev" onclick="carouselMove(this.parentElement.id, -1)">‹</button>
+    <button class="carousel-btn next" onclick="carouselMove(this.parentElement.id, 1)">›</button>
+    <button class="carousel-expand" onclick="openCarouselLightbox(this.parentElement.id)">⤢</button>
+  </div>
+
+  <div class="carousel-dots" id="carousel-look-and-feel-setup-dots"></div>
+</div>
+<div style="min-width: 38%;">
+
+<p class="no-gap">Under <span class="kw-ui">Theme</span>:</p>
+<ul class="inline-ul no-gap"><li>Set the theme to <strong>Blank</strong></li></ul>
+
+<p class="no-gap">Under <span class="kw-ui">General</span>:</p>
+<ul class="inline-ul no-gap">
+  <li><em class="muted">(Optional):</em> Add a progress bar
+    <ul><li><span class="muted">Progress Bar:</span> With Verbose Text</li>
+      <li><span class="muted">Progress Bar Position:</span> Top</li>
+    </ul>
   </li>
-  <li>
-    Set the font size of the answer text to be the same size as the question text:
-    <p class="pathway">
-      <span class="kw-sub-menu">Look and Feel</span> → <span class="kw-ui">Style</span> → Question Text (px) & Answer Text (px) → <em>20</em>
-    </p>
-  </li>
-  <li>
-    Add my custom CSS: 
-    <p class="pathway">
-      <span class="kw-sub-menu">Look and Feel</span> → <span class="kw-ui">Style</span> → Custom CSS → <span class="kw-ui">edit</span> → <em>(paste the code below into the <span class="kw-ui">CSS Editor</span>)</em>
-    </p>
-  
+</ul>
+
+<p class="no-gap">Under <span class="kw-ui">Style</span>:</p>
+<ul class="inline-ul no-gap">
+  <li><span class="muted">Primary Color:</span> <em>Don't change</em></li>
+  <li><span class="muted">Display Text Width:</span> <strong>Full</strong></li>
+  <li>Make the Question & Answer text the same size:
+  <ul>
+    <li><span class="muted">Question Text (px):</span> <strong>20</strong></li>
+    <li><span class="muted">Answer Text (px):</span> &nbsp; &nbsp;<strong>20</strong></li>
+  </ul></li>
+  <li><span class="muted">Multiple choice style:</span> On (default)</li>
+  <li><span class="muted">Custom CSS:</span> Add my custom CSS (below)</li>
+</ul>
+
+<p class="no-gap">Under <span class="kw-ui">Background</span>:</p>
+<ul class="inline-ul no-gap">
+  <li><span class="muted">Background Color:</span> Change if you want</li> 
+  <li><span class="muted">Question Container:</span> <strong>On</strong></li>
+</ul>
+</div>
+
+</div>
+
+<div class="small-note"><p><strong>Note:</strong> Typically progress bars are for long surveys. Also, my CSS (below) will make the "Survey Completion" invisible, which is why I suggest selecting "With Verbose Text". The "Text" option is unselectable for some reason, at least for me. But if you change the <strong>Background Color</strong> you'll have to change the colour of the <code>#progress-bar-text</code> ruleset to match.</p>
+<p class="no-gap">Also note that the <strong>Primary color</strong> option changes both the button colour and the colour of links, so I would just leave it.</p></div>
+
+<p>Below is my custom CSS, it makes some simple improvements to the default Qualtrics CSS.<br>
+Press the <span class="kw-menu">edit</span> button to open the <span class="kw-menu">CSS Editor</span>.</p>
+
 <div class="code-snippet">
 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>.question .question-display, .question-content, #progress-bar-percent {
 	color: #232323;
 }
-.question .radio-button.radio {
-  border-color: #5c5c5c;
+#progress-bar-text {
+  color: #ffffff;
 }
 #progress-bar-fill {
-	margin-bottom: 12px !important;
+	margin-bottom: 1rem;
 }
-.question.mc .choice-label {
-	outline: 2px solid #eaeaea;
+.question .radio-button.radio {
+  border-color: #5c5c5c;
 }
 .question.mc.horizontal .choice-label {
 	min-width: 5.75rem !important;
@@ -1417,13 +1669,13 @@
 		min-width: 7rem !important;
 	}
 }
-.question.matrix.table .question-display-wrapper {
-	padding-bottom: 20px;
+.question-display-wrapper {
+	margin-bottom: 1rem;
 }
 .question.matrix.table .matrix-content {
-	outline: 0.2rem solid #eaeaea;
+	outline: 2px solid #eaeaea;
 	border-radius: 0.5rem;
-	margin-left: 24px;
+	margin-left: 1.5rem;
 }
 .question.matrix.table .matrix-scale-points-item {
 	white-space: pre !important;
@@ -1438,14 +1690,14 @@
 	margin-bottom: 2rem;
 }
 .question.matrix.table .matrix-statement.without-summary {
-	outline: 0.2rem solid #eaeaea;
+	outline: 2px solid #eaeaea;
 	border-radius: 0.5rem;
 }
 .question.matrix.table .matrix-accordion .foldout-items .likert-input:nth-child(odd):not(:hover) {
 	background: color-mix(in srgb, #eaeaea 50%, transparent);
 }
 .question.te .text-input {
-	text-align: right !important;
+	text-align: right;
 }
 .question.te .text-input:not(.multi-line) {
 	width: 55px !important;
@@ -1453,13 +1705,16 @@
 	vertical-align: middle !important;
 }
 .question.te .text-input.multi-line {
-	max-width: 100% !important;
-	min-width: 150px !important;
-	min-height: 40px !important;
-	padding: 8px 5px 6px 5px !important;
+  width: 150px;
+  min-width: 150px !important;
+  max-width: 100% !important;
+  height: 40px;
+  min-height: 40px !important;
+  padding: 8px 5px 6px 5px !important;
 }
 @media (max-width: 420px) {
 	.question.te .text-input.multi-line {
+    width: 100% !important;
 		min-width: 100% !important;
 	}
 }
@@ -1472,9 +1727,6 @@ span.spanAfter {
 }
 span.spanBefore {
 	margin-right: 6px;
-}
-.question.form .question-display-wrapper {
-	padding-bottom: 20px;
 }
 .question.form ul.choices .choice-label {
 	padding-top: 5px;
@@ -1489,13 +1741,7 @@ span.spanBefore {
 	padding: 5px !important;
 	vertical-align: middle !important;
 }</code>
-    </div>
-    
-  </li>
-</ol>
-        
-    
-      
+</div>
       
 <div class="callout warning">
   <div class="callout-header">
@@ -1506,52 +1752,19 @@ span.spanBefore {
   </div>
 </div>
 
-
-<hr class="section-divider" id="key-survey-options" />
-
-<h4>Key Survey Options</h4>
-      
-    
-    
-<p><img class="qIcon" src="https://i.imgur.com/4m4vbAI.png"> <span class="kw-sub-menu">Survey Options</span> are located in the <span class="kw-menu">Toolbar</span> (left).</p>
-
-<p>There are two key <span class="kw-sub-menu">Survey Options</span> that you should set up now:</p>
-
-<ol class="standard-ul">
-  <li>
-    <strong>Qualtrics' New Survey Taking Experience</strong>
-    <p class="pathway"><span class="kw-ui">General</span> → <span class="kw-ui">New Survey Taking Experience</span> → <span class="kw-ui">On</span></p>
-  
-  <div class="callout warning">
-    <div class="callout-header">
-      <span class="callout-icon">🛑️</span><span class="callout-label" style="color:var(--warn-icon)"><span class="label-keyword">Warning</span> — New Survey Taking Experience</span>
-    </div>
-    <div class="callout-body">
-      <p>You <strong>MUST</strong> opt into the <span class="kw-ui">New Survey Taking Experience</span> or much of the information provided in this guide will be <strong>incorrect</strong>.<br>
-      Qualtrics' <span class="kw-ui">New Survey Taking Experience</span> is (in my opinion) a <i>much</i> improved design over the previous version, so I highly recommend it.<br>
-      But because of this massive overhaul, the HTML structure of the survey is completely different. This means any custom CSS or JavaScript will not work as intended if you're using the <span class="kw-ui">Legacy Experience</span>, because both require knowledge of the actual HTML elements to function.</p>
-    </div>
-  </div>
-  </li>
-  
-  <li>
-    <strong>Prevent Multiple Submissions</strong>
-    <p class="pathway"><span class="kw-ui">Security</span> → In Survey: Prevent multiple submissions → <span class="kw-ui">On</span> → Post-survey experience → End survey with a message → <em>Default</em></p>
-    <p>Formerly called <span class="kw-ui">Prevent Ballot Box Stuffing</span>, the <span class="kw-ui">Prevent Multiple Submissions</span> feature prevents users from entering your survey multiple times. Qualtrics has updated this feature since I last ran a study, so above is my tentative recommendation. You can read more about this feature <a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-checker/fraud-detection/#PreventBallotBoxStuffing" target="_blank">here</a>.</p>
-
-  </li>
-</ol>
       
 <hr class="section-divider" id="preview-button" />
 
 <h4>Preview Button</h4>
 
-<p>You should be previewing your survey <em><strong>frequently</strong></em> — it is much easier to notice typos and wording issues when you are reading your items in a different context (i.e., while Previewing it instead of in the <span class="kw-sub-menu">Builder</span>). You should (in my opinion) care how the survey both works <em>and</em> looks from a participant's point of view.</p>
+<p>Remember you should preview your survey <em><strong>frequently</strong></em>!</p>
 
-<p>To share a Preview link:</p>
+<p>To share a Preview link, you need to set the permissions to Public:</p>
 
 <p class="pathway">
-  <span class="kw-sub-menu">Builder Toolbar</span> → <span class="kw-ui">Preview</span> → <span class="kw-ui">Share preview</span> → <span class="kw-ui">Link visibility permissions</span> → <span class="kw-ui">Public</span> → <span class="kw-ui">Save</span>
+  <span class="kw-ui">Preview</span> → <strong>Share preview</strong> (top-right)<br><br>
+  Share Preview Menu:<br>
+  <span class="muted">Link visibility permissions:</span> [<em>Public</em> ▾] 
 </p>
 
 <p>In the <span class="kw-ui">Share preview</span> menu (below), click <span class="kw-ui">Copy link</span> to grab the URL.</p>
@@ -1584,13 +1797,12 @@ span.spanBefore {
 
 <h2>Building Your Survey</h2>
 
-<p>I know you might be tempted, but don't charge ahead and start creating your survey just yet.</p>
 
-<p>You will save yourself both time and headaches down the road if you do things in a certain order, both because there are things to <span class="kw-concept" style="color:#bf0000;">watch out for</span> and because I'm going to advocate the frequent (but <strong><em>careful</em></strong> and <strong><em>deliberate</em></strong>) use of the <span class="kw-ui">Copy</span> action for both <span class="kw-concept">Blocks</span> and <span class="kw-concept">Questions</span>.</p>
+<p>I'm going to advocate the frequent (but <strong><em>careful</em></strong> and <strong><em>deliberate</em></strong>) use of the <span class="kw-ui">Copy</span> action for both <span class="kw-concept">Blocks</span> and <span class="kw-concept">Questions</span>.</p>
 
 <p><span class="kw-ui">Copy</span> is particularly useful for highly customized surveys, especially if:</p>
     
-<ul class="short-ul">
+<ul class="indent-ul no-gap">
   <li>You use the same Question Options (validation, requirements, JavaScript, etc.) frequently</li>
   <li>Entire <em>pages</em> of your survey have the same basic structure</li>
   <li>You have only minor changes between different <em>conditions</em></li>
@@ -1605,41 +1817,27 @@ span.spanBefore {
     <span class="callout-icon">⚠️</span><span class="callout-label" style="color:var(--caution-icon)"><span class="label-keyword">Caution</span></span>
   </div>
   <div class="callout-body">
-    <p>You should avoid <span class="kw-ui">Copy</span>ing <span class="kw-concept">Questions</span>/<span class="kw-concept">Blocks</span> unless you're sure you remember all the settings you've changed — you don't want errant JavaScript running on the wrong question!</p>
+    <p>You should avoid <span class="kw-ui">Copy</span>ing <span class="kw-concept">Questions</span> / <span class="kw-concept">Blocks</span> unless you're sure you remember all the settings you've changed — you don't want errant JavaScript running on the wrong question!</p>
+    
+    <p>Also note that <em><strong>mistakes / typos</strong></em> will also be replicated if you use <span class="kw-ui">Copy</span>. So, be diligent and ensure everything is correct before you <span class="kw-ui">Copy</span>.</p>
   </div>
 </div>
   
-  
-  
-<p>So, with the use of <span class="kw-ui">Copy</span> in mind, this is the rough outline:</p>
-
-<ul class="standard-ul">
-  
-<li>
-    <span>Start with your main question(s)</span>
-  In particular, focus on <em>one</em> condition / version first. Explore all the options/formatting before worrying about your other conditions, especially because there are <em>multiple</em> ways to set up conditions (which will be discussed in <a href="#conditions">Section 4: How to Set Up Conditions</a>).</li>
-
-  
-  <li>
-    <span>Insert Consent / Demographics / Screeners / the "standard" parts of your survey after you're done creating your main questions</span>
-    Having a lot of "bulk" in the way when you <span class="kw-ui">Preview</span> your survey will just slow you down, so don't do this until the majority of your testing is done.<br>
-    Alternatively, if you understand what this means, you can <em>temporarily</em> move the <span class="kw-concept">Questions</span> you are working on to the beginning of your <span class="kw-sub-menu">Survey Flow</span> and slot them into their proper place later.<br>
-    Either way, the point is to make it as easy as possible to test / <span class="kw-ui">Preview</span> the main tasks of your survey, until they are fully configured.
-  </li>
-  
-  <li>
-    <span>Try to finalize your <span class="kw-concept">Questions</span> before touching your <span class="kw-sub-menu">Survey Flow</span></span>
-    Unless you have a <em>really</em> complicated design, you'll want to leave this until the end — otherwise it just makes <span class="kw-ui">Preview</span>ing your survey more difficult.
-  </li>  
-  
-</ul>
-    
 
 <hr class="section-divider" id="blocks" />
 
 <h3>Blocks</h3>
 
-<p><span class="kw-concept">Blocks</span> are the main unit of your survey — every <span class="kw-concept">Question</span> will be placed in a <span class="kw-concept">Block</span>.</p>
+<p><span class="kw-concept">Blocks</span> are the main unit of your survey — every <span class="kw-concept">Question</span> will be placed in a <span class="kw-concept">Block</span>. They are basically "containers" for your <span class="kw-concept">Questions</span>. They are used to organize your survey behind the scenes.</p>
+
+
+
+<div class="screenshot-wrap">
+  <div class="screenshot-placeholder" id="screenshot-block-empty">
+    <img src="https://i.imgur.com/nlvr0ee.png" alt="Screenshot: Empty Block" />
+    <span>Screenshot: Empty Block</span>
+  </div>
+</div>
 
 <p>My recommended setup is <strong>one main item</strong> (question / task / scale / two-part question / etc.) per <span class="kw-concept">Block</span>. This way, a <span class="kw-concept">Block</span> will represent <strong>one page</strong> of your survey.</p>
 
@@ -1658,17 +1856,26 @@ span.spanBefore {
   <div class="callout-body">
     <p class="no-gap">A properly configured <span class="kw-concept">Block</span> will:</p>
 
-    <ul class="short-ul">
+    <ul class="indent-ul no-gap">
       <li>Have a <em><strong>meaningful</strong></em> name</li>
       <li>Contain <em><strong>one</strong></em> task / scale / question</li>
       <li>Contain a <strong>Response Time Question</strong> (more on this in <a href="#timing">Section 3: Question Types</a>)</li>
     </ul>
     
     <p class="no-gap">And will <em><strong>NOT</strong></em>:</p>
-    <ul class="short-ul">
+    <ul class="indent-ul no-gap">
       <li>Contain Page Breaks</li>
       <li>Have Question Randomization</li>
     </ul>
+    
+    <div class="screenshot-wrap">
+  <div class="screenshot-placeholder" id="screenshot-block-setup">
+    <img src="https://i.imgur.com/ppY7Wxr.png" alt="A properly configured Block" />
+    <span>Screenshot: A properly configured Block.</span>
+  </div>
+  <button class="screenshot-expand" onclick="openLightbox(this.previousElementSibling.id)">⤢</button>
+</div>
+    
   </div>
 </div>
       
@@ -1745,7 +1952,7 @@ span.spanBefore {
 
 <p>For each <span class="kw-concept">Question</span>, try to follow roughly this order:</p>
 
-<ol class="standard-ul">
+<ol class="inline-ul gap-1">
   <li>Set up the basics:
   <ul>
     <li>add question text and response option text</li>
@@ -1795,18 +2002,18 @@ span.spanBefore {
     <span class="callout-icon">📝</span><span class="callout-label" style="color:var(--note-icon)"><span class="label-keyword">Note</span></span>
 </div>
   <div class="callout-body">
-    <p>Qualtrics assigns an internal ID to every question (e.g., <span class="kw-data">QID4</span>). You can make these visible in the survey <span class="kw-sub-menu">Builder</span> by going to <span class="kw-ui">Tools</span> → <span class="kw-ui">Show Internal IDs</span>. Once enabled, the <span class="kw-data">internal ID</span> will appear next to the Question Name in the <span class="kw-sub-menu">Builder</span>.</p>
+    <p>Qualtrics assigns an internal ID to every question (e.g., <span class="kw-data">QID4</span>). You can make these visible in the <span class="kw-sub-menu">Builder</span> by going to <span class="kw-ui">Tools</span> → <span class="kw-ui">Show Internal IDs</span>. Once enabled, the <span class="kw-data">internal ID</span> will appear next to the Question Name in the <span class="kw-sub-menu">Builder</span>. However, this is not a permanent setting, so you'll have to turn it on each time, if needed.</p>
  
   <div class="img-container-wrap"><img src="https://i.imgur.com/DHSLGSA.png"></div>
 
   <p>You may need this for two reasons:</p>
 
-  <ol class="short-ul">
+  <ol class="indent-ul no-gap">
     <li>to help understand your <span class="kw-data">Data File</span></li>
     <li>to write targeted CSS rulesets for specific questions (an alternative to JavaScript)</li>
   </ol>
     
-  <p>Naming your questions does not cause you to lose the <span class="kw-data">internal ID</span>, it will always be preserved and can easily be seen by turning on the <span class="kw-ui">Show Internal IDs</span> toggle.</p>
+  <p>Naming your <span class="kw-concept">Questions</span> does not cause you to lose the <span class="kw-data">internal ID</span>, it will always be preserved and can easily be seen by turning on the <span class="kw-ui">Show Internal IDs</span> toggle.</p>
   </div>
 </div>
 
@@ -1882,7 +2089,7 @@ A menu will appear containing all available question types — select the one yo
 </div>
       
       
-<p>You can also select multiple <span class="kw-concept">Questions</span> by checking the checkbox in the upper-left corner. When you do this, the Builder Panel will let you move the questsions, Copy the questions, create a new <span class="kw-concept">Block</span> and put the selected <span class="kw-concept">Questions</span> in it, and even add Response Requirements.</p> 
+<p>You can also select multiple <span class="kw-concept">Questions</span> by checking the checkbox in the upper-left corner. When you do this, the Builder Panel will let you move the questions, Copy the questions, create a new <span class="kw-concept">Block</span> and put the selected <span class="kw-concept">Questions</span> in it, and even add Response Requirements.</p> 
       
       
 <div class="img-container-wrap">
@@ -1942,18 +2149,11 @@ A menu will appear containing all available question types — select the one yo
 
 <h4>Response Option Text</h4>
 
-<p>A number of Question Types will have a "Choices" section in the Builder Panel that lets you set the number of response options.</p>
+<p>A number of Question Types will have a "Choices" section in the <span class="kw-sub-menu">Builder Panel</span> that lets you set the number of response options.</p>
 
-<p>For questions which collect multiple distinct responses from respondents for a single question, there will be a similar option, typically called "Statements".</p>
+<p>For questions which collect multiple distinct responses from respondents for a single question, there will be a second option, typically called "Statements".</p>
 
 <p>All of these work the same way and are part of setting up the text of a <span class="kw-concept">Question</span>, regardless of whether it's the response options, scale points, labels, statements, etc.</p>
-
-
-<p class="pathway"><span class="kw-concept">Question</span> → <span class="kw-sub-menu">Builder Panel</span> → <span class="kw-ui">Choices/ Statements / etc.</span></p>
-
-<p>With this you can easily adjust the number of choices. You can also explore suggested choices, which can be helpful if you use or build off of standard wording options.</p>
-      
-      
 
 <div class="img-container-wrap">
   <div class="img-container">
@@ -1964,17 +2164,17 @@ A menu will appear containing all available question types — select the one yo
   </div>
 </div>
       
+<p>With this you can easily adjust the number of choices. You can also explore suggested choices, which can be helpful if you want to use or build off of standard wording options.</p>      
       
-      
-<p>The Edit Multiple menu is <em>very</em> useful — you can quickly and easily just type in the text of all your choices at once.</p>
+<p>The <span class="kw-ui">Edit Multiple menu</span> is <em>very</em> useful — you can quickly and easily just type in the text of all your choices at once.</p>
 
-<p>But like many things in Qualtrics, there are some issues. If you set certain Question Options (like Advanced Randomization and Recode Values), and <em>then</em> use the Edit multiple menu to edit your choice text, you may ran into some issues. One is a mere annoyance and the other more problematic.</p>
+<p>But like many things in Qualtrics, there are some issues. If you set certain Question Options (like Advanced Randomization and Recode Values), and <em>then</em> use the <span class="kw-ui">Edit Multiple menu</span>, you may ran into some issues. One is a mere annoyance and the other much more problematic.</p>
 
 <p>For Recode Values — it will revert your Recode Values to the default, which is not a huge deal but it is annoying.</p>
 
 <p>For Advanced Randomization — it will <em><strong>break</strong></em> the randomization completely. And without any warning!</p>
 
-<p>So, while I <em>highly</em> recommend the "Edit multiple" menu, I do so with the caveat that you use it primarily when you are just starting your survey and stick with the (slower and more annoying but ultimately safer) method of individually clicking into each option to edit them after you've started to add Question Options just to be on the safe side.</p>
+<p>So, while I <em>highly</em> recommend the <span class="kw-ui">Edit Multiple menu</span>, I do so with the caveat that you use it primarily when you are just starting your survey and stick with the (slower and more annoying but ultimately safer) method of individually clicking into each option to edit them after you've started to add Question Options just to be on the safe side.</p>
 
 <div class="callout consider">
   <div class="callout-header">
@@ -1984,7 +2184,7 @@ A menu will appear containing all available question types — select the one yo
     <p>Consider whether you should label each choice for Likert scales. Often just labeling the endpoints is enough.</p> 
     <p>To do this, you should use the HTML entity <code>&amp;nbsp;</code> as the label for choices without text labels. <code>&amp;nbsp;</code> is called a non-breaking (nb) space (sp) and it will make sure the choice still appears, just with a blank label.</p>
     
-    <p>Below is a screenshot of how to set up the <span class="kw-ui">Edit multiple</span> menu with only labels for the endpoints of a 7-point scale.</p>
+    <p>Below is a screenshot of how to set up the <span class="kw-ui">Edit Multiple menu</span> with only labels for the endpoints of a 7-point scale.</p>
     
     <div class="img-container-wrap">
       <img src="https://i.imgur.com/hm3uXkk.png" alt="Edit multiple menu with labels only for endpoints.">
@@ -2012,13 +2212,21 @@ Strongly&lt;br&gt;agree</code>
 
 <p>Most experiments only need a few question types to collect all the data you need. This section covers the ones you'll use most, along with the key settings for each. The base survey includes an example of each of the following question types for reference.</p>
 
-<p>You can change the Question Type for a <span class="kw-concept">Question</span> in the <span class="kw-ui">Builder Panel</span> — it will always be the first option.</p>   
+<p>You can change the Question Type for a <span class="kw-concept">Question</span> in the <span class="kw-sub-menu">Builder Panel</span> — it will always be the first option.</p>   
 
 <hr class="section-divider" id="text-graphic" />
 
 <h5>Text / Graphic</h5>
       
 <p><span class="kw-type">Text / Graphic</span> questions are the type to use when you want to provide instructions to your respondents without asking for or collecting a response.</p>
+
+<p>The most common uses for this Question Type are:</p>
+<ul class="indent-ul">
+  <li>Landing pages</li>
+  <li>Instructions prior to a task</li>
+  <li>Instructions / statements that don't vary across conditions</li>
+  <li>Debrief</li>
+</ul>
 
 
 <hr class="section-divider" id="multiple-choice" />
@@ -2094,17 +2302,17 @@ Strongly&lt;br&gt;agree</code>
       
 <p class="pathway">
   <span class="kw-ui" style="display:inline-block;">
-    Matrix type:<br>
+  Matrix type:<br>
   Answer type:<br>
   Format:<br>
   Mobile friendly:<br>
   Everything else:
   </span>
-  <span style="display:inline-block;margin-left:0.5em;">[<em>Likert</em> ▾]<br>
-  [<em>Allow one answer</em> ▾]<br>
-  [<em>Standard likert</em> ▾]<br>
-  <em>On</em><br>
-  <em>Off</em>
+  <span style="display:inline-block;margin-left:0.5em;">Likert<br>
+  Allow one answer<br>
+  Standard likert<br>
+  On<br>
+  Off
   </span>
 </p>
       
@@ -2176,22 +2384,22 @@ Strongly&lt;br&gt;agree</code>
 </div>
 
 
-<p>I also set it up so that Single Line text answer text boxes are fairly small (only <code>55px</code>), which is suitable for numeric responses.</p>
+<p>I also set it up so that <strong>Single Line</strong> Text Entry Questions have text boxes that are fairly small (only <code>55px</code>), which is suitable for numeric responses.</p>
 
-<p>For Multiple Lines Text Entry Questions, I made those a little larger, so they are suitable for short text responses. These are also the kind of textboxes that respondents can drag to make bigger.</p>
+<p>For<strong> Multiple Lines</strong> Text Entry Questions, I made the text boxes a little larger, so they are suitable for short text responses. These are also the kind of textboxes that respondents can drag to make bigger.</p>
 
 <p>This way you can utilize two different styles of Text Entry Questions without much fuss:</p>
 
-<ol class="short-ul">
+<ol class="indent-ul no-gap">
   <li>Use <span class="kw-type">Single Line</span> for numeric responses or short responses that you want to appear inline</li>
-  <li>Use <span class="kw-type">Multiple Lines</span> for text-based responses</li>
+  <li>Use <span class="kw-type">Multiple Lines</span> for short text-based responses</li>
 </ol>
 
 <div class="img-container-wrap">
  <img src="https://i.imgur.com/WgraDs3.png" alt="Two Text Entry Questions">
 </div>
 
-<p>However, note that "Essay textbox" Questions will have the same styling. As you can see in the Feedback and Comments section of the Survey Template, I have used JavaScript to adjust the size to override this custom CSS.</p>
+<p>However, note that <span class="kw-type">Essay Textbox</span> type will have the same styling as the <span class="kw-type">Multiple Lines</span> type. This is because of how Qualtrics has implemented it. But as you can see in the Feedback and Comments section of the Survey Template, I have used JavaScript to adjust the size to override this custom CSS.</p>
   
   
   
@@ -2229,7 +2437,7 @@ Strongly&lt;br&gt;agree</code>
     <span class="callout-icon">🛑</span><span class="callout-label" style="color:var(--warn-icon)"><span class="label-keyword">Warning</span></span>
   </div>
   <div class="callout-body">
-          <p>Qualtrics changed this Question Type in their New Survey Design (one of the few downsides of the New Design), so the label is <em>above</em> the textbox instead of in front and there's no built-in way to override this. It's very easy to fix with CSS though — see See <a href="#css-form-fields">Section 5: CSS - Form Fields</a> for specifics.</p>
+          <p>Qualtrics changed this Question Type in their New Survey Design (one of the few downsides of the New Design), so the label is <em>above</em> the textbox instead of in front and there's no built-in way to override this. It's very easy to fix with CSS though — see <a href="#css-form-fields">Section 5: CSS - Form Fields</a> for specifics.</p>
       
       <p>You will need to adjust Form Field Questions <em>individually</em>, but you only need to change a <em><strong>single</strong></em> number: the width of the label. This will line the boxes up vertically.</p>
       
@@ -2276,20 +2484,19 @@ Strongly&lt;br&gt;agree</code>
 <h5>Response Requirements</h5>
 
 <p>You can put restrictions or conditions on participants' responses.</p>
-<p class="pathway"><span class="kw-concept">Question</span> → <span class="kw-sub-menu">Builder Panel</span> → <span class="kw-ui">Response requirements</span></p>
 
 <p>There are two main options:</p>
 
-<ol class="short-ul">
+<ol class="inline-ul gap-1">
   <li><strong>Add requirements</strong>
-    <ol class="short-ul" type="a">
+    <ol type="a">
       <li><em>Force response</em> — respondents can't progress until they answer the question</li>
       <li><em>Request response</em> — if participants try to progress without answering, they will be prompted to answer the questions or continue without answering
       </li>
     </ol>
   </li>
   <li><strong>Add validation</strong>
-   <ul class="short-ul">
+   <ul>
      <li>used to ensure responses pass certain conditions</li>
      <li>options will depend on Question Type</li>
     </ul>
@@ -2309,7 +2516,7 @@ Strongly&lt;br&gt;agree</code>
       
 <p>There are two common uses for validation:</p>
 
-<ol class="standard-ul">
+<ol class="inline-ul gap-2">
   <li id="numeric-responses">
     <strong>Numeric responses for Text Entry Questions</strong> — ensure that participants only submit numerical answers
     <div class="pathway"><span style="color:var(--text-muted);">Add validation:</span> <em>On</em> → [<em>Content type</em> ▾] → [<em>Number</em> ▾] </div>
@@ -2340,10 +2547,10 @@ Strongly&lt;br&gt;agree</code>
   <li id="comprehension-checks">
     <strong>Comprehension checks</strong> — force participants to select the correct answer before they can continue
     <div class="pathway">
-      <span style="color:var(--text-muted);">Add validation:</span> <em>On</em> →<br>
+      <span style="color:var(--text-muted);">Add validation:</span> <em>On</em> →<br><br>
       <div class="kw-ui">Custom Validation Menu</div>
     [Question ▾]&nbsp;&nbsp;&nbsp;[Correct Answer ▾]&nbsp;&nbsp;&nbsp;[<em>Is Selected ▾</em>]<br>
-   <span style="color:var(--text-muted);">Choose an error message:</span> [<em>My Library: Your Name</em> ▾]&nbsp;&nbsp;&nbsp;[<em>New Message...</em> ▾]<br>
+   <span style="color:var(--text-muted);">Choose an error message:</span> [<em>My Library: Your Name</em> ▾]&nbsp;&nbsp;&nbsp;[<em>New Message...</em> ▾]<br><br>
      
      <div class="kw-ui">New Message Menu</div>
      Click on: <span class="kw-ui" style="font-weight:normal;">+ Create new variation</span> →<br>
@@ -2402,7 +2609,7 @@ Strongly&lt;br&gt;agree</code>
   </div>
   <div class="callout-body">
     <p>Validation ensures clean data but can cause you to lose out on important information, such as:</p>
-    <ul class="short-ul">
+    <ul class="inline-ul no-gap">
       <li>a respondent who wants to provide a range or a qualified answer</li>
       <li>nonsense, inattentive, or random responding</li>
       <li>insight into how respondents are perceiving the question</li>
@@ -2508,11 +2715,7 @@ Strongly&lt;br&gt;agree</code>
 
 <h5>Display Logic</h5>
 
-<p><span class="kw-concept">Display Logic</span> is a question-level option that lets you show or hide a question based on certain conditions — for example, a previous response or an embedded data value.</p>
-
-<p class="pathway"><span class="kw-concept">Question</span> → <span class="kw-sub-menu">Builder Panel</span> → <span class="kw-ui">Question behavior</span> → <span class="kw-ui">Display logic</span></p>
-      
-
+<p><span class="kw-concept">Display Logic</span> is a question-level option that lets you show or hide a question based on certain conditions — for example, a previous response.</p>
 
 <p id="two-part-questions"><strong>Two-Part / Follow-up Questions</strong></p>
 
@@ -2523,6 +2726,13 @@ Strongly&lt;br&gt;agree</code>
 <p>The Question: "Have you ever been married?" should only appear if the respondent answered "No" to "Are you currently married?". </p>
 
 <p>To set this up, add <span class="kw-concept">Display Logic</span> to the follow-up question and check "In page" in the bottom-left, then set the condition to: <em>Are you currently married? → No → Is Selected</em></p>
+
+<p>In general:</p>
+<div class="pathway">
+  <div class="kw-ui">Display Logic Menu</div>
+[Question ▾]&nbsp;&nbsp;&nbsp;[Specified Answer ▾]&nbsp;&nbsp;&nbsp;[<em>Is Selected ▾</em>]<br>
+ <input type="checkbox" checked> In page
+</div>
 
 <p>However, if you want to <em>lock in</em> their response to the first question, you have to do a little more work using JavaScript, see <a href="#js-two-part-qs">Section 6: JavaScript - Two-Part Question</a> for details.</p>
 
@@ -2560,16 +2770,17 @@ Strongly&lt;br&gt;agree</code>
 
 <h5>Choice Randomization</h5>
 
-<p>Although I'm referring to this as "Choice Randomization" (because that's the most common), it might have a slightly different name depending on the Question Type. For example, it's called "Form field randomization" for Form Fields and "Scale point randomization" for Matrix Tables. Some <span class="kw-concept">Questions</span>, namely Matrix Tables, will also have a <em>second</em> randomization option: Statement randomization, which randomizes the <span class="kw-concept">Questions</span> rather than the answers.</p>
-
-<p>Either way the randomization works the same, just be careful which you randomize if there's more than one option in the Builder Panel.</p>
+<p>Although I'm referring to this as "Choice Randomization" (because that's the most common), it might have a slightly different name depending on the Question Type. For example, it's called "Form field randomization" for Form Fields and "Scale point randomization" for Matrix Tables.</p>
  
 
-<p class="pathway"><span class="kw-concept">Question</span> → <span class="kw-sub-menu">Builder Panel</span> → <span class="kw-ui">Question behavior</span> → <span class="kw-ui">Choice randomization</span></p>
+<p>Some <span class="kw-concept">Questions</span>, namely Matrix Tables, will also have a <em>second</em> randomization option: Statement randomization, which randomizes the <span class="kw-concept">Questions</span> rather than the answers.</p>
 
-<p>The options for randomization are:</p>
+<p>Either way the randomization works the same, just be careful which you randomize if there's more than one option in the Builder Panel.</p>
+
+
+<p class="no-gap">The options for randomization are:</p>
       
-<ul class="short-ul">
+<ul class="indent-ul no-gap">
   <li>No Randomization</li>
   <li>Display answers in a random order</li>
   <li>Present only __ of total choices</li>
@@ -2582,9 +2793,9 @@ Strongly&lt;br&gt;agree</code>
   <li>Advanced Randomization — (brings up a separate menu)</li>
 </ul>
 
-<p>The most common use cases will be:</p>
+<p class="no-gap">The most common use cases will be:</p>
 
-<ul class="short-ul">
+<ul class="indent-ul no-gap">
   <li>Full randomization</li>
   <li>Randomly flip the order (with the box unchecked)</li>
 </ul>
@@ -2670,8 +2881,6 @@ Strongly&lt;br&gt;agree</code>
 
 <p>Qualtrics automatically sets the value of response options in your survey incrementally. This can make understanding your <span class="kw-data">Data File</span> difficult, especially if you "Publish" and then add more <span class="kw-concept">Questions</span>/Response Options to your survey.</p>
 
-<p class="pathway"><span class="kw-concept">Question</span> → <span class="kw-sub-menu">Builder Panel</span> → <span class="kw-ui">Question behavior</span> → <span class="kw-ui">Recode values</span></p>
-
 <p>I highly recommend setting up <span class="kw-concept">Recode Values</span> <em><strong>and</strong></em> <span class="kw-concept">Variable Naming</span> (and <span class="kw-concept">Question Export Tags</span> for Matrix Table Questions).</p>
 
 <p>Doing this step <em>now</em> will save you time later. Plus, they transfer to <span class="kw-concept">Questions</span> that you <span class="kw-ui">Copy</span> — another reason you should fully configure one <span class="kw-concept">Question</span> or <span class="kw-concept">Block</span> and copy it for similar ones! (Although recall the warning about using the Edit multiple Menu and recode values resetting.)</p>
@@ -2679,7 +2888,7 @@ Strongly&lt;br&gt;agree</code>
 <p>Although the menu itself is called <span class="kw-concept">Recode Values</span>, it will bring up a dialogue where you can set the <span class="kw-concept">Recode Values</span>, the <span class="kw-concept">Variable Naming</span> (and <span class="kw-concept">Question Export Tags</span> for Matrix Table Questions).</p>
       
 <p><span class="kw-concept">Recode Values</span> are the numerical values assigned to each response.</p>
-<ul class="standard-ul">
+<ul class="inline-ul">
   <li>If you have a bipolar scale, consider assigning:
   <ul>
     <li>negative numbers to one side</li>
@@ -2687,6 +2896,12 @@ Strongly&lt;br&gt;agree</code>
     <li> and 0 to the middle or neutral option (if there is one)</li>
     </ul>
     </li>
+  <li>If you have a unipolar scale, consider assigning:
+  <ul>
+    <li>0 to the option that implies the <em>absence</em> of the construct (e.g., "Not at all")</li>
+    <li>positive/negative numbers to the rest</li>
+    </ul>
+  </li>
   <li>For binary choices (like Yes / No), consider assigning 1 to "Yes" and 0 to "No", instead of the default Yes (1), No (2).<br>
   This is also useful for Multiple Choice questions where one answer is considered "correct" and the other answer "incorrect".</li>
 </ul>
@@ -2784,7 +2999,7 @@ Strongly&lt;br&gt;agree</code>
 <div class="section-label">Section 4</div>
 <h2>Survey Flow</h2>
 
-<p><span class="kw-ui">Toolbar</span> → <span class="kw-ui">Survey Flow</span></p> 
+<p><span class="kw-ui">Toolbar</span> → <span class="kw-ui">Survey Flow</span> <img class="qIcon" src="https://i.imgur.com/oi5TSqo.png"></p> 
 
 <p>The way your survey is organized behind the scenes is just as important as the questions themselves.</p>
 
@@ -2864,7 +3079,7 @@ Strongly&lt;br&gt;agree</code>
 
 <p>But you can adjust this number (let's call it N) or adjust the elements you place into the Randomizer for specific purposes. Typically, you will either set:</p>
 
-<ul class="standard-ul">
+<ul class="inline-ul">
   <li><strong>N</strong> = <strong>total # of elements</strong> ⟶ Randomize the order, but still show respondents <em>every</em> element, or</li>
   <li><strong>N</strong> = <strong>1</strong> & <input type="checkbox" checked>  Evenly Present Elements ⟶  Randomly present <em>one</em> of the elements to respondents
     <ul>
@@ -3017,7 +3232,7 @@ Strongly&lt;br&gt;agree</code>
 
 <h3>Basic Survey Structure</h3>
 
-<ol class="short-ul">
+<ol class="inline-ul no-gap">
   <li><em><code>URL Parameters</code></em></li>
   <li>Consent</li>
   <li><em><code>If did not consent, send to End of Survey (did not consent)</code></em></li>
@@ -3072,12 +3287,26 @@ assignmentId</code>
   </div>
   <button class="screenshot-expand" onclick="openLightbox(this.previousElementSibling.id)">⤢</button>
 </div>
+
+<h5>Other Embedded Data</h5>
+
+<p>I'm also going to recommend that you add the following built-in Qualtrics Embedded Data Fields:</p>
+
+<div class="code-snippet" style="width:fit-content;">
+<code>Q_SurveyVersionID
+Q_TerminateFlag
+Q_TotalDuration</code>
+</div>
+
+<p>I have not personally used them (yet), but I discovered them while writing this guide and I think they might be a good idea to include. You can read more about them <a target="_blank" href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-flow/standard-elements/embedded-data/#BuiltinEmbeddedData">here</a>.</p>
+
+
   
 <hr class="section-divider" id="consent" />
 <h4>Consent</h4>
 <p>Before collecting any data — including screener responses — participants must consent to the study. This is a research ethics requirement. If a participant does not consent, they are redirected to the end of the survey immediately via Branch Logic.</p>
 
-<p>You do not need to paid these participants for their time.</p>
+<p>You do not need to pay these participants for their time.</p>
 
 <p>Simply add a Branch Logic element below your Consent block, set the condition to:<br>
 [Consent Question] [No] [Is Selected]<br>
@@ -3179,11 +3408,11 @@ You will be redirected back to Prolific once you proceed to the next page.</p></
 
 <p>Rather, you should create a Randomizer and place an Embedded Data element it in. Set the field name to be <span class="kw-ui">condition</span> (or similar). <strong>Duplicate</strong> this element, so you have one for each condition. Then set the value of these elements so that each one represents one of your conditions. (You can Duplicate before or after setting the value — it depends how close your condition names are.)</p>
 
-<p>For the Randomizer, set:
- <ul class="short-ul">
+<p class="no-gap">For the Randomizer, set:</p>
+ <ul class="indent-ul no-gap">
     <li>number of elements to present = 1</li>
     <li><input type="checkbox" checked> Evenly Present Elements</li>
-    </ul></p>
+    </ul>
 
     <div class="screenshot-wrap">
   <div class="screenshot-placeholder" id="screenshot-survey-flow-random-assignment">
@@ -3207,9 +3436,9 @@ You will be redirected back to Prolific once you proceed to the next page.</p></
 
 <p>If you are randomizing the order of some of your <span class="kw-concept">Questions</span>, such as the order of items in a scale, in most cases it will be fine to just randomize the <span class="kw-concept">Blocks</span> without creating an Embedded Data element to capture the order.</p>
 
-<p>For this, you would:</p>
+<p class="no-gap">For this, you would:</p>
 
-<ol class="short-ul">
+<ol class="indent-ul no-gap">
   <li>create a Randomizer</li>
   <li>place all the elements you wish you randomize in it</li>
   <li>Set the number of elements to present = total # of elements</li>
@@ -3245,25 +3474,6 @@ You will be redirected back to Prolific once you proceed to the next page.</p></
 
 <p>Each option has pros and cons, choose based on the complexity of your design and your comfort level.</p>
 
-<p>We're going to be using a running example for this section. It may seem overly simple, but that's just to help simplify the explanations and make this guide easier to digest.</p>
-
-<p>You are interested in asking people if they like one of three types of fruit:</p>
-    
-<div style="display:flex;justify-content:center;column-gap:3em;text-align:center;">
-  <div>
-    Do you like <strong>apples</strong>?<br>
-    Yes / No
-  </div>
-  <div>
-    Do you like <strong>bananas</strong>?<br>
-    Yes / No
-  </div>
-  <div>
-    Do you like <strong>oranges</strong>?<br>
-    Yes / No
-  </div>
-</div>
-
 <hr class="section-divider" id="conditions-branch-logic" />
   
 <h4>Branch Logic</h4>
@@ -3271,32 +3481,31 @@ You will be redirected back to Prolific once you proceed to the next page.</p></
 <p>This is likely the one you will opt to use, as it's the most straightforward and intuitive.</p>
 
 <p>The Branch Logic approach uses the Branch Logic element in <span class="kw-sub-menu">Survey Flow</span> to display the correct <span class="kw-concept">Blocks</span> to participants.</p>
-  
-<ul class="standard-ul">
-  <li>In the <span class="kw-sub-menu">Builder</span>:
-    <ul class="short-ul">
-      <li>Create a full <span class="kw-concept">Block</span> for each of your conditions separately<br>
-      (tip: set up one and then use <span class="kw-ui">Copy</span>!)</li>
+
+<p class="no-gap">In the <span class="kw-sub-menu">Builder</span>:</p>  
+<ul class="indent-ul">
+  <li>
+    Create a full <span class="kw-concept">Block</span> for each of your conditions separately<br>
+      (tip: set up one and then use <span class="kw-ui">Copy</span>!)
+  </li>
+</ul>
+
+<p class="no-gap">In the <span class="kw-sub-menu">Survey Flow</span>:</p>  
+<ul class="indent-ul">
+  <li>Set up random assignment, as described above</li>
+  <li>Add a Branch Logic element underneath
+    <ul>
+      <li>Set the conditional:<br>
+      Embedded Data → [name of condition Embedded Data field] → is equal to → [value of condition Embedded Data]<br>
+      (e.g., [condition] is equal to [apple])</li>
     </ul>
   </li>
-  <li>In the <span class="kw-sub-menu">Survey Flow</span>:
-    <ul class="short-ul">
-      <li>Set up random assignment, as described above</li>
-      <li>Add a Branch Logic element underneath
-        <ul>
-          <li>Set the conditional:<br>
-          Embedded Data → [name of condition Embedded Data field] → is equal to → [value of condition Embedded Data]<br>
-          (e.g., [condition] is equal to [apple])</li>
-        </ul>
-      </li>
-      <li>Duplicate the Branch Logic, so you have as many as you have conditions
-        <ul>
-          <li>Change the condition of the Branch Logic, so that you end up with one Branch Logic per condition</li>
-        </ul>
-      </li>
-      <li>Place/Move the appropriate <span class="kw-concept">Blocks</span> within the matching Branch Logic element</li>
+  <li>Duplicate the Branch Logic, so you have as many as you have conditions
+    <ul>
+      <li>Change the condition of the Branch Logic, so that you end up with one Branch Logic per condition</li>
     </ul>
   </li>
+  <li>Place/Move the appropriate <span class="kw-concept">Blocks</span> within the matching Branch Logic element</li>
 </ul>
   
 <p>See the screenshots below.</p>
@@ -3341,39 +3550,35 @@ You will be redirected back to Prolific once you proceed to the next page.</p></
 
 <p>For the Display Logic approach, we will use Display Logic on the <span class="kw-concept">Questions</span> themselves (in the <span class="kw-sub-menu">Builder</span>).</p>
 
+<p class="no-gap">In the <span class="kw-sub-menu">Survey Flow</span>:</p> 
+<ul class="indent-ul">
+  <li>Set up random assignment, as described above</li>
+</ul>
 
-<ul class="standard-ul">
-  <li>In the <span class="kw-sub-menu">Survey Flow</span>:
-    <ul class="short-ul">
-      <li>Set up random assignment, as described above</li>
-    </ul>
-  </li>  
-  
-  <li>In the <span class="kw-sub-menu">Builder</span>:
-    <ul class="short-ul">
-      <li>Fully configure a <span class="kw-concept">Block</span> for <em>one</em> of your conditions
-        <ul>
-          <li>Add Display Logic to the <span class="kw-concept">Question</span>, using name of the condition<br>
-          Display logic → Embedded Data → [field name] → is equal to → [value]</li>
-          <li><span class="kw-ui">Copy</span> the <span class="kw-concept">Question</span> and adjust the:
-          <ul>
-            <li>Question Name</li>
-            <li>Question Text (and/or Response Option Text)</li>
-            <li>Display Logic condition</li>
-          </ul>
-          
-          </li>
-          <li>Repeat the previous step for each condition</li>
-          <li>Leave the <span class="kw-concept">Questions</span> so they are within the <em>same</em> <span class="kw-concept">Block</span></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Back in the <span class="kw-sub-menu">Survey Flow</span>:
+
+<p class="no-gap">In the <span class="kw-sub-menu">Builder</span>:</p>   
+<ul class="indent-ul">
+  <li>Fully configure a <span class="kw-concept">Block</span> for <em>one</em> of your conditions
     <ul>
-      <li>Make sure the <span class="kw-concept">Block</span> is below the random assignment Randomizer</li>
+      <li>Add Display Logic to the <span class="kw-concept">Question</span>, using name of the condition<br>
+      Display logic → Embedded Data → [field name] → is equal to → [value]</li>
+      <li><span class="kw-ui">Copy</span> the <span class="kw-concept">Question</span> and adjust the:
+      <ul>
+        <li>Question Name</li>
+        <li>Question Text (and/or Response Option Text)</li>
+        <li>Display Logic condition</li>
+      </ul>
+      
+      </li>
+      <li>Repeat the previous step for each condition</li>
+      <li>Leave the <span class="kw-concept">Questions</span> so they are within the <em>same</em> <span class="kw-concept">Block</span></li>
     </ul>
   </li>
+</ul>
+
+<p class="no-gap">Back in the <span class="kw-sub-menu">Survey Flow</span>:</p> 
+<ul class="indent-ul">
+  <li>Make sure the <span class="kw-concept">Block</span> is below the random assignment Randomizer</li>
 </ul>
 
 <p>See the screenshots below.</p>
@@ -3422,32 +3627,29 @@ You will be redirected back to Prolific once you proceed to the next page.</p></
 
 <p>For this approach, we only create <em>one</em> <span class="kw-concept">Question</span> and alter the text using Piped Text.</p>
 
-<ul class="standard-ul">
-  <li>In the <span class="kw-sub-menu">Survey Flow</span>:
-    <ul class="short-ul">
-      <li>Set up random assignment, as described above</li>
-    </ul>
-  </li>  
+<p class="no-gap">In the <span class="kw-sub-menu">Survey Flow</span>:</p> 
+<ul class="indent-ul">
+<li>Set up random assignment, as described above</li>
+</ul>
     
-  <li>In the <span class="kw-sub-menu">Builder</span>:
-    <ul class="short-ul">
-      <li>Fully configure a <span class="kw-concept">Block</span> for <em>one</em> of your conditions, <strong><em>except</em></strong> leave out any text that differs between the conditions</li>
-    
-      <li>Add Piped Text to the <span class="kw-concept">Question</span>, using either of these methods:
-        <ul>
-          <li>Click where you want to add text → Click "Piped Text..." → Embedded Data Field → [field name]</li>
-          <li>Type <code>${e://Field/[field name]}</code> directly in the question where you want the text to appear, replacing <code>[field name]</code> with the name of your condition Embedded Data</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
+<p class="no-gap">In the <span class="kw-sub-menu">Builder</span>:</p> 
+<ul class="indent-ul">
+  <li>Fully configure a <span class="kw-concept">Block</span> for <em>one</em> of your conditions, <strong><em>except</em></strong> leave out any text that differs between the conditions</li>
 
-  <li>Back in the <span class="kw-sub-menu">Survey Flow</span>:
+  <li>Add Piped Text to the <span class="kw-concept">Question</span>, using either of these methods:
     <ul>
-      <li>Make sure the <span class="kw-concept">Block</span> is below the random assignment Randomizer</li>
+      <li>Click where you want to add text → Click "Piped Text..." → Embedded Data Field → [field name]</li>
+      <li>Type <code>${e://Field/[field name]}</code> directly in the question where you want the text to appear, replacing <code>[field name]</code> with the name of your condition Embedded Data</li>
     </ul>
   </li>
 </ul>
+
+
+<p class="no-gap">Back in the <span class="kw-sub-menu">Survey Flow</span>:</p> 
+<ul class="indent-ul">
+  <li>Make sure the <span class="kw-concept">Block</span> is below the random assignment Randomizer</li>
+</ul>
+
   
 <p>See the screenshots below.</p>
 
@@ -3519,55 +3721,47 @@ You will be redirected back to Prolific once you proceed to the next page.</p></
   
 <p>The JavaScript approach is basically emulating the Piped Text approach yourself, with more flexibility.</p>
 
- 
-<ul class="standard-ul" style="margin-left: 20px !important;">
-  <li>In the <span class="kw-sub-menu">Survey Flow</span>:
-    <ul><li>Set up random assignment like before, but add <code>__js_</code> to the beginning of the field names</li></ul>
-  </li>
-   
-  <li>In the <span class="kw-sub-menu">Builder</span>:
-    
-    <ul class="standard-ul">
-      <li>Create a question, using the complete text from one of your conditions</li>
-      <li>(Optional) Go into HTML View and wrap the text that will differ between conditions in <code>span</code> tags and give the <code>span</code> an ID, like this:<br>
-      <code>&lt;span id="fruit-condition"&gt;apples&lt;/span&gt;</code></li>
-      <li>Add JavaScript to the Question<br>
-      Builder Panel → Question behavior → JavaScript
-      <p>In the both of the code blocks below, replace <code>condition</code> in <code>getJSEmbeddedData("condition")</code> to be the field name of your condition Embedded Data element</p>
-  
-        <ul class="standard-ul">
-          <li>If using HTML:
-            <ul class="short-ul">
-              <li>add this to the <span class="kw-data">addOnload</span> function, but change the <code>fruit-condition</code> to be whatever you named your <code>span</code> in the Question Text
+
+<p class="no-gap">In the <span class="kw-sub-menu">Survey Flow</span>:</p>
+<ul class="inline-ul">
+<li>Set up random assignment like before, but add <code>__js_</code> to the beginning of the field names</li>
+</ul>
+
+<p class="no-gap">In the <span class="kw-sub-menu">Builder</span>:</p>   
+
+<ul class="inline-ul">
+  <li>Create a question, using the complete text from one of your conditions</li>
+  <li>(Optional) Go into HTML View and wrap the text that will differ between conditions in <code>span</code> tags and give the <code>span</code> an ID, like this:<br>
+  <code>&lt;span id="fruit-condition"&gt;apples&lt;/span&gt;</code></li>
+  <li>Add JavaScript to the Question<br>
+  Builder Panel → Question behavior → JavaScript
+  <p>In the both of the code blocks below, replace <code>condition</code> in <code>getJSEmbeddedData("condition")</code> to be the field name of your condition Embedded Data element</p>
+
+    <ul class="gap-1">
+      <li>If using HTML:<br>
+      add this to the <span class="kw-data">addOnload</span> function, but change the <code>fruit-condition</code> to be whatever you named your <code>span</code> in the Question Text
 <div class="code-snippet">
 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>var conditionSpan = this.getQuestionContainer().querySelector("#fruit-condition");
 if (conditionSpan) { 
-  conditionSpan.innerText = Qualtrics.SurveyEngine.getJSEmbeddedData("condition"); 
+conditionSpan.innerText = Qualtrics.SurveyEngine.getJSEmbeddedData("condition"); 
 }</code>
 </div>
-              </li>
-            </ul>
-          </li>
-    
-          <li>If <strong>not</strong> using HTML:
-            <ul class="short-ul">
-              <li>add this to the <span class="kw-data">addOnload</span> function, but change the "Do you like " + conditionText + "?" to fit your question.<br>
-              Note that this will replace the <em>entire</em> Question text, so you have to reproduce it exactly as you want it.
+      </li>
+
+      <li>If <strong>not</strong> using HTML:<br>
+        add this to the <span class="kw-data">addOnload</span> function, but change the "Do you like " + conditionText + "?" to fit your question.<br>
+          Note that this will replace the <em>entire</em> Question text, so you have to reproduce it exactly as you want it.
 <div class="code-snippet">
 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>var conditionText = Qualtrics.SurveyEngine.getJSEmbeddedData("condition");
 if (conditionText) {
-  this.getQuestionTextContainer().innerText = "Do you like " + conditionText + "?";
+this.getQuestionTextContainer().innerText = "Do you like " + conditionText + "?";
 }</code>
 </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
       </li>
     </ul>
-  </li> 
+  </li>
 </ul>
   
   
@@ -3654,7 +3848,7 @@ if (conditionText) {
   
 <p>This section explains how to set up conditions that are based on <em><strong>order</strong></em>, rather than the content of the items.</p>
   
-<hr class="section-divider" id="conditions-orders" />
+<hr class="section-divider" id="conditions-order-conditions" />
 <h4>Order Conditions</h4>
 
 <p>As mentioned previously, if you want to randomly assign participants to see items in a specific order, you would set that up like you would a normal between-subjects condition: creating an Embedded Data element to represent each order and setting up random assignment.</p> 
@@ -3669,9 +3863,9 @@ if (conditionText) {
 
 <p>But in the <span class="kw-sub-menu">Survey Flow</span>, the Branch Logic would contain all of the <span class="kw-concept">Blocks</span>, in the matching order.</p>
 
-<p>Tip: Set up one one Branch Logic completely and use Duplicate. Then you just have to adjust the:</p>
+<p class="no-gap">Tip: Set up one one Branch Logic completely and use Duplicate. Then you just have to adjust the:</p>
 
-<ul class="short-ul">
+<ul class="indent-ul no-gap">
   <li>Branch Logic condition</li>
   <li>The order of the <span class="kw-concept">Blocks</span> within the Branch Logic</li>
 </ul>
@@ -3698,7 +3892,7 @@ if (conditionText) {
 
 <p>To counterbalance two scales, say CRT and REF, we will utilize the "Groups" element.</p>
 
-<ol class="short-ul">
+<ol class="inline-ul">
   <li>Create an Embedded Data element — this will store the order
     <ol class="short-ul" type="a">
       <li>Give it a name, such as <code>crt_ref_order</code></li>
@@ -3707,14 +3901,14 @@ if (conditionText) {
   </li>
   <li>Create a Randomizer directly below</li>
   <li>Create a Group inside the Randomizer
-  <ol class="short-ul" type="a">
+  <ol type="a">
     <li>Give it a name, such as <code>CRT</code></li>
     <li>Create a Branch Logic Element inside the Group
-    <ol class="short-ul" type="i">
+    <ol type="i">
       <li>Using the Embedded Data name and value you created in step 1, set the condition to:<br>
     Embedded Data [crt_ref_order] is equal to [none]</li>
     <li>Duplicate the Embedded Data Element from step 1
-    <ol class="short-ul" type="A"><li>Change the value to represent the order (like <code>crt|ref</code>, in this example)</li>
+    <ol type="A"><li>Change the value to represent the order (like <code>crt|ref</code>, in this example)</li>
     <li>Place it inside the Branch Logic</li></ol></li>
     </ol>
 
@@ -3723,14 +3917,14 @@ if (conditionText) {
   
   </li>
   <li>Duplicate the Group
-  <ol class="short-ul" type="a">
+  <ol type="a">
     <li>Change the value of the Embedded Data that's within the Branch Logic to be <code>ref|crt</code></li>
     <li>Change the name of the Group to be <code>REF</code></li> 
   </ol>
   </li>
   <li>In each Group, below the Branch Logic, add the Randomizer which is randomizing the elements of the matching scale</li>
   <li>Ensure that the Randomizer is randomizing <strong>2</strong> elements: the 2 Groups
-  <ol class="short-ul" type="a">
+  <ol type="a">
       <li>Make sure the number of elements to present = 2</li>
     </ol>
   </li>
@@ -3772,7 +3966,7 @@ if (conditionText) {
 
 <p>Below are the cases where additional CSS code is needed, beyond what already comes with the Survey Template.</p>
 
-<ul class="short-ul">
+<ul class="indent-ul no-gap">
   <li>Matrix Table Questions</li>
   <li>Matrix Table Questions with less than 3 statements</li>
   <li>Matrix Table Questions with less than 3 scale points</li>
@@ -3894,10 +4088,10 @@ if (conditionText) {
 
 <p>Some things to note:</p>
 
-<ol class="standard-ul">
+<ol class="inline-ul">
   
   <li>If your Matrix Table has <em>less than 3</em> statements, you probably <em>shoudn't</em> shade every other row
-    <ul  class="short-ul">
+    <ul>
       <li>If you <em>only</em> have Matrix Table Questions with less than 3 statements, just remove this code from the <span class="kw-sub-menu">Look and Feel</span> CSS:
 <div class="code-snippet">
 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -3911,7 +4105,7 @@ if (conditionText) {
   </li>
   
   <li>If your Matrix Table has <em>less than 3</em> scale points (e.g., Yes / No), you probably <em>shoudn't</em> shade every other row on the <em>mobile</em> view (because Matrix Tables turn into MC Questions for mobile)
-    <ul  class="short-ul">
+    <ul>
       <li>If you <em>only</em> have Matrix Table Questions with less than 3 scale points, just remove this code from the <span class="kw-sub-menu">Look and Feel</span> CSS:
 <div class="code-snippet">
 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -3929,7 +4123,7 @@ if (conditionText) {
 <p>Now, the most annoying part about Matrix Tables - they need <em>individual</em> adjusting. The exact values will depend on:
 </p>
 
-<ul class="short-ul">
+<ul class="indent-ul">
   <li>The length of your statements</li>
   <li>The number of response options</li>
 </ul>
@@ -3947,7 +4141,7 @@ if (conditionText) {
 <p>Basically, you want to adjust the <span class="kw-data">max-width</span> property to make the entire table bigger or smaller and the <span class="kw-data">grid-template-columns</span> to adjust the ratio of space the statements and radio buttons take up.</p>
 
 <p>The <span class="kw-data">grid-template-columns</span> is:
-<ol class="short-ul">
+<ol class="indent-ul no-gap">
   <li>What % of the width do you want the statements to take up?</li>
   <li>What % of the width do you want the radio buttons to take up?</li>
 </ol></p>
@@ -3963,7 +4157,7 @@ if (conditionText) {
 
 <p>Which says:</p>
 
-<ol class="short-ul">
+<ol class="indent-ul no-gap">
   <li>The statements should take up between a minimum of 6.25rem and a <em>maximum</em> of 23% of the width of the table</li>
   <li>The scale points should take up the rest of the width (that's what <code>1fr</code> means)</li>
 </ol>
@@ -4075,7 +4269,7 @@ if (conditionText) {
   
 <p>You'll see 3 <code>functions</code> already inside:</p>
 
-<ol class="short-ul">
+<ol class="indent-ul">
   <li><span class="kw-data">addOnload</span></li>
   <li><span class="kw-data">addOnReady</span></li>
   <li><span class="kw-data">addUnload</span></li>
@@ -4483,7 +4677,7 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 
 <p>Recall that these are the caseswhere additional CSS code is needed, beyond what already comes with the Survey Template:</p>
   
-<ul class="short-ul">
+<ul class="indent-ul no-gap">
   <li>Matrix Table Questions</li>
   <li>Matrix Table Questions with less than 3 statements</li>
   <li>Matrix Table Questions with less than 3 scale points</li>
@@ -4559,7 +4753,7 @@ this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
 </div>
 
 <p>Recall that you can adjust the width of the table itself (the <code>max-width</code> property) and that the <code>grid-template-columns</code> property means:</p>
-<ol class="short-ul">
+<ol class="indent-ul no-gap">
   <li>The % of the width you want the statements to take up</li>
   <li>The % of the width you want the radio buttons to take up</li>
 </ol>
@@ -4602,7 +4796,7 @@ this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
 
 <p>This makes sure:</p>
 
-<ul class="short-ul">
+<ul class="indent-ul no-gap">
   <li>We don't somehow corrupt their previous answer</li>
   <li>We don't lose the RT data for the first response</li>
   <li>We have separate RT data for the second response</li>
@@ -4612,11 +4806,11 @@ this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
 
 <p>This is <em>easiest</em> to do for Text Entry Questions.</p>
 
-<ol class="short-ul">
+<ol class="inline-ul no-gap">
   <li>Fully configure the <span class="kw-concept">Block</span> for the first question</li>
     <li>
       <span class="kw-menu">Copy</span> the <span class="kw-concept">Block</span>
-      <ul class="short-ul" type="a">
+      <ul class="gap-1" type="a">
         <li>For the repeated first question, add their response to the <em>real</em> first question as a <span class="kw-menu">Default Choice</span>:<br>
         Builder Panel ⟶  Question Behavior ⟶  Default choices ⟶  Survey Question ⟶  (select the question) ⟶  (select the option which shows the text of the question)</li>
         <li>Add the following JavaScript to the <span class="kw-data">onLoad</span> function:
@@ -4640,12 +4834,29 @@ input.style.backgroundColor = "#e5e5e5";</code>
 </ol>
 
 
-<div class="screenshot-wrap">
-  <div class="screenshot-placeholder" id="screenshot-two-part-locked-in">
-    <img src="https://i.imgur.com/QBGVJQT.png" alt="View of the Builder for a Two-Part Text Entry Question" />
-    <span>Screenshot: View of the Builder for a Two-Part Text Entry Question</span>
+
+<div class="carousel-wrap">
+  <div class="carousel" id="carousel-two-part-locked-in-te">
+    <div class="carousel-track">
+
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/QBGVJQT.png" alt="View of the Builder for a Two-Part Text Entry Question" />
+        <div class="slide-caption">Screenshot: View of the Builder for a Two-Part Text Entry Question</div>
+      </div>
+
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/MttyNEy.png" alt="Default Choice Menu - Carry Forward Answer" />
+        <div class="slide-caption">Screenshot: Default Choice Menu - Carry Forward Answer</div>
+      </div>
+
+    </div>
+
+    <button class="carousel-btn prev" onclick="carouselMove(this.parentElement.id, -1)">‹</button>
+    <button class="carousel-btn next" onclick="carouselMove(this.parentElement.id, 1)">›</button>
+    <button class="carousel-expand" onclick="openCarouselLightbox(this.parentElement.id)">⤢</button>
   </div>
-  <button class="screenshot-expand" onclick="openLightbox(this.previousElementSibling.id)">⤢</button>
+
+  <div class="carousel-dots" id="carousel-two-part-locked-in-te-dots"></div>
 </div>
 
 <h5>Multiple Choice Questions</h5>
@@ -4942,7 +5153,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <h3>Qualtrics</h3>
 
-<ul class="short-ul">
+<ul class="indent-ul no-gap">
   <li>
     <a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-checker/fraud-detection/#PreventBallotBoxStuffing" target="_blank">Prevent Ballot Box Stuffing</a>
   </li>
@@ -4958,11 +5169,15 @@ input.style.backgroundColor = "#e5e5e5";</code>
   <li>
     <a href="https://api.qualtrics.com/82bd4d5c331f1-qualtrics-java-script-question-api-class" target="_blank">Qualtrics JavaScript Question API Class</a>
   </li>
+    <li>
+    <a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-flow/standard-elements/embedded-data/#BuiltinEmbeddedData" target="_blank">Qualtrics Built-In Embedded Data Fields</a>
+  </li>
+  
 </ul>
 
 <h3>Prolific</h3>
 
-<ul class="short-ul">
+<ul class="indent-ul no-gap">
   <li>
     <a href="https://intercom-help.eu/prolific-research/en/articles/445127-data-collection#OwXFf50XWA1jnrLs" target="_blank" target="_blank">URL Parameters</a>
   </li>
@@ -4975,7 +5190,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <h3>CloudResearch</h3>
 
-<ul class="short-ul">
+<ul class="indent-ul no-gap">
   <li>
     <a href="https://go.cloudresearch.com/en/knowledge/automatically-capture-worker-ids" target="_blank">URL Parameters</a>
   </li>
@@ -4987,7 +5202,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <h3>MTurk</h3>
 
-<ul class="short-ul">
+<ul class="indent-ul no-gap">
   <li>
     <a href="https://blog.mturk.com/getting-great-survey-results-from-mturk-and-qualtrics-be1704ff9786" target="_blank">Setting up Completion Codes using a Random Number Generator</a>
   </li>
@@ -5001,7 +5216,7 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 <p>Append these to the beginning of a CSS ruleset.</p>
 
-<ul> 
+<ul class="inline-ul gap-2"> 
 
 <li>Target a specific <span class="kw-concept">Question</span> using its <span class="kw-data">internal Qualtrics ID</span>:
   
@@ -5030,9 +5245,9 @@ input.style.backgroundColor = "#e5e5e5";</code>
 </ul> 
   
 <hr class="section-divider" id="code-bank-css-gen" /> 
-<h3>General Rulesets</h3>
+<h3 class="gap-2">General Rulesets</h3>
 
-<ul>
+<ul class="inline-ul gap-2"> 
   
 <li>Change the font colour of the question text and progress bar % (if you have one):
 
@@ -5068,9 +5283,9 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 
 <hr class="section-divider" id="code-bank-css-text" /> 
-<h3>Rulesets for Inserting Text Around Textboxes</h3>
+<h3 class="gap-2">Rulesets for Inserting Text Around Textboxes</h3>
 
-<ul>
+<ul class="inline-ul gap-2"> 
   
 <li>These are user-defined classes for the <code class="language-html">span</code> elements that will be injected around the textboxes with JavaScript.
 
@@ -5092,7 +5307,7 @@ span.spanBefore {
 </ul>
 
 <hr class="section-divider" id="code-bank-css-q-type" /> 
-<h3>Question Type Rulesets</h3>
+<h3 class="gap-2">Question Type Rulesets</h3>
 
 <p>Optional CSS rulesets that apply to all Questions of a specific Question Type.</p>
 
@@ -5101,7 +5316,7 @@ span.spanBefore {
 
 <h4>Multiple Choice Questions</h4>
 
-<ul>
+<ul class="inline-ul gap-2"> 
   
 <li>Add an outline to the choices:
 <div class="code-snippet">
@@ -5137,7 +5352,7 @@ span.spanBefore {
 <hr class="section-divider" id="code-bank-css-mt" />
 <h4>Matrix Tables</h4>
 
-<ul>  
+<ul class="inline-ul gap-2">   
 
 <li>Add padding to the element above Matrix Tables:
 <div class="code-snippet">
@@ -5194,7 +5409,7 @@ span.spanBefore {
 
 <h5>Matrix Tables on Mobile</h5>
 
-<ul>
+<ul class="inline-ul gap-2"> 
   
 <li>Add some padding to the question text, to improve the alignment:
 <div class="code-snippet">
@@ -5259,7 +5474,7 @@ span.spanBefore {
 
 <h4>Text Entry Questions</h4>
 
-<ul>
+<ul class="inline-ul gap-2"> 
   
 <li>Align the caret to the right:
 <div class="code-snippet">
@@ -5314,7 +5529,7 @@ span.spanBefore {
 
 <h4>Form Fields</h4>
 
-<ul>
+<ul class="inline-ul gap-2"> 
 
 <li>Add padding to the element above Form Fields:
 <div class="code-snippet">
@@ -5361,7 +5576,7 @@ span.spanBefore {
 
 <hr class="section-divider" id="code-bank-css-indvdl" /> 
 
-<h3>Individual Question Rulesets</h3>
+<h3 class="gap-2">Individual Question Rulesets</h3>
 
 <p>Optional CSS rulesets for use with individual Questions. Note that these will need to be adjusted for your specific question and you will need to use the <span class="kw-data">internal Qualtrics ID</span>.</p>
 
@@ -5369,10 +5584,10 @@ span.spanBefore {
 
 <h4>Matrix Tables</h4>
 
-<ul>
+<ul class="inline-ul gap-2"> 
   
 <li>Fix how much space the statements take up
-<ul class="short-ul">
+<ul class="indent-ul no-gap">
 <li>Adjust the width (<code>900px</code>) of the Matrix Table</li>
 <li>Adjust the max % of the width (<code>55%</code>) the statements take up</li>
 </ul>
@@ -5391,10 +5606,10 @@ span.spanBefore {
 
 <h4>Form Fields</h4>
 
-<ul>
+<ul class="inline-ul gap-2"> 
   
 <li>Align the textboxes
-<ul class="short-ul">
+<ul class="indent-ul no-gap">
 <li>
 Adjust the width (<code>120px</code>) of the labels</li>
 </ul>
@@ -5419,7 +5634,7 @@ Adjust the width (<code>120px</code>) of the labels</li>
   
 <hr class="section-divider" id="code-bank-js-add-css" />
 
-<h3>Add CSS to a Question</h3>
+<h3 class="gap-2">Add CSS to a Question</h3>
 
 <p>The CSS rulesets used here are identical to the ones in the <a href="#code-bank-css">CSS Code Bank</a>. The difference is that you are placing this code in the JavaScript section of individual <span class="concept">Questions</span>, rather than adding it to the custom CSS in <span class="kw-sub-menu">Look and Feel</span>. For these you don't need to know the <span class="kw-data">internal Qualtrics ID</span> because the code will take care of that for you.</p>
 
@@ -5427,9 +5642,9 @@ Adjust the width (<code>120px</code>) of the labels</li>
 
 <h4>Matrix Table Questions</h4>
   
-<ul>
+<ul class="inline-ul gap-2"> 
 <li>Fix how much space the statements take up
-<ul class="short-ul">
+<ul class="indent-ul no-gap">
 <li>Adjust the width (<code>900px</code>) of the Matrix Table</li>
 <li>Adjust the max % of the width (<code>55%</code>) the statements take up</li>
 <li>Add to <span class="kw-data">addOnload</span></li>
@@ -5452,9 +5667,9 @@ this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
   
 <h4>Form Field Questions</h4>
 
-<ul>
+<ul class="inline-ul gap-2"> 
 <li>Align the textboxes
-<ul class="short-ul">
+<ul class="indent-ul no-gap">
 <li>Adjust the width (<code>120px</code>) of the labels</li>
 <li>Add to <span class="kw-data">addOnload</span></li>
 </ul>
@@ -5476,10 +5691,10 @@ this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
   
 <h4>General Code</h4>
   
-<ul>
+<ul class="inline-ul gap-2"> 
   
 <li>General code to apply a CSS ruleset to a specific question
-<ul class="short-ul">
+<ul class="indent-ul no-gap">
   <li>Replace <code class="language-javascript">[REST OF SELECTORS]</code> with the selectors from the ruleset</li>
   <li>Replace <code class="language-javascript">property: value;</code> with the declaration block (everything between the <code  class="language-css">{}</code>) of the ruleset</li>
   <li>Add to <span class="kw-data">addOnload</span></li>
@@ -5501,7 +5716,7 @@ this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
 
 <hr class="section-divider" id="code-bank-js-gen" />
   
-<h3>Other JavaScript</h3>
+<h3 class="gap-2">Other JavaScript</h3>
 
 <p>Non-CSS related JavaScript.</p>
 
@@ -5509,12 +5724,13 @@ this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
 
 <h4>Add Text Before/After Text Boxes</h4>  
 
-<h5 id="code-bank-js-gen-add-text-te">Text Entry Questions</h5>
+<h5 id="code-bank-js-gen-add-text-te" class="gap-1">Text Entry Questions</h5>
 
-<ul>
+<ul class="inline-ul gap-2"> 
 
 <li>If you have the .spanBefore and .spanAfter rulesets in the custom CSS in <span class="kw-sub-menu">Look and Feel</span>
-<ul class="short-ul"><li>Add to <span class="kw-data">addOnload</span></li></ul>
+<ul class="indent-ul no-gap">
+<li>Add to <span class="kw-data">addOnload</span></li></ul>
 <div class="code-snippet">
 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>// whitespace will be preserved, so if you need to, 
@@ -5543,7 +5759,8 @@ if (afterText) {
 
 
 <li>If you <em>don't</em> have the .spanBefore and .spanAfter rulesets in the custom CSS in <span class="kw-sub-menu">Look and Feel</span>
-<ul class="short-ul"><li>Add to <span class="kw-data">addOnload</span></li></ul>
+<ul class="indent-ul no-gap">
+<li>Add to <span class="kw-data">addOnload</span></li></ul>
 <div class="code-snippet">
 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>// whitespace will be preserved, so if you need to, 
@@ -5580,10 +5797,11 @@ if (afterText) {
 
 <h5>Form Field Questions</h5>
 
-<ul>
+<ul class="inline-ul gap-2"> 
 
 <li>If you have the .spanBefore and .spanAfter rulesets in the custom CSS in <span class="kw-sub-menu">Look and Feel</span>
-<ul class="short-ul"><li>Add to <span class="kw-data">addOnload</span></li></ul>
+<ul class="indent-ul no-gap">
+<li>Add to <span class="kw-data">addOnload</span></li></ul>
 <div class="code-snippet">
 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>// whitespace will be preserved, so if you need to, 
@@ -5604,7 +5822,8 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 
 
 <li>If you <em>don't</em> have the .spanBefore and .spanAfter rulesets in the custom CSS in <span class="kw-sub-menu">Look and Feel</span>
-<ul class="short-ul"><li>Add to <span class="kw-data">addOnload</span></li></ul>
+<ul class="indent-ul no-gap">
+<li>Add to <span class="kw-data">addOnload</span></li></ul>
 <div class="code-snippet">
 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>// whitespace will be preserved, so if you need to, 
@@ -5631,10 +5850,11 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 
 <h4>Auto-Focus the Text Box</h4>
 
-<ul>
+<ul class="inline-ul gap-2"> 
 
 <li><h5>Pages with One Question</h5>
-<ul class="short-ul"><li>Add to <span class="kw-data">addOnReady</span></li></ul>
+<ul class="indent-ul no-gap">
+<li>Add to <span class="kw-data">addOnReady</span></li></ul>
 <div class="code-snippet">
 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>setTimeout(() => {
@@ -5645,7 +5865,8 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 </li>
 
 <li><h5>Pages with Multiple Questions</h5>
-<ul class="short-ul"><li>Add to <span class="kw-data">addOnReady</span> of <em><strong>one</strong></em> <span class="kw-concept">Question</span></li></ul>
+<ul class="indent-ul no-gap">
+<li>Add to <span class="kw-data">addOnReady</span> of <em><strong>one</strong></em> <span class="kw-concept">Question</span></li></ul>
 <div class="code-snippet">
 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>setTimeout(() => {
@@ -5663,10 +5884,11 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 <h4>Auto-Submit</h4>
 
 
-<ul>
+<ul class="inline-ul gap-2"> 
 
-<li><h5 id="code-bank-js-gen-auto-submit-one">Pages with One Question</h5>
-<ul class="short-ul"><li>Replace <em><strong>everything</strong></em> in the JavaScript Editor with this:</li></ul>
+<li><h5 id="code-bank-js-gen-auto-submit-one" class="gap-1">Pages with One Question</h5>
+<ul class="indent-ul no-gap">
+<li>Replace <em><strong>everything</strong></em> in the JavaScript Editor with this:</li></ul>
 <div class="code-snippet">
 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>(function() {
@@ -5723,8 +5945,9 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 </li>
 
 
-<li><h5 id="code-bank-js-gen-auto-submit-multi">Pages with Multiple Questions</h5>
-<ul class="short-ul"><li>Replace <em><strong>everything</strong></em> in the JavaScript Editor of <em><strong>one</strong></em> <span class="kw-concept">Question</span> with this:</li></ul>
+<li><h5 id="code-bank-js-gen-auto-submit-multi" class="gap-1">Pages with Multiple Questions</h5>
+<ul class="indent-ul no-gap">
+<li>Replace <em><strong>everything</strong></em> in the JavaScript Editor of <em><strong>one</strong></em> <span class="kw-concept">Question</span> with this:</li></ul>
 <div class="code-snippet">
 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>(function() {
@@ -5975,9 +6198,12 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
       const img = slide.querySelector('img');
       const caption = slide.querySelector('.slide-caption');
       html += `<div class="carousel-slide" style="min-width:100%">`;
+      if (slide.querySelector('.scroll')) html += '<div class="scroll">';
       if (img) html += `<img src="${img.src}" alt="${img.alt}" />`;
+      if (slide.querySelector('.scroll')) html += '</div>';
       if (caption) html += `<div class="slide-caption">${caption.innerHTML}</div>`;
       html += `</div>`;
+      
     });
   
     html += `</div>
