@@ -1374,6 +1374,14 @@
 
 <p>Give your survey a meaningful name (e.g., Anchoring Effect Study — MGT 855 SP26) before clicking <span class="kw-ui">Create project</span>.</p>
 
+<h4> Survey Templates</h4>
+
+<p><a href="https://github.com/HillaryParent/Qualtrics-Guide/blob/fe79f91685784ebd3ae2fd875904a4a07de5dcb9/Survey_Template_-_Styling_Only.qsf">Survey Template - Styling Only</a> — this file only has the custom CSS and various recommended Survey Options set up. Ideal for just starting out.</p>
+
+<p><a href="https://github.com/HillaryParent/Qualtrics-Guide/blob/fe79f91685784ebd3ae2fd875904a4a07de5dcb9/Survey_Template_-_Survey_Flow.qsf">Survey Template - Survey Flow</a> — this file has the custom CSS and Survey Options set up, as well as the basic Survey Flow elements (consent, screeners, etc.). Ideal when you're ready to put your survey together, after you're more familiar with Qualtrics.</p>
+
+<p>Survey Template - Example Questions — this file has the custom CSS and Survey Options set up, and fully configured examples Questions. Ideal to help you see how all the options are configured for all the different Questions discussed in this guide. (Not ready yet, sorry!)</p>
+
 <hr class="section-divider" id="interface" />
 
 <h3>The Interface</h3>
@@ -3302,11 +3310,20 @@ Q_TotalDuration</code>
 
 <p>You do not need to pay these participants for their time.</p>
 
-<p>Simply add a Branch Logic element below your Consent block, set the condition to:<br>
+<p>Simply add a Branch Logic element below your Consent Block and set the condition to:<br>
 [Consent Question] [No] [Is Selected]<br>
 and place an End of Survey element inside.</p>
 
-<p>If you're using MTurk you should set up a custom message </p>
+<p>If you're using Prolific you should create a Block with a Text / Graphic Question with the following message:</p>
+
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code  class="language-html">As you have indicated that you do not consent to participating in this study, please return your submission on Prolific by selecting the 'Stop without completing' button.&lt;br&gt;&lt;br&gt;
+
+You will be redirected to Prolific once you proceed to the next page.</code>
+</div>
+
+<p>And place it within the Branch Logic you just created, before the End of Survey element.</p>
 
 <p class="pathway"><span class="kw-ui">End of Survey element</span> → <span class="kw-ui">Customize</span> → <input type="checkbox" checked> Override Survey Options → <em>Redirect to a URL...</em><br>
 https://app.prolific.com/submissions/complete?cc=REFUSED_CODE
@@ -3316,16 +3333,20 @@ https://app.prolific.com/submissions/complete?cc=REFUSED_CODE
 
 <div class="screenshot-wrap">
   <div class="screenshot-placeholder" id="screenshot-survey-flow-consent">
-   <img src="https://i.imgur.com/u9fUBJc.png" alt="How to set up consent in the Survey Flow" />
-    <span>Screenshot: How to set up consent in the Survey Flow for Prolific, with "Customize" menu expanded. <p>Replace REFUSED_CODE in the URL with the code from Prolific after you set up the completion paths.</span>
+   <img src="https://i.imgur.com/pnVChJR.png" alt='The Survey Flow logic for consent, with the Customize menu for the "did not consent" End of Survey element.' />
+    <span>Screenshot: The Survey Flow logic for consent, with the Customize menu for the "did not consent" End of Survey element.</span>
+    <p>Replace REFUSED_CODE in the URL with the code from Prolific after you set up the completion paths.</p>
   </div>
   <button class="screenshot-expand" onclick="openLightbox(this.previousElementSibling.id)">⤢</button>
 </div>
 
-<p>If you're using MTurk instead, you should set up a custom end of survey message, such as:
-</p>
+<p>For MTurk, you should set up a custom message within the End of Survey element. The suggested message is:</p>
 
-<textarea style="width:34rem;height:fit-content;padding:4px 8px;font:inherit;">As you have indicated that you do not wish to participate in the survey, please return to MTurk and return the HIT.</textarea>
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code class="language-html">As you have indicated that you do not wish to participate in the survey, please return to MTurk and return the HIT.</code>
+</div>
+
 
 <hr class="section-divider" id="screeners" />
 <h4>Screeners</h4>
@@ -3334,24 +3355,28 @@ https://app.prolific.com/submissions/complete?cc=REFUSED_CODE
 
 
 <p>You can Duplicate the End of Survey element from the Consent step above — just make sure you update the code at the end of the URL to the correct one.</p>
-  
-<p>If using the Survey Template, replace <code>SCREENED_OUT_CODE</code> in the URL with the code from Prolific after you set up the completion paths.</p>
+
+<p>If you included the <code>Q_TerminateFlag</code> Embedded Data Field suggested earlier, you can also check the "Flag Response As" option (under Customize for the End of Survey Element) and set it to "Screened Out".</p>
 
 <p>If you are redirecting participants (like you should with Prolific) you also need to create a <span class="kw-concept">Block</span> with a Text / Graphic Question, informing participants that they did not qualify for the survey, but will still receive compensation. In the Survey Template, I have it set up as:</p>
 
-<textarea style="width:34rem;height:13rem;padding:4px 8px;font:inherit;margin-bottom:1rem;"><p><strong>Thank you for your participation!</strong></p>
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code>&lt;b&gt;Thank you for your participation!&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 
-<p>Although you do not qualify for the full survey, you have still earned $1 for your time.</p>
+Although you do not qualify for the full survey, you have still earned $[XX] for your time.&lt;br&gt;&lt;br&gt;
 
-You will be redirected back to Prolific once you proceed to the next page.</p></textarea>
+You will be redirected back to Prolific once you proceed to the next page.</code>
+</div>
 
 
 <p>If you're using MTurk, you should use a custom end of survey message instead. How you word it will depend on how you're setting up your screeners, i.e., if you are paying those who do not qualify.</p>
 
 <div class="screenshot-wrap">
   <div class="screenshot-placeholder" id="screenshot-survey-flow-screeners">
-   <img src="https://i.imgur.com/laqCfrZ.png" alt="How to set up screeners in the Survey Flow" />
-    <span>Screenshot: How to set up screeners in the Survey Flow, with "Customize" menu expanded. In the Survey Template, replace SCREENED_OUT_CODE in the URL with the code from Prolific after you set up the completion paths.</span>
+   <img src="https://i.imgur.com/w37wV9N.png" alt="The Survey Flow logic for screeners, with the Customize menu for the screened out End of Survey element." />
+    <span>Screenshot: The Survey Flow logic for screeners, with the Customize menu for the screened out End of Survey element.</span>
+    <p>Replace SCREENED_OUT_CODE in the URL with the code from Prolific after you set up the completion paths.</p>
   </div>
   <button class="screenshot-expand" onclick="openLightbox(this.previousElementSibling.id)">⤢</button>
 </div>
@@ -3366,6 +3391,16 @@ You will be redirected back to Prolific once you proceed to the next page.</p></
 <p>Or you can Duplicate and adjust the URL, as before.</p>
 
 <p>Although this goes at the <em>end</em> of your <span class="kw-sub-menu">Survey Flow</span>, I'm putting this here because you might as well set up all the End of Survey elements at once.</p>
+
+<p>If you included the <code>Q_TerminateFlag</code> Embedded Data Field suggested earlier, you can also check the "Flag Response As" option (under Customize for the End of Survey Element) and set it to "Survey Complete".</p>
+
+<div class="screenshot-wrap">
+  <div class="screenshot-placeholder" id="screenshot-survey-flow-complete">
+   <img src="https://i.imgur.com/P8rS4ng.png" alt=" The Customize menu for the final End of Survey element." />
+    <span>Screenshot: The Customize menu for the final End of Survey element. Replace COMPLETED_CODE in the URL with the code from Prolific after you set up the completion paths.</span>
+  </div>
+  <button class="screenshot-expand" onclick="openLightbox(this.previousElementSibling.id)">⤢</button>
+</div>
 
 <p>For MTurk (through CloudResearch), there's a specific way to set up the end of survey message to generate a Secret Key for participants to copy & paste to receive their payment — which you can find the instructions for <a href="https://www.cloudresearch.com/resources/blog/qualtrics-and-other-platforms-mechanical-turk-integration-with-cloudresearch/" target="_blank">here</a>.</p>
 
