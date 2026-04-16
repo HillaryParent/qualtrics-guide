@@ -262,6 +262,13 @@
       border-radius: 8px;
     }
     
+    .gridDiv {
+      display: grid; 
+      grid-template-columns: max-content 1fr; 
+      gap: 0.15rem 0.75rem; 
+      margin-left:1.2rem;
+    }
+    
     .img-container-wrap {
       text-align: center;
       margin-bottom: 1rem;
@@ -1071,7 +1078,6 @@
   <a href="#build-survey">Building Your Survey</a>
     <a href="#blocks">Blocks</a>
       <a href="#block-actions" class="nav-sub">Block Actions</a>
-    
       
     <div class="nav-section-label">Section 3</div>
     <a href="#questions">Questions</a>
@@ -1086,19 +1092,45 @@
         <a href="#form-fields" class="nav-sub">Form Fields</a>
         <a href="#timing" class="nav-sub">Timing</a>
         <a href="#metadata" class="nav-sub">Metadata</a>
-      <a href="#question-options">Question Options</a>
-        <a href="#response-requirements" class="nav-sub">Response Requirements</a>
-          <a href="#numeric-responses" class="nav-sub2">Numeric Responses</a>
-          <a href="#comprehension-checks" class="nav-sub2">Comprehension Checks</a>
-        <a href="#question-behavior" class="nav-sub">Question Behavior</a>
-          <a href="#display-logic" class="nav-sub2">Display Logic</a>
-            <a href="#two-part-questions" class="nav-sub3">Two-Part Questions</a>
-          <a href="#choice-randomization" class="nav-sub2">Choice Randomization</a>
-            <a href="#advanced-randomization" class="nav-sub3">Advanced Randomization</a>
-          <a href="#recode-values" class="nav-sub2">Recode Values</a>
-        
-  
+
   <div class="nav-section-label">Section 4</div>
+    <a href="#custom-css">Custom CSS</a>
+      <a href="#css-basics">CSS Basics</a>
+      <a href="#css-target">Target a Specific Question</a>
+      <a href="#css-multi-target">Target Specific Questions</a>
+      <a href="#css-exclude">Exclude Specific Question(s)</a>
+      <a href="#css-matrix-tables">Matrix Table Rulesets</a>
+      <a href="#css-form-fields">Form Fields Rulesets</a>
+  
+  <div class="nav-section-label">Section 5</div>
+    <a href="#javascript">JavaScript</a>
+      <a href="#js-timing-functions">Onload, OnReady, OnUnload</a>
+      <a href="#js-insert-text">Insert Text Around Text Boxes</a>
+        <a href="#js-insert-text-te" class="nav-sub">Text Entry Questions</a>
+        <a href="#js-insert-text-ff" class="nav-sub">Form Field Questions</a>
+      <a href="#js-auto-focus">Auto Focus the Text Box</a>
+      <a href="#js-auto-submit">Auto Submit a Page</a>
+        <a href="#js-auto-submit-single" class="nav-sub">One Question per Page</a>
+        <a href="#js-auto-submit-multiple" class="nav-sub">Multiple Questions per Page</a>
+      <a href="#js-add-css">Adding CSS</a>
+        <a href="#js-add-css-basics" class="nav-sub">Basics</a>
+        <a href="#js-add-css-matrix-table" class="nav-sub">Matrix Table Questions</a>
+        <a href="#js-add-css-form-field" class="nav-sub">Form Field Questions</a>
+        <a href="#js-two-part-qs">Two-Part Questions</a>  
+  
+  <div class="nav-section-label">Section 6</div>      
+    <a href="#question-options">Question Options</a>
+      <a href="#response-requirements" class="nav-sub">Response Requirements</a>
+        <a href="#numeric-responses" class="nav-sub2">Numeric Responses</a>
+        <a href="#comprehension-checks" class="nav-sub2">Comprehension Checks</a>
+      <a href="#question-behavior" class="nav-sub">Question Behavior</a>
+        <a href="#display-logic" class="nav-sub2">Display Logic</a>
+          <a href="#two-part-questions" class="nav-sub3">Two-Part Questions</a>
+        <a href="#choice-randomization" class="nav-sub2">Choice Randomization</a>
+          <a href="#advanced-randomization" class="nav-sub3">Advanced Randomization</a>
+        <a href="#recode-values" class="nav-sub2">Recode Values</a>
+  
+  <div class="nav-section-label">Section 7</div>
     <a href="#survey-flow">Survey Flow</a>
       <a href="#survey-flow-elements">Survey Flow Elements</a>
         <a href="#survey-flow-blocks" class="nav-sub">Blocks</a>
@@ -1124,41 +1156,16 @@
         <a href="#conditions-order-conditions" class="nav-sub">Order Conditions</a>
         <a href="#conditions-counterbalancing" class="nav-sub">Counterbalancing</a>
   
-  <div class="nav-section-label">Section 5</div>
-    <a href="#custom-css">Custom CSS</a>
-      <a href="#css-basics">CSS Basics</a>
-      <a href="#css-target">Target a Specific Question</a>
-      <a href="#css-multi-target">Target Specific Questions</a>
-      <a href="#css-exclude">Exclude Specific Question(s)</a>
-      <a href="#css-matrix-tables">Matrix Table Rulesets</a>
-      <a href="#css-form-fields">Form Fields Rulesets</a>
-  
-  <div class="nav-section-label">Section 6</div>
-    <a href="#javascript">JavaScript</a>
-      <a href="#js-timing-functions">Onload, OnReady, OnUnload</a>
-      <a href="#js-insert-text">Insert Text Around Text Boxes</a>
-        <a href="#js-insert-text-te" class="nav-sub">Text Entry Questions</a>
-        <a href="#js-insert-text-ff" class="nav-sub">Form Field Questions</a>
-      <a href="#js-auto-focus">Auto Focus the Text Box</a>
-      <a href="#js-auto-submit">Auto Submit a Page</a>
-        <a href="#js-auto-submit-single" class="nav-sub">One Question per Page</a>
-        <a href="#js-auto-submit-multiple" class="nav-sub">Multiple Questions per Page</a>
-      <a href="#js-add-css">Adding CSS</a>
-        <a href="#js-add-css-basics" class="nav-sub">Basics</a>
-        <a href="#js-add-css-matrix-table" class="nav-sub">Matrix Table Questions</a>
-        <a href="#js-add-css-form-field" class="nav-sub">Form Field Questions</a>
-        <a href="#js-two-part-qs">Two-Part Questions</a>
-  
-  <div class="nav-section-label">Section 7</div>
+  <div class="nav-section-label">Section 8</div>
   <a class="only-section" href="#common-gotchas">Common Gotchas</a>
   
-  <div class="nav-section-label">Section 8</div>
+  <div class="nav-section-label">Section 9</div>
   <a class="only-section" href="#pre-launch-checklist">Pre-Launch Checklist</a>
   
-  <div class="nav-section-label">Section 9</div>
+  <div class="nav-section-label">Section 10</div>
     <a class="only-section" href="#downloading-data">Downloading Your Data</a>
   
-  <div class="nav-section-label">Section 10</div>
+  <div class="nav-section-label">Section 11</div>
     <a class="only-section" href="#data-file">Understanding Your Data File</a>
   
   <div class="nav-section-label">Resources</div>
@@ -1254,13 +1261,13 @@
 <ol class="ul-inline gap-1">  
 <li>
   <strong class="emph">Start with your main question(s)</strong><br>
-  Start with the wording and then explore the formatting options. Don't worry about the logic of your survey at this point (i.e., random assignment and conditions). There are <em>multiple</em> ways to set up conditions (which will be discussed in <a href="#conditions">Section 4: How to Set Up Conditions</a>), but at this stage you should focus on perfecting your items.<br>
+  Start with the wording and then explore the formatting options. Don't worry about the logic of your survey at this point (i.e., random assignment and conditions). There are <em>multiple</em> ways to set up conditions (which will be discussed in <a href="#conditions">Section 7: How to Set Up Conditions</a>), but at this stage you should focus on perfecting your items.<br>
     Once everything looks right, you can start adding basic functionality, such as setting up two-part questions to appear dynamically, randomizing response options, etc.<br>
   In short:
   <ol>
-    <li>Just get the words down</li>
-    <li>Then make it look nice</li>
-    <li>Then make it work</li>
+    <li>Get the words right</li>
+    <li>Make it look nice</li>
+    <li>Make it work</li>
   </ol>
 
 </li>
@@ -1272,7 +1279,7 @@
 
 <li>
   <strong class="emph">Set up the logic of your survey</strong><br>
-  Once your Blocks are set up, you can set up the logic of your survey. You should test your survey extensively at this stage to make sure you have everything set up properly.
+  Once your Blocks are set up, you can move on to the logic of your survey (random assignment, conditions, different branches, etc). You should test your survey extensively at this stage to make sure you have everything set up properly.
 </li>
 
 <li>
@@ -1286,24 +1293,29 @@
 
 <p>Below is a flow chart which shows the basic survey structure.</p>
 
-<div class="screenshot-wrap">
-  <div class="screenshot-placeholder" id="screenshot-flow-chart">
-    <img src="https://i.imgur.com/JHSTCyV.png" style="background-color: #fff;" alt="Flow Chart: The flow / logic of a basic survey." />
-    <span>Flow Chart: The flow / logic of a basic survey.</span><br>
-    <p style="text-align:right;margin:auto;display:inline-block;padding-right:12px;">
-      Purple:<br>
-      Grey:<br>
-      Blue:<br>
-      Diamond:<br>
-      Rounded rect:</p>
-      <p style="text-align:left;margin:auto;display:inline-block;">
-      Survey Flow Element (not visible to participants)<br>
-      Optional parts of the survey<br>
-      Optional for participants<br>
-      Branch<br>
-      Instructions — no data collected</p>
+<div class="carousel-wrap">
+  <div class="carousel" id="carousel-survey-flow-chart">
+    <div class="carousel-track">
+
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/KC3BYZZ.png" alt="Flow Chart: The flow / logic of a simple survey." />
+        <div class="slide-caption">Flow Chart: The flow / logic of a simple survey.</div>
+      </div>
+
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/VY1F7Cm.png" alt="Flow Chart: The flow / logic of a standard survey." />
+        <div class="slide-caption">Flow Chart: The flow / logic of a standard survey.</div>
+      </div>
+
+
+    </div>
+
+    <button class="carousel-btn prev" onclick="carouselMove(this.parentElement.id, -1)">‹</button>
+    <button class="carousel-btn next" onclick="carouselMove(this.parentElement.id, 1)">›</button>
+    <button class="carousel-expand" onclick="openCarouselLightbox(this.parentElement.id)">⤢</button>
   </div>
-  <button class="screenshot-expand" onclick="openLightbox(this.previousElementSibling.id)">⤢</button>
+
+  <div class="carousel-dots" id="carousel-survey-flow-chart-dots"></div>
 </div>
 
 <hr class="section-divider" />
@@ -1374,7 +1386,7 @@
 
 <p>Give your survey a meaningful name (e.g., Anchoring Effect Study — MGT 855 SP26) before clicking <span class="kw-ui">Create project</span>.</p>
 
-<h4> Survey Templates</h4>
+<h4>Survey Templates</h4>
 
 <p><a href="https://github.com/HillaryParent/Qualtrics-Guide/blob/fe79f91685784ebd3ae2fd875904a4a07de5dcb9/Survey_Template_-_Styling_Only.qsf">Survey Template - Styling Only</a> — this file only has the custom CSS and various recommended Survey Options set up. Ideal for just starting out.</p>
 
@@ -1388,29 +1400,12 @@
 
 <p>Here is a quick overview of what you'll see once you're inside a survey and the key menus you'll need to know.</p>
 
-
-<div class="carousel-wrap">
-  <div class="carousel" id="carousel-interface">
-    <div class="carousel-track">
-
-      <div class="carousel-slide">
-        <img src="https://i.imgur.com/uN6tS8g.png" alt="Survey Builder Interface" />
-        <div class="slide-caption">Screenshot: Survey Builder Interface</div>
-      </div>
-
-      <div class="carousel-slide">
-        <img src="https://i.imgur.com/OjKSRw3.png" alt="Survey Builder Interface Annotated" />
-        <div class="slide-caption">Annotated Screenshot: Survey Builder Interface</div>
-      </div>
-      
-    </div>
-
-    <button class="carousel-btn prev" onclick="carouselMove(this.parentElement.id, -1)">‹</button>
-    <button class="carousel-btn next" onclick="carouselMove(this.parentElement.id, 1)">›</button>
-    <button class="carousel-expand" onclick="openCarouselLightbox(this.parentElement.id)">⤢</button>
+<div class="screenshot-wrap">
+  <div class="screenshot-placeholder" id="screenshotinterface">
+    <img src="https://i.imgur.com/uN6tS8g.png" alt="Survey Builder Interface" />
+    <span>Screenshot: Survey Builder Interface</span>
   </div>
-
-  <div class="carousel-dots" id="carousel-interface-dots"></div>
+  <button class="screenshot-expand" onclick="openLightbox(this.previousElementSibling.id)">⤢</button>
 </div>
 
 <div class="key-settings">
@@ -1425,43 +1420,49 @@
       </div>
       <p class="no-gap">Horizontal, runs across the top</p>
       <p>The 3 key tabs are:</p>
-      <p style="display:inline-block;margin-left:1.2rem;">
-        <span class="kw-sub-menu emph">Survey</span><br>
-        <span class="kw-sub-menu emph">Distributions</span><br>
+
+      <div class="gridDiv">
+        <span class="kw-sub-menu emph">Survey</span>
+        <span>— &nbsp;your survey</span>
+        
+        <span class="kw-sub-menu emph">Distributions</span>
+        <span>— &nbsp;where to get the anonymous link to your survey, once your survey is published/activated</span>
+        
         <span class="kw-sub-menu emph">Data &amp; Analysis</span>
-      </p>
-      <p style="display:inline-block;line-height:1.84rem;margin-left:6px;">
-      — &nbsp;your survey<br>
-      — &nbsp;where to get the anonymous link to your survey, once your survey is published/activated<br>
-      — &nbsp;where you download your data
-      </p>
+        <span>— &nbsp;where you download your data</span>
+      </div>
     </li>
     
     <li>
       <span class="kw-menu">Toolbar</span>
-        <div class="img-container-wrap" style="margin-top:1rem;">
+      <p class="no-gap" style="margin-top:1rem;">Vertical, icons, left</p>
+      <p class="no-gap">Navigate to different pages to edit different aspects of your survey.</p>
+      <p>The key tabs are the top four:</p>
+          
+      <div class="flexDiv" style="align-items:flex-start;margin-top:1rem;">
+        <div class="img-container-wrap">
           <div class="img-container">
             <img src="https://i.imgur.com/qCGNXK2.png">
           </div>
         </div>
-      <p class="no-gap" style="margin-top:1rem;">Vertical, icons, left</p>
-      <p class="no-gap">Navigate to different pages to edit different aspects of your survey.</p>
-      <p>The key tabs are the top four:</p>
-      <div>
+        <div>
+          
+          <div class="gridDiv" style="margin-top:1.75rem;grid-template-rows:47px 47px 47px 47px;">
+            <span><img class="qIcon" src="https://i.imgur.com/MBqIh9d.png"> &nbsp;<span class="kw-sub-menu emph">Builder</span></span>
+            <span>— &nbsp; where you edit your questions</span>
+            <span><img class="qIcon" src="https://i.imgur.com/oi5TSqo.png"> &nbsp;<span class="kw-sub-menu emph">Survey Flow</span></span>
+            <span>— &nbsp; where you edit the logic of your survey<br>(add conditions, add randomizers, etc.)</span>
+            <span><img class="qIcon" src="https://i.imgur.com/aaFPmZH.png"> &nbsp;<span class="kw-sub-menu emph">Look and Feel</span></span>
+            <span>— &nbsp; where you change the appearance of your survey</span>
+            <span><img class="qIcon" src="https://i.imgur.com/guocGqw.png"> &nbsp;<span class="kw-sub-menu emph">Survey Options</span></span>
+            <span>— &nbsp; where you change miscellanious survey options</span>
+          </div>
+        </div>
+      </div>
+      
 
-      <div style="display:inline-block;vertical-align:top;line-height:48px;padding-top:4px;font-size:1.15rem;">
-        <img class="qIcon" src="https://i.imgur.com/MBqIh9d.png"> &nbsp;<span class="kw-sub-menu">Builder</span><br>
-        <img class="qIcon" src="https://i.imgur.com/oi5TSqo.png"> &nbsp;<span class="kw-sub-menu">Survey Flow</span><br>
-        <img class="qIcon" src="https://i.imgur.com/aaFPmZH.png"> &nbsp;<span class="kw-sub-menu">Look and Feel</span><br>
-        <img class="qIcon" src="https://i.imgur.com/guocGqw.png"> &nbsp;<span class="kw-sub-menu">Survey Options</span> 
-      </div>
-      <div style="display:inline-block;vertical-align:top;line-height:48px;padding-top:4px;">
-        &nbsp; — &nbsp; where you edit your questions<br>
-        &nbsp; — &nbsp; where you edit the logic of your survey (add conditions, add randomizers, etc.)<br>
-        &nbsp; — &nbsp; where you change the appearance of your survey<br>
-        &nbsp; — &nbsp; where you change miscellanious survey options
-      </div>
-      </div>
+
+
       
       <p>The toolbar can be expanded to show text labels alongside the icons.</p>
     </li>
@@ -1523,7 +1524,7 @@
   
   <p>Give anyone who needs to edit the survey <span class="kw-ui">Edit</span> access.</p>
   
-  <p>At this stage, you should add me (<code>hillary.parent@yale.edu</code> <span style="cursor:pointer;" onclick="navigator.clipboard.writeText(this.previousElementSibling.innerText)">📋</span>) as a collaborator. I will help troubleshoot any issues that may arise. But I will not access or edit your survey unless specifically requested to do so.</p>
+  <p>At this stage, you should add me (<code>hillary.parent@yale.edu</code> <span style="cursor:pointer;" onclick="navigator.clipboard.writeText(this.previousElementSibling.innerText)">📋</span>) as a collaborator. I will help troubleshoot any issues that may arise. But I will not access or edit your survey unless specifically requested to do so and/or without letting you know first.</p>
 
 
 </div>
@@ -1626,7 +1627,7 @@
 <ul class="ul-inline no-gap">
   <li><span class="muted">Primary Color:</span> <em>Don't change</em></li>
   <li><span class="muted">Display Text Width:</span> <strong>Full</strong></li>
-  <li>Make the Question & Answer text the same size:
+  <li>Make Question & Answer text the same:
   <ul>
     <li><span class="muted">Question Text (px):</span> <strong>20</strong></li>
     <li><span class="muted">Answer Text (px):</span> &nbsp; &nbsp;<strong>20</strong></li>
@@ -1958,9 +1959,8 @@ span.spanBefore {
   <li>Set up the basics:
   <ul>
     <li>add question text and response option text</li>
-      <li>name the <span class="kw-concept">Question</span> and the <span class="kw-concept">Block</span></li>
-      <li>set up the basic format options, like whether the options are <strong>Vertical</strong> or <strong>Horizontal</strong></li>
-      <li>add an RT Question to the <span class="kw-concept">Block</span></li>
+    <li>name the <span class="kw-concept">Question</span> (and the <span class="kw-concept">Block</span>)</li>
+    <li>set up the basic format options, like whether the options are <strong>Vertical</strong> or <strong>Horizontal</strong></li>
   </ul>
   </li>
   <li>Set up the more complicated stuff:
@@ -1970,13 +1970,14 @@ span.spanBefore {
     <ul><li>make sure it works properly</li>
     <li>make sure you preview the Error Message on failure</li>
     </ul>
+    <li>add <em>basic</em> choice/statement randomization</li>
     </li>
   </ul>
   </li>
   <li>Final touches:
   <ul>
      <li>set up Recode Values</li>
-     <li>add choice / statement randomization</li>
+     <li>add advanced randomization</li>
   </ul>
   </li>
 </ol>
@@ -2004,7 +2005,7 @@ span.spanBefore {
     <span class="callout-icon">📝</span><span class="callout-label" style="color:var(--note-icon)"><span class="label-keyword">Note</span></span>
 </div>
   <div class="callout-body">
-    <p>Qualtrics assigns an internal ID to every question (e.g., <span class="kw-data">QID4</span>). You can make these visible in the <span class="kw-sub-menu">Builder</span> by going to <span class="kw-ui">Tools</span> → <span class="kw-ui">Show Internal IDs</span>. Once enabled, the <span class="kw-data">internal ID</span> will appear next to the Question Name in the <span class="kw-sub-menu">Builder</span>. However, this is not a permanent setting, so you'll have to turn it on each time, if needed.</p>
+    <p>Qualtrics assigns an internal ID to every question (e.g., <span class="kw-data">QID4</span>). You can make these visible in the <span class="kw-sub-menu">Builder</span> by going to <span class="kw-ui">Tools</span> → <span class="kw-ui">Show Internal IDs</span>. Once enabled, the <span class="kw-data">internal ID</span> will appear next to the Question Name in the <span class="kw-sub-menu">Builder</span>. However, this is not a permanent setting, so you'll have to turn it on each time, as needed.</p>
  
   <div class="img-container-wrap"><img src="https://i.imgur.com/DHSLGSA.png"></div>
 
@@ -2115,7 +2116,7 @@ A menu will appear containing all available question types — select the one yo
 
 <p>The <span class="kw-ui">HTML View</span> allows you do to the same, just with actual HTML. You can also view the exact HTML generated by Qualtrics  in the <span class="kw-ui">HTML View</span>.</p>
 
-<p><span class="kw-concept">Piped Text</span> is something else entirely and I will save that until <a href="#conditions-piped-text">Section 4: How to Set Up Conditions</a>.</p>
+<p><span class="kw-concept">Piped Text</span> is something else entirely and I will save that until <a href="#conditions-piped-text">Section 7: How to Set Up Conditions</a>.</p>
 
 <div class="screenshot-wrap">
   <div class="screenshot-placeholder" id="screenshot-edit-question-text">
@@ -2227,7 +2228,7 @@ Strongly&lt;br&gt;agree</code>
   <li>Landing pages</li>
   <li>Instructions prior to a task</li>
   <li>Instructions / statements that don't vary across conditions</li>
-  <li>Debrief</li>
+  <li>Debrief page</li>
 </ul>
 
 
@@ -2237,7 +2238,7 @@ Strongly&lt;br&gt;agree</code>
 
 <p><span class="kw-type">Multiple Choice</span> questions are the most frequently used Question Type. Use them for any question where respondents select from a defined set of options.</p>
 
-<p>Below are the <strong>Key Settings</strong> for <span class="kw-type">Multiple Choice</span> questions, which can be found in the <span class="kw-ui">Builder Panel</span>.</p>
+<p>Below are the <strong>Key Settings</strong> for <span class="kw-type">Multiple Choice</span> questions, which can be found in the <span class="kw-sub-menu">Builder Panel</span>.</p>
 
 <div class="flexDiv">
   <img src="https://i.imgur.com/eUfc72f.png" alt="Multiple Choice Question Builder Panel">
@@ -2318,9 +2319,9 @@ Strongly&lt;br&gt;agree</code>
   </span>
 </p>
       
-<p>If you deviate from these settings, the JavaScript and CSS offered in this guide <strong><em>probably won't work</em></strong>.</p>
+<p>If you deviate from these settings, the JavaScript and CSS offered in this guide <strong><em>probably won't work</em></strong> — I have <em>not</em> tested it.</p>
 
-<p>The CSS I created preserves the whitespace in your Scale Point labels. So, you should add <strong>(br)eak</strong> element (<code>&lt;br&gt;</code>) in between words like this: <code>Strongly&lt;br&gt;agree</code>, so that the label with appear on two lines, as expected.</p>
+<p>The CSS I created preserves the whitespace in your Scale Point labels, meaning that it won't force your words to wrap if there's not enough space. I did this to remove the ambiguity: no more worrying about whether Qualtrics is going to force some of your labels onto two lines and not others — you will have complete control over this. Labels will only be on two lines if you add a <strong>(br)eak</strong> element (<code>&lt;br&gt;</code>) in between words like this: <code>Strongly&lt;br&gt;agree</code>. It's <em>slightly</em> more effort but worth it for the increased control.</p>
 
 <p>Your questions (called statements in the <span class="kw-sub-menu">Builder</span>) will appear as <em>rows</em>, while the response options (called scale points in the <span class="kw-sub-menu">Builder</span>) will be the <em>columns</em>.</p>
 
@@ -2393,7 +2394,7 @@ Strongly&lt;br&gt;agree</code>
 <p>This way you can utilize two different styles of Text Entry Questions without much fuss:</p>
 
 <ol class="ul-indent no-gap">
-  <li>Use <span class="kw-type">Single Line</span> for numeric responses or short responses that you want to appear inline</li>
+  <li>Use <span class="kw-type">Single Line</span> for numeric responses (ideal for inline text boxes)</li>
   <li>Use <span class="kw-type">Multiple Lines</span> for short text-based responses</li>
 </ol>
 
@@ -2411,7 +2412,7 @@ Strongly&lt;br&gt;agree</code>
     <span class="callout-icon">✅</span><span class="callout-label" style="color:var(--bp-icon)"><span class="label-keyword">Best Practice</span></span>
   </div>
   <div class="callout-body">
-    <p>Consider writing your question so that the textbox is embedded within the question text itself (e.g., "I would estimate the value is ____"), rather than as a separate field below the question. This feels more natural for respondents and can improve data quality, though it does require a small amount of additional setup. See <a href="#js-insert-text-te">Section 6: JavaScript - Insert Text</a> for details.</p>
+    <p>Consider writing your question so that the textbox is embedded within the question text itself (e.g., "I would estimate the value is ____"), rather than as a separate field below the question. This feels more natural for respondents and can improve data quality, though it does require a small amount of additional setup. See <a href="#js-insert-text-te">Section 5: JavaScript - Insert Text</a> for details.</p>
    
     <div class="screenshot-wrap">
       <div class="screenshot-placeholder" id="screenshot-text-entry-inline">
@@ -2439,11 +2440,17 @@ Strongly&lt;br&gt;agree</code>
     <span class="callout-icon">🛑</span><span class="callout-label" style="color:var(--warn-icon)"><span class="label-keyword">Warning</span></span>
   </div>
   <div class="callout-body">
-          <p>Qualtrics changed this Question Type in their New Survey Design (one of the few downsides of the New Design), so the label is <em>above</em> the textbox instead of in front and there's no built-in way to override this. It's very easy to fix with CSS though — see <a href="#css-form-fields">Section 5: CSS - Form Fields</a> for specifics.</p>
+          <p>Qualtrics changed this Question Type in their New Survey Design (one of the few downsides of the New Design), so the label is <em>above</em> the textbox instead of in front and there's no built-in way to override this. It's very easy to fix with CSS though — see <a href="#css-form-fields">Section 4: CSS - Form Fields</a> for specifics.</p>
       
       <p>You will need to adjust Form Field Questions <em>individually</em>, but you only need to change a <em><strong>single</strong></em> number: the width of the label. This will line the boxes up vertically.</p>
       
       <p>If you're <em>really</em>, <em>really</em> against using CSS or JavaScript, you can stick some non-breaking spaces (<code>&amp;nbsp;</code>) in the label to get them to line up.</p>
+      
+<div class="img-container-wrap">
+  <img src="https://i.imgur.com/TOHPDcF.png" alt="Using nbsps to align labels for a Form Field Question.">
+</div>
+      
+     
 
   </div>
 </div>      
@@ -2474,16 +2481,870 @@ Strongly&lt;br&gt;agree</code>
 <h5>Metadata</h5>
 <p>The Metadata Question Type records some basic information from your respondents, such as their browser, screen size, etc. I always include a <span class="kw-concept">Question</span> of this type in the demographics section just in case.</p>
 
+ </section>
 
-<hr class="section-divider" id="question-options" />
+<!-- ── Section 4: Custom CSS ── -->
+<section class="section" id="custom-css">
+<div class="section-label">Section 4</div>
+<h2>Custom CSS</h2>
+
+<p><span class="kw-ui">Toolbar</span> → <span class="kw-ui">Look and Feel</span> → <span class="kw-ui">Style</span> → <span class="kw-ui">Custom CSS</span> → <span class="kw-ui">edit</span> (to expand the CSS Editor)</p>
+
+<p>CSS controls the visual appearance of your survey, including fonts, spacing, button styles, etc.</p>
+
+<p>When it comes to changing the appearance of <span class="kw-concept">Questions</span>, anything you can do with CSS can also be done with JavaScript. The choice will depend on your personal preference, comfort level, and which you find easier to implement for your specific survey — if you have many <span class="kw-concept">Questions</span> that you want to apply the same CSS ruleset to, you might find it easier to use CSS than to put the same JavaScript into each one. It's totally up to you!</p>
+
+<p>Below are the cases where additional CSS code is <em><strong>needed</strong></em>, beyond what already comes with the Survey Template.</p>
+
+<ul class="ul-indent no-gap">
+  <li>Matrix Table Questions</li>
+  <li>Matrix Table Questions with less than 3 statements</li>
+  <li>Matrix Table Questions with less than 3 scale points</li>
+  <li>Form Field Questions</li>
+</ul>
+
+<hr class="section-divider" id="css-basics" />
+<h3>CSS Basics</h3>
+
+<p>This is <em>not</em> intended to be a tutorial in CSS. Rather, this section is just to introduce you to the terminology so you can understand this section.</p>
+
+<h4>Format</h4>
+
+<p>CSS rulesets are formatted like this:</p>
+
+<div class="code-snippet">
+<code class="language-css">selector_1, selector_2, ... selector_n {
+  property: value;
+  property_2: value_2;
+  ...
+  property_n: value_n;
+}</code>
+</div>
+
+<h4>Whitespace</h4>
+
+<p>Whitespace in the <span class="kw-data">selector</span> is <em><strong>important</strong></em>!</p>
+
+<div class="code-snippet-comp">
+<code class="language-css">.question.question-content {
+  color: blue;
+}</code>
+<span>≠</span>
+<code class="language-css">.question .question-content {
+  color: blue;
+}</code>
+</div>
+
+<p>So, don't add or remove spaces unless you know what you are doing!</p>
+
+<h4>!important</h4>
+
+<p>If you find something isn't working, try adding <code> !important</code> to the value of the property, just before the semi-colon, like this:
+
+<p><code>color: #232323;</code> → <code>color: #232323 !important;</code></p>
+
+<p>If there are multiple rulesets affecting the appearance of an element, the <code> !important</code> says that <em>this</em> value takes precedence.</p>
+
+<hr class="section-divider" id="css-target" />
+
+<h3>How to Apply only to a Specific Question</h3>
+
+<p>In general, these CSS rulesets are intended to apply to <em>every</em> applicable element. So, if you define a ruleset for a specific Question Type, then it'll apply to <em>every</em> <span class="kw-concept">Question</span> of that type.</p>
+
+<p>However, you can also apply rulesets only to specific questions. You can do that with JavaScript (more on this in <a href="#js-add-css">Section 5: JavaScript - Adding CSS</a>) or by using a <span class="kw-concept">Question</span>'s <span class="kw-data">internal Qualtrics ID</span> and CSS.</p>
+
+<p>Finding out the <span class="kw-data">internal ID</span> of a <span class="kw-concept">Question</span> is super easy! In the <span class="kw-sub-menu">Builder Toolbar</span>:</p>
+<p><span class="kw-ui">Tools</span> → <span class="kw-ui">Show internal IDs</span></p>
+
+<p>Yep, that's it! Now you'll see the internal ID right there in the <span class="kw-sub-menu">Builder</span>. It will always be of the form QID##.</p>
+
+<div class="img-container-wrap"><img src="https://i.imgur.com/DHSLGSA.png"></div>
+
+<p>Then, if you want a specific CSS ruleset to only target that question, all you have to do is add <code>#question-</code> followed by the unique ID (in the screenshot above, it's <code>QID18</code>) to the beginning of the line, like so:</p>
+
+<div class="code-snippet-comp">
+<code class="language-css">.question {
+  color: blue;
+}</code>
+<span>➔</span>
+<code class="language-css">#question-QID18.question {
+  color: blue;
+}</code>
+</div>
+
+<div class="callout note">
+  <div class="callout-header">
+    <span class="callout-icon">📝</span><span class="callout-label" style="color:var(--note-icon)"><span class="label-keyword">Note</span></span>
+  </div>
+  <div class="callout-body">
+    <p>I have written the CSS rulesets in this guide and the Survey Template specifically so this will work. That's why they all begin with <code>.question</code>. If you try to write your own code and find that it works by itself by doesn't work when you add the <span class="kw-data">internal ID</span>, trying putting a space between the <span class="kw-data">internal ID</span> and the beginning of your code.</p>
+  </div>
+</div>
+
+<hr class="section-divider" id="css-multi-target" />
+
+<h3>How to Apply to Multiple Specific Questions</h3>
+
+<p>You can also list multiple IDs together to apply the ruleset to multiple questions. Just put the <span class="kw-data">internal IDs</span> (each preceded by <code>#question-</code>) as a comma-separated list within the <code>:is()</code> selector, like so:</p>
+
+<div class="code-snippet">
+<code class="language-css">:is(#question-QID18, #question-QID3, #question-QID177).question {
+  color: blue;
+}</code>
+</div>
+
+
+<hr class="section-divider" id="css-exclude" />
+
+<h3>How to Apply to All <em>Except</em> Specific Question(s)</h3>
+
+<p>What if you want to apply the ruleset to all <em>but</em> a specific question or questions? You can do that, too! Just put the <span class="kw-data">internal IDs</span> as a comma-separated list within the <code>:not()</code> selector, like so:</p>
+
+<div class="code-snippet">
+<code class="language-css">:not(#question-QID18, #question-QID3, #question-QID177).question {
+  color: blue;
+}</code>
+</div>
+
+
+<hr class="section-divider" id="css-matrix-tables" />
+
+<h3>Matrix Tables Rulesets</h3>
+
+<p>For whatever reason Qualtrics still hasn't figured out the proper way to style Matrix Table questions.</p>
+
+
+<p>I <em><strong>strongly</strong></em> urge you to use my custom CSS if you use Matrix Table Questions.</p>
+
+<p>Some things to note:</p>
+
+<ol class="ul-inline">
+  
+  <li>If your Matrix Table has <em>less than 3</em> statements, you probably <em>shoudn't</em> shade every other row
+    <ul>
+      <li>If you <em>only</em> have Matrix Table Questions with less than 3 statements, just remove this code from the <span class="kw-sub-menu">Look and Feel</span> CSS:
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code class="language-css">.question.matrix.table .matrix-content > :where(.matrix-row:nth-child(odd)) :is(.matrix-statement-header, .statement-wrapper) {
+  background: color-mix(in srgb, #eaeaea 50%, transparent);
+}</code>
+</div>
+      </li>
+      <li>If you have a mixture, then you should make sure the above rule only applies to the Questions with 3+ statements, using the <code>:is()</code> or <code>:not()</code> selectors described earlier (or you can use JavaScript instead)</li>
+    </ul>
+  </li>
+  
+  <li>If your Matrix Table has <em>less than 3</em> scale points (e.g., Yes / No), you probably <em>shoudn't</em> shade every other row on the <em>mobile</em> view (because Matrix Tables turn into MC Questions for mobile)
+    <ul>
+      <li>If you <em>only</em> have Matrix Table Questions with less than 3 scale points, just remove this code from the <span class="kw-sub-menu">Look and Feel</span> CSS:
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code class="language-css">.question.matrix.table .matrix-accordion .foldout-items .likert-input:nth-child(odd):not(:hover) {
+  background: color-mix(in srgb, #eaeaea 50%, transparent);
+}</code>
+</div>
+  </li>
+    <li>If you have a mixture, then you should make sure the above rule only applies to the Questions with 3+ scale points, using the <code>:is()</code> or <code>:not()</code> selectors described earlier (or you can use JavaScript instead)</li>
+    </ul>  
+  </li>
+ 
+</ol>
+
+<p>Now, the most annoying part about Matrix Tables — they need <em>individual</em> adjusting. The exact values will depend on:
+</p>
+
+<ul class="ul-indent">
+  <li>The length of your statements</li>
+  <li>The number of response options</li>
+</ul>
+
+<p>This is the what I used for the Paranormal Beliefs scale in the Survey Template:</p>
+
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code class="language-css">#question-QID18 .matrix-content {
+  grid-template-columns: minmax(6.25rem, 55%) 1fr !important;
+  max-width: 900px !important;
+}</code>
+</div>
+
+<p>Basically, you want to adjust the <span class="kw-data">max-width</span> property to make the entire table bigger or smaller and the <span class="kw-data">grid-template-columns</span> to adjust the ratio of space the statements and radio buttons take up.</p>
+
+<p>The <span class="kw-data">grid-template-columns</span> is:
+<ol class="ul-indent no-gap">
+  <li>What % of the width do you want the statements to take up?</li>
+  <li>What % of the width do you want the radio buttons to take up?</li>
+</ol></p>
+
+<p>They decided, from some reason, to use this:</p>
+
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code class="language-css">.matrix-content {
+  grid-template-columns: minmax(6.25rem, 23%) 1fr;
+}</code>
+</div>
+
+<p>Which says:</p>
+
+<ol class="ul-indent no-gap">
+  <li>The statements should take up between a minimum of 6.25rem and a <em>maximum</em> of 23% of the width of the table</li>
+  <li>The scale points should take up the rest of the width (that's what <code>1fr</code> means)</li>
+</ol>
+
+<p>23% for the statements is ridiculous, so it's the 23% that we want to change.</p>
+
+<p>Just play around with the numbers until it looks nice. Some more examples are provided below.</p>
+
+<div class="carousel-wrap">
+  <div class="carousel" id="carousel-matrix-table-examples">
+    <div class="carousel-track">
+
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/nwdCr95.png" alt="Moral Reasoning Item with default styling." />
+        <div class="slide-caption">Moral Reasoning Item with default styling</div>
+      </div>
+
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/klC4KB4.png" alt="Moral Reasoning Item with custom styling." />
+        <div class="slide-caption">Moral Reasoning Item with custom styling, specifically:<br>
+        grid-template-columns: minmax(6.25rem, 75%) 1fr<br>
+        max-width: 820px</div>
+      </div>
       
-<h4>Question Options</h4>
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/NkB52zP.png" alt="Paranormal Beliefs Scale with custom styling." />
+        <div class="slide-caption">Paranormal Beliefs Scale with custom styling, specifically:<br>
+         grid-template-columns: minmax(6.25rem, 55%) 1fr<br>
+         max-width: 900px</div>
+      </div>
+
+    </div>
+
+    <button class="carousel-btn prev" onclick="carouselMove('carousel-matrix-table-examples', -1)">‹</button>
+    <button class="carousel-btn next" onclick="carouselMove('carousel-matrix-table-examples', 1)">›</button>
+    <button class="carousel-expand" onclick="openCarouselLightbox('carousel-matrix-table-examples')">⤢</button>
+  </div>
+
+  <div class="carousel-dots" id="carousel-matrix-table-examples-dots"></div>
+</div>
+
+
+<hr class="section-divider" id="css-form-fields" />
+<h3>Form Fields</h3>
+
+<p>One of the <em>few</em> things about Qualtrics' New Design that I don't like is what they did to Form Field questions. However, it's easy enough to fix with CSS.</p>
+
+
+<p>If you are using these for numeric responses, you can make the textboxes identical to the text entry ones. Just put this in the custom CSS in <span class="kw-sub-menu">Look and Feel</span>.</p>
+
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code class="language-css">.question.form .text-input {
+	text-align: right;
+	width: 55px !important;
+	padding: 5px !important;
+	vertical-align: middle !important;
+}</code>
+</div>
+
+<p>The last thing that needs fixing is just to adjust the width of the labels so the textboxes line up. You can either do this here, using the <code>:is()</code> selector or use JavaScript on the particular question (or by using spaces ( <code>&amp;nbsp;</code> ) in the label text). Just fiddle with the width until it looks right.</p>
+
+<p>This is what I used for the Ice Cream Question in the Survey Template:</p>
+
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code class="language-css">#question-QID26.question.form .choice-label label {
+  width: 120px;
+}</code>
+</div>
+
+
+<div class="screenshot-wrap">
+  <div class="screenshot-placeholder" id="screenshot-form-field-labels">
+   <img src="https://i.imgur.com/avnXySx.png" alt="Aligning the textboxes for Form Field Questions." />
+    <span>Screenshot: Aligning the textboxes for Form Field Questions.</span>
+  </div>
+</div>
+
+</section>
+
+<!-- ── Section 5: JavaScript ── -->
+<section class="section" id="javascript">
+<div class="section-label">Section 5</div>
+<h2>JavaScript</h2>
+
+<p>JavaScript can be used to style <span class="kw-concept">Questions</span> using CSS or for more functional things, like auto-advancing the page, inserting new HTML elements (i.e., text), etc.</p>
+
+<p>Although Qualtrics does provide a <a href="https://api.qualtrics.com/82bd4d5c331f1-qualtrics-java-script-question-api-class" target="_blank">Guide</a> it is, quite frankly, terrible. Even I get confused trying to read it.</p>
+
+<hr class="section-divider" id="js-timing-functions" />
+
+<h3>Onload, OnReady, OnUnload</h3>
+
+<p><span class="kw-ui">Builder Panel</span> → <span class="kw-ui">Question behavior</span> → <span class="kw-ui">JavaScript</span> (alll the way at the bottom)</p>
+
+<p>If you already have JavaScript on the <span class="kw-concept">Question</span>, you'll see a little <img  style="margin-bottom:-5px;" src="https://i.imgur.com/RkEUchq.png"> in the top-right corner. You can also click on this to open the JavaScript Editor.</p>
+
+<p>The first thing to note is what you see when you open the JavaScript Editor for a <span class="kw-concept">Question</span>:</p>
+
+<div class="screenshot-wrap">
+  <div class="screenshot-placeholder" id="screenshot-javascript-editor">
+   <img src="https://i.imgur.com/P5xJzqv.pngg" alt="JavaScript Editor" />
+    <span>Screenshot: JavaScript Editor</span>
+  </div>
+  <button class="screenshot-expand" onclick="openLightbox(this.previousElementSibling.id)">⤢</button>
+</div>
+
+  
+<p>You'll see 3 <code>functions</code> already inside:</p>
+
+<ol class="ul-indent">
+  <li><span class="kw-data">addOnload</span></li>
+  <li><span class="kw-data">addOnReady</span></li>
+  <li><span class="kw-data">addUnload</span></li>
+</ol>
+  
+<p>Each of these <code>functions</code> executes its code (what's written between the curly braces <code>{}</code>) at specific points in time. So, it's <em><strong>imperative</strong></em> that you put your code in the right one, otherwise it won't execute when it's supposed to or it may not even work at all.</p>
+
+<p>Pay attention to these functions — you should <strong>not</strong> have multiple lines that say:</p>
+
+<p><code>Qualtrics.SurveyEngine.addOnload(function()</code></p>
+
+<p>Instead, put all code that should be in the <span class="kw-data">addOnload</span> function within the curly braces <code>{}</code> for that function.</p>
+
+<p>It's fine to <em>delete</em> any function you aren't using or you can leave them — whatever you prefer. I always leave them in case I want to add more code later. But don't fret if you accidentally delete one.</p>
+
+<p>There is also the <span class="kw-data">addOnPageSubmit</span> function, which is not included by default.</p>
+
+
+<hr class="section-divider" id="js-insert-text" />
+
+<h3>Add Text Before/After Text Boxes</h3>
+
+<p>This section will provide the JavaScript for inserting text around textboxes. Just make sure you use the correct code for your Question Type.</p>
+
+<p>Inclined individuals will note that all we're doing is creating HTML objects and inserting them into the page with JavaScript.</p>
+
+<div class="img-container-wrap"><img src="https://i.imgur.com/DNhwpUm.png"></div>
+
+<div class="callout note">
+  <div class="callout-header">
+    <span class="callout-icon">📝</span><span class="callout-label" style="color:var(--note-icon)"><span class="label-keyword">Note</span></span>
+  </div>
+      <div class="callout-body">
+        
+        <p>In the <span class="kw-ui">Builder</span>, you will not be able to see the text you inserted with JavaScript. You may find this annoying and it may also confuse your collaborators.</p>
+        
+        <p>This is one reason why naming your <span class="kw-concept">Block</span> and your <span class="kw-concept">Question</span> is so important — because if the <em>entire</em> question text is inserted with JavaScript, it will look blank in the <span class="kw-ui">Builder</span>.</p>
+  
+  <p>However, you can easily see the text by previewing the <span class="kw-concept">Question</span> or the <span class="kw-concept">Block</span>. See the screenshots below.</p>
+  
+  <div class="carousel-wrap">
+  <div class="carousel" id="carousel-text-entry-javascript">
+    <div class="carousel-track">
+
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/IgTCnt3.png" alt="View of the Builder for a Text Entry Question with text inserted with JavaScript" />
+        <div class="slide-caption">View of the Builder for a Text Entry Question with text inserted with JavaScript</div>
+      </div>
+
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/Czo0yAL.png" alt="Preview of a Text Entry Question with text inserted with JavaScript" />
+        <div class="slide-caption">Preview of a Text Entry Question with text inserted with JavaScript</div>
+      </div>
+
+    </div>
+
+    <button class="carousel-btn prev" onclick="carouselMove(this.parentElement.id, -1)">‹</button>
+    <button class="carousel-btn next" onclick="carouselMove(this.parentElement.id, 1)">›</button>
+    <button class="carousel-expand" onclick="openCarouselLightbox(this.parentElement.id)">⤢</button>
+  </div>
+
+  <div class="carousel-dots" id="carousel-text-entry-javascript-dots"></div>
+</div>
+  
+      </div>
+</div>
+    
+    
+<div class="callout best-practice">
+  <div class="callout-header">
+    <span class="callout-icon">✅</span><span class="callout-label" style="color:var(--bp-icon)"><span class="label-keyword">Best Practice</span></span>
+  </div>
+  <div class="callout-body">
+    <p>In your <span class="kw-data">Data File</span> the Question Text will be <strong>blank</strong> <em>unless</em> you add the text to your Question (like normal) and surround it with a <code>div</code> set to not be displayed in the <span class="kw-ui">HTML View</span>, like so:</p>
+    
+    <p><code>&lt;div style="display:none;"&gt;0.875 is the same as __ / 8&lt;/div&gt;</code></p>
+    
+    <p>This is really easy to do and I highly recommend it — this way you'll have a record of the question text in your <span class="kw-data">Data File</span>.</p>
+    
+    <div class="screenshot-wrap">
+      <div class="screenshot-placeholder" id="screenshot-text-entry-html">
+        <img src="https://i.imgur.com/LMUBA5y.png" alt="HTML View of a Text Entry Question, with Question Text in a div which won't be displayed to participants." />
+        <span>HTML View of a Text Entry Question, with Question Text in a div which won't be displayed to participants.</span>
+      </div>
+      <button class="screenshot-expand" onclick="openLightbox(this.previousElementSibling.id)">⤢</button>
+    </div>
+  </div>
+</div>
+
+
+<hr class="section-divider" id="js-insert-text-te" />
+
+<h4>Text Entry Questions</h4>
+
+<p>Add this JavaScript to the <span class="kw-data">addOnload</span> function of <em>each</em> question you want to add text to.</p>
+
+<p>Note that this assumes you have the custom CSS in the above section. If you don't, see the next code block.</p>
+
+<p>You only need to change (at most) the first two lines (that start with <code>var</code>).</p>
+
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code>// whitespace will be preserved, so if you need to, 
+// you can add spaces to adjust the space between the label and the textbox
+// Insert your text between the quotation marks "" in the 2 lines below:
+var beforeText = "";
+var afterText = "";
+
+var input = this.getQuestionContainer().querySelector(".text-input");
+	
+if (beforeText) {
+	var beforeSpan = document.createElement("SPAN");
+	beforeSpan.innerText = beforeText;
+	beforeSpan.classList.add("spanBefore");
+	input.parentElement.insertBefore(beforeSpan, input);
+}
+
+if (afterText) {
+	var afterSpan = document.createElement("SPAN");
+	afterSpan.innerText = afterText;
+	afterSpan.classList.add("spanAfter");
+	input.after(afterSpan);
+}</code>
+</div>
+
+<p>For the example above, this is what I used (note the space at the end of <code>beforeText</code> and the beginning of <code>afterText</code>):</p>
+
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code>var beforeText = "0.875 is the same as ";
+var afterText = " / 8";
+</code>
+</div>
+
+<p>If you don't have the accompanying CSS (specifically, the <code>.beforeSpan</code> and <code>.afterSpan</code> rulesets) use this:</p>
+
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code>// whitespace will be preserved, so if you need to, 
+// you can add spaces to adjust the space between the label and the textbox
+// Insert your text between the quotation marks "" in the 2 lines below:
+var beforeText = "";
+var afterText = "";
+
+var input = this.getQuestionContainer().querySelector(".text-input");
+	
+if (beforeText) {
+	var beforeSpan = document.createElement("SPAN");
+	beforeSpan.innerText = beforeText;
+	beforeSpan.style.whiteSpace = "pre";
+	beforeSpan.style.verticalAlign = "middle";
+	beforeSpan.style.marginRight = "6px";
+	input.parentElement.insertBefore(beforeSpan, input);
+}
+
+if (afterText) {
+	var afterSpan = document.createElement("SPAN");
+	afterSpan.innerText = afterText;
+	afterSpan.style.whiteSpace = "pre";
+	afterSpan.style.verticalAlign = "middle";
+	afterSpan.style.marginLeft = "6px";
+	input.after(afterSpan);
+}</code>
+</div>
+
+<hr class="section-divider" id="js-insert-text-ff" />
+<h4>Form Field Questions</h4>
+
+<div class="screenshot-wrap">
+  <div class="screenshot-placeholder" id="screenshot-ff-preview">
+    <img src="https://i.imgur.com/5FTVsML.png" alt="Example of a Form Field Question with text inserted with JavaScript" />
+   <span>Preview of a Form Field Question with text inserted with JavaScript</span>
+  </div>
+</div>
+
+<p>Add this JavaScript to the <span class="kw-data">addOnload</span> function of <em>each</em> question you want to add text to.</p>
+
+<p>Since Form Fields already have a label, this is only if you want text <em>after</em> the textbox.</p>
+
+<p>This will assume you want the <em>same</em> text after each textbox in a Form Field question. This seems like the most likely use case, but I may add a more general version later/on request.</p>
+
+<p>Note that this assumes you have the CSS ruleset in the above section. If you don't, see the next code block.</p>
+
+<p>You only need to change the <code>var afterText = "";</code> line.</p>
+
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code>// whitespace will be preserved, so if you need to, 
+// you can add spaces to adjust the space between the label and the textbox
+// insert your text between the quotation marks "" in the line below:
+var afterText = "";
+
+var ul = this.getQuestionContainer().querySelector("ul.choices");
+
+Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
+	var afterSpan = document.createElement("SPAN");
+	afterSpan.innerText = afterText;
+	afterSpan.classList.add("spanAfter");
+	input.after(afterSpan);
+});</code>
+</div>
+
+<p>If you don't have the accompanying CSS (specifically, <code>.afterSpan</code> ruleset) use this:</p>
+
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code>// whitespace will be preserved, so if you need to, 
+// you can add spaces to adjust the space between the label and the textbox
+// insert your text between the quotation marks "" in the line below:
+var afterText = "";
+
+var ul = this.getQuestionContainer().querySelector("ul.choices");
+
+Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
+	var afterSpan = document.createElement("SPAN");
+	afterSpan.innerText = afterText;
+	afterSpan.style.whiteSpace = "pre";
+  afterSpan.style.verticalAlign = "middle";
+  afterSpan.style.marginRight = "6px";
+	input.after(afterSpan);
+});</code>
+</div>
+
+<hr class="section-divider" id="js-auto-focus" />
+
+<h3>Auto-Focus the Text Box</h3>
+
+<p>Add this JavaScript to the <span class="kw-data">addOnReady</span> function if you want the textbox to be auto-focused, so the respondent can start typing right away.</p>
+
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code>setTimeout(() => {
+  const input = this.getQuestionContainer().querySelector('.text-input');
+  if (input) input.focus();
+}, 0);</code>
+</div>
+
+<p>For a more generic function that will work on the <em>first</em> textbox element on the page (in case you have multiple questions and the items are randomized), add this to the <span class="kw-data">addOnReady</span> function of <em>one</em> question (not all of them!).</p>
+
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code>setTimeout(() => {
+  const input = document.querySelector('.question .text-input');
+  if (input) input.focus();
+}, 0);</code>
+</div>
+  
+  
+  
+<hr class="section-divider" id="js-auto-submit" />
+
+<h3>Auto-Submit</h3>
+
+<p>Use this code to auto-submit a page once a respondent has selected a response for each question.</p>
+  
+<div class="callout note">
+  <div class="callout-header">
+    <span class="callout-icon">📝</span><span class="callout-label" style="color:var(--note-icon)"><span class="label-keyword">Note</span></span>
+  </div>
+      <div class="callout-body">
+     <p>Although you <em>can</em> hide the "Next" button from participants, I would advise against it — it's best to have a fallback for if the auto-submit fails.</p></div>
+</div>
+
+<h4>One Question per Page</h4>
+
+<p>This code is for Multiple Choice / Matrix Table Questions with either Radio Buttons or Checkboxes, i.e., Single or Multiple Answer formats.</p>
+
+<p>Note that here, there is code in <span class="kw-data">addOnload</span> and <span class="kw-data">addOnUnload</span> and <span class="kw-data">top-level</span> code <em>outside</em> these functions. For that reason, I have wrapped the entire block in an IIFE (immediately invoked function expression). So, you need to copy & paste the <strong><em>entire</em></strong> block of code, overwriting the default function definitions in the JavaScript Editor. Note that you can add additional code to the functions like normal after you do this — the important part is having the whole block wrapped in <code class="language-javascript">(function() {  })();</code>.</p>
+  
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code>(function() {
+	// global variables
+	var container; // question container
+	var handleChange; // function to handle change event
+	
+	Qualtrics.SurveyEngine.addOnload(function()
+	{
+		/*Place your JavaScript here to run when the page loads*/
+	
+		container = document.querySelector(".questions-container");
+		
+		var choices = Array.from(container.querySelectorAll(".question:not(.hidden) :is(.choices, .matrix-row)"));
+	
+		// listens for radio buttons to be selected / checkboxes to be checked (i.e., "change" event)
+		// immediately submits the page if an option has been selected
+	
+		handleChange = () => {
+			if (choices.every(choice => choice.querySelector("span.selected"))) {
+				const btn = document.querySelector("#next-button");
+			  if (btn) btn.click();
+			}
+			
+		};
+		container.addEventListener("change", handleChange);
+		
+	});
+		
+		
+	Qualtrics.SurveyEngine.addOnReady(function()
+	{
+		/*Place your JavaScript here to run when the page is fully displayed*/
+		
+	});
+	
+	Qualtrics.SurveyEngine.addOnUnload(function()
+	{
+		/*Place your JavaScript here to run when the page is unloaded*/
+		// remove the listener
+		if (container && handleChange) {
+			container.removeEventListener("change", handleChange);
+		}
+	});
+})();
+</code>
+</div>
+
+<hr class="section-divider" id="js-auto-submit-multiple" />
+
+<h4>Multiple Questions per Page</h4>
+
+<p>It's the same code as above however: only put this code on <strong>ONE</strong> question on the page, not all of them!</p>
+
+<p>Also make sure that the page <em><strong>only</strong></em> has Multiple Choice, Matrix Table, and/or Text / Graphic Questions on it.</p>
+
+
+<div class="callout note">
+  <div class="callout-header"><span class="callout-icon">📝</span><span class="callout-label" style="color:var(--note-icon)"><span class="label-keyword">Note</span></span></div>
+  <div class="callout-body">
+    <p>Inclined individuals will note that I have set up auto-submit for the Demographics section in the Survey Template, even though there are Text Entry Questions <em>and</em> Dropdown format Multiple Choice Questions.</p>
+   
+   <p>In this case, I think it's fine because the questions are <em>not</em> randomized. The dropdowns also need <code>mutation observers</code> because standard <code>event listeners</code> cannot detect the selection (they aren't <em>real</em> dropdowns that would trigger a "change" event). That's why I'm omitting this from the guide — but those more familiar with JavaScript may wish to take a look.</p>
+   
+   <p>However, I would advise against this for your main questions.</p>
+  </div>
+</div>
+
+
+<hr class="section-divider" id="js-add-css" />
+<h3>Adding CSS</h3>
+
+<p>You can either do this with CSS in the custom CSS section of <span class="kw-sub-menu">Look and Feel</span> <em>OR</em> you can use JavaScript to apply a CSS ruleset to a <em>single</em> question.</p>
+
+<p>Recall that these are the cases where additional CSS code is needed, beyond what already comes with the Survey Template:</p>
+  
+<ul class="ul-indent no-gap">
+  <li>Matrix Table Questions</li>
+  <li>Matrix Table Questions with less than 3 statements</li>
+  <li>Matrix Table Questions with less than 3 scale points</li>
+  <li>Form Field Questions</li>
+</ul>
+
+<hr class="section-divider" id="js-add-css-basics" />
+<h4>Basics</h4>
+
+<p>If you know how to write CSS or have a CSS ruleset already written, then adding custom CSS to a <span class="kw-concept">Question</span> with JavaScript is a cinch.</p>
+
+<p>Say you have the following CSS ruleset:</p>
+
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code>#question-QID18 .matrix-content {
+	grid-template-columns: minmax(6.25rem, 55%) 1fr !important;
+	max-width: 900px !important;
+}</code>
+</div>
+
+
+<p>(Recall that this is what we used to adjust the Paranormal Beliefs scale in the CSS section.)</p>
+
+<p>Then, all we have to do is use JavaScript to create an HTML <code>style</code> element, put the CSS ruleset inside it, and append it to the page.</p>
+
+<p>Simply put this in the <span class="kw-data">addOnload</span> function:</p>
+
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code>var style = document.createElement("STYLE");
+style.innerHTML = `
+#question-` + this.questionId + ` .matrix-content {
+	grid-template-columns: minmax(6.25rem, 55%) 1fr !important;
+	max-width: 900px !important;
+}
+`
+this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
+</div>
+
+<p>For a more general form:</p>
+
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code>var style = document.createElement("STYLE");
+style.innerHTML = `
+#question-` + this.questionId + ` [REST OF SELECTORS] {
+	property: value;
+}
+`
+this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
+</div>
+
+<p>Then just change <code>[REST OF SELECTORS]</code> and add as many <code>property: value;</code> lines as needed / desired.</p>
+
+<p>Hopefully this helps explain why I said you can either use CSS or JavaScript — because it's basically the same thing!</p>
+
+<hr class="section-divider" id="js-add-css-matrix-table" />
+<h4>Matrix Tables</h4>
+
+<p>Add this to <span class="kw-data">addOnload</span> for <em>each</em> Matrix Table Question and fiddle with <code>900</code> and the <code>55%</code> in the code below until it looks right:</p>
+
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code>var style = document.createElement("STYLE");
+style.innerHTML = `
+#question-` + this.questionId + ` .matrix-content {
+	grid-template-columns: minmax(6.25rem, 55%) 1fr !important;
+	max-width: 900px !important;
+}
+`
+this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
+</div>
+
+<p>Recall that you can adjust the width of the table itself (the <code>max-width</code> property) and that the <code>grid-template-columns</code> property means:</p>
+<ol class="ul-indent no-gap">
+  <li>The % of the width you want the statements to take up</li>
+  <li>The % of the width you want the radio buttons to take up</li>
+</ol>
+
+<hr class="section-divider" id="js-add-css-form-field" />
+<h4>Form Fields</h4>
+
+<p>All you have to do for Form Fields is adjust the label width, making it the same so the textboxes line up.</p>
+
+<p>Add this to <span class="kw-data">addOnload</span> and fiddle with the <code>120</code> below until the text boxes line up:</p>
+
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code>var style = document.createElement("STYLE");
+style.innerHTML = `
+#question-` + this.questionId + ` .choice-label {
+	width: 120px !important;
+}
+`
+this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
+</div>
+
+<div class="screenshot-wrap">
+  <div class="screenshot-placeholder" id="screenshot-form-field-labels-rep">
+   <img src="https://i.imgur.com/avnXySx.png" alt="Aligning the textboxes for Form Field Questions." />
+    <span>Screenshot: Aligning the textboxes for Form Field Questions.</span>
+  </div>
+</div>
+
+
+<hr class="section-divider" id="js-two-part-qs" />
+
+<h4>Two-Part Questions</h4>
+
+<p>In my opinion, the best way to do a two-part question where the response to the previous question is "locked" in, is to <em>simulate</em> Display Logic.</p>
+
+<p>In other words, we're going to create two <em>separate</em> (but identical) <span class="kw-concept">Questions</span>. On the first page, they only see the first <span class="kw-concept">Question</span>. And on the second page, they see <em>both</em> <span class="kw-concept">Questions</span>.</p>
+
+<p>Then we can Carry Forward their response and add JavaScript to disable the <span class="kw-concept">Question</span>, so they can't change it.</p>
+
+<p>This makes sure:</p>
+
+<ul class="ul-indent no-gap">
+  <li>We don't somehow corrupt their previous answer</li>
+  <li>We don't lose the RT data for the first response</li>
+  <li>We have separate RT data for the second response</li>
+</ul>
+
+<h5>Text Entry Questions</h5>
+
+<p>This is <em>easiest</em> to do for Text Entry Questions.</p>
+
+<ol class="ul-inline no-gap">
+  <li>Fully configure the <span class="kw-concept">Block</span> for the first question</li>
+    <li>
+      <span class="kw-menu">Copy</span> the <span class="kw-concept">Block</span>
+      <ul class="gap-1" type="a">
+        <li>For the repeated first question, add their response to the <em>real</em> first question as a <span class="kw-menu">Default Choice</span>:<br>
+        Builder Panel ⟶  Question Behavior ⟶  Default choices ⟶  Survey Question ⟶  (select the question) ⟶  (select the option which shows the text of the question)</li>
+        <li>Add the following JavaScript to the <span class="kw-data">onLoad</span> function:
+<div class="code-snippet">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<code>var input = this.getQuestionContainer().querySelector(".text-input");
+input.disabled = true;
+input.style.webkitUserSelect = "none";
+input.style.msUserSelect = "none";
+input.style.mozUserSelect = "none";
+input.style.userSelect = "none";
+// optional - make it look locked in
+input.style.color = "grey";
+input.style.backgroundColor = "#e5e5e5";</code>
+</div>
+        </li>
+        <li>Add your follow-up question below</li>
+      </ul>
+    </li>
+    
+</ol>
+
+
+
+<div class="carousel-wrap">
+  <div class="carousel" id="carousel-two-part-locked-in-te">
+    <div class="carousel-track">
+
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/QBGVJQT.png" alt="View of the Builder for a Two-Part Text Entry Question" />
+        <div class="slide-caption">Screenshot: View of the Builder for a Two-Part Text Entry Question</div>
+      </div>
+
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/MttyNEy.png" alt="Default Choice Menu - Carry Forward Answer" />
+        <div class="slide-caption">Screenshot: Default Choice Menu — Carry Forward Answer</div>
+      </div>
+
+    </div>
+
+    <button class="carousel-btn prev" onclick="carouselMove(this.parentElement.id, -1)">‹</button>
+    <button class="carousel-btn next" onclick="carouselMove(this.parentElement.id, 1)">›</button>
+    <button class="carousel-expand" onclick="openCarouselLightbox(this.parentElement.id)">⤢</button>
+  </div>
+
+  <div class="carousel-dots" id="carousel-two-part-locked-in-te-dots"></div>
+</div>
+
+<h5>Multiple Choice Questions</h5>
+
+<p>(to do)</p>
+
+
+</section>
+
+<!-- ── Section 6: Question Options ── -->
+<section class="section" id="question-options">
+<div class="section-label">Section 6</div>
+<h2>Question Options</h2>
+    
 
 <p>The following settings are available on individual questions via the <span class="kw-sub-menu">Builder Panel</span> and can be applied to any Question Type where relevant.</p>
 
 <hr class="section-divider" id="response-requirements" />
 
-<h5>Response Requirements</h5>
+<h3>Response Requirements</h3>
 
 <p>You can put restrictions or conditions on participants' responses.</p>
 
@@ -2525,6 +3386,15 @@ Strongly&lt;br&gt;agree</code>
     
     <p>You can further restrict their responses by adding a Minimum / Maximum / Maximum decimals.</p>
     
+    <div class="img-container-wrap">
+      <div class="img-container">
+       <div><img src="https://i.imgur.com/L1sCMa4.png" alt="How to set up numeric response validation for Text Entry Questions" />
+                  Screenshot: Response requirements section of the Builder Panel<br>
+                  How to set up numeric response validation for Text Entry Questions.
+        </div>
+      </div>
+    </div>
+    
     <p><strong>Note</strong>: You <strong>must</strong> use Single Line Text Entry Questions for this option to appear.</p>
     
     <p>You <em>can</em> do this for Multile Lines / Essay Text Box type Text Entry Questions, but you'll have to use Custom Validation and "Matches Regex" (but you also have to know Regex).</p>
@@ -2535,14 +3405,27 @@ Strongly&lt;br&gt;agree</code>
     <code>/(^[0-9]+(,[0-9]+)*(\.[0-9]+)?$)|(^\.[0-9]+$)/</code><br>
     That should mimic the default Qualtrics number validation, but you could further restrict it to accept only valid comma usage, etc.</p>
     
-    <div class="img-container-wrap">
-      <div class="img-container">
-       <div><img src="https://i.imgur.com/L1sCMa4.png" alt="How to set up numeric response validation for Text Entry Questions" />
-                  Screenshot: Response requirements section of the Builder Panel<br>
-                  How to set up numeric response validation for Text Entry Questions.
-        </div>
-      </div>
-    </div>
+    <p>If you want to get <em>really</em> fancy (and you can use this instead of the built-in Qualtrics numeric response validation), you can use:</p>
+  
+    <p><code>/^((([1-9][0-9]{0,2}((,[0-9]{3})+)?)|0)(\.[0-9]+)?|\.[0-9]+)$/</code></p>
+    
+    <p>Which accepts properly formed non-negative numbers:</p>
+    
+    <p>
+    ✅  <code>0</code>, <code>5</code>, <code>123</code>, <code>9999</code>, <code>987654321</code><br>
+    ✅  <code>1,000</code>, <code>25,000</code>, <code>123,456,789</code><br>
+    ✅  <code>0.5</code>, <code>1.23</code>, <code>1000.555</code>, <code>1,000.555</code><br>
+    ✅  <code>.5</code>, <code>.123</code>
+    </p>
+    
+    <p>
+      ❌ <code>&nbsp;</code>, <code>.</code>, <code>0.</code>, <code>123.</code>, <code>4,5</code>, <code>1,23</code><br>
+      ❌ <code>00</code>, <code>01</code>, <code>0123</code><br>
+      ❌ <code>..5</code>, <code>1..2</code>, <code>.5.6</code><br>
+      ❌ <code>-1</code>, <code>-0.5</code><code>-.5</code>
+    </p>
+    
+
   </li>
       
       
@@ -2663,7 +3546,7 @@ Strongly&lt;br&gt;agree</code>
       
 <hr class="section-divider" id="question-behavior" />
 
-<h5>Question Behavior</h5>
+<h3>Question Behavior</h3>
       
 <p>There are several options in the <span class="kw-concept">Question Behavior</span> section of the Builder Panel.</p> Not all options will be available for all Question Types, but here's an overview:</p>
       
@@ -2715,7 +3598,7 @@ Strongly&lt;br&gt;agree</code>
 
 <hr class="section-divider" id="display-logic" />
 
-<h5>Display Logic</h5>
+<h3>Display Logic</h3>
 
 <p><span class="kw-concept">Display Logic</span> is a question-level option that lets you show or hide a question based on certain conditions — for example, a previous response.</p>
 
@@ -2736,7 +3619,7 @@ Strongly&lt;br&gt;agree</code>
  <input type="checkbox" checked> In page
 </div>
 
-<p>However, if you want to <em>lock in</em> their response to the first question, you have to do a little more work using JavaScript, see <a href="#js-two-part-qs">Section 6: JavaScript - Two-Part Question</a> for details.</p>
+<p>However, if you want to <em>lock in</em> their response to the first question, you have to do a little more work using JavaScript, see <a href="#js-two-part-qs">Section 5: JavaScript - Two-Part Question</a> for details.</p>
 
 
 <div class="carousel-wrap">
@@ -2770,7 +3653,7 @@ Strongly&lt;br&gt;agree</code>
 
 <hr class="section-divider" id="choice-randomization" />
 
-<h5>Choice Randomization</h5>
+<h3>Choice Randomization</h3>
 
 <p>Although I'm referring to this as "Choice Randomization" (because that's the most common), it might have a slightly different name depending on the Question Type. For example, it's called "Form field randomization" for Form Fields and "Scale point randomization" for Matrix Tables.</p>
  
@@ -2879,7 +3762,7 @@ Strongly&lt;br&gt;agree</code>
 
 <hr class="section-divider" id="recode-values" />
 
-<h5>Recode Values</h5>
+<h3>Recode Values</h3>
 
 <p>Qualtrics automatically sets the value of response options in your survey incrementally. This can make understanding your <span class="kw-data">Data File</span> difficult, especially if you "Publish" and then add more <span class="kw-concept">Questions</span>/Response Options to your survey.</p>
 
@@ -2916,7 +3799,7 @@ Strongly&lt;br&gt;agree</code>
 
 <p><span class="kw-concept">Question Export Tags</span> will be the column names in your <span class="kw-data">Data File</span> for each question in a Matrix Table.</p>
 
-<p>When you download your <span class="kw-data">Data File</span>, you will either download the responses as "Values" (the <span class="kw-concept">Recode Values</span>) or "Labels" (the full option text or the <span class="kw-concept">Variable Naming</span> if you have that set up) — which is why this step is important. This will be explained in more detail in <a href="#downloading-data">Section 9: Downloading Your Data</a>.</p>
+<p>When you download your <span class="kw-data">Data File</span>, you will either download the responses as "Values" (the <span class="kw-concept">Recode Values</span>) or "Labels" (the full option text or the <span class="kw-concept">Variable Naming</span> if you have that set up) — which is why this step is important. This will be explained in more detail in <a href="#downloading-data">Section 10: Downloading Your Data</a>.</p>
 
 <div class="carousel-wrap">
   <div class="carousel" id="carousel-recode-values">
@@ -2994,11 +3877,11 @@ Strongly&lt;br&gt;agree</code>
   </div>
 </div>
 
- </section>
- 
-<!-- ── Section 4: Survey Flow ── -->
+</section>
+
+<!-- ── Section 7: Survey Flow ── -->
 <section class="section" id="survey-flow">
-<div class="section-label">Section 4</div>
+<div class="section-label">Section 7</div>
 <h2>Survey Flow</h2>
 
 <p><span class="kw-ui">Toolbar</span> → <span class="kw-ui">Survey Flow</span> <img class="qIcon" src="https://i.imgur.com/oi5TSqo.png"></p> 
@@ -3057,7 +3940,7 @@ Strongly&lt;br&gt;agree</code>
   <div class="callout-body">
     <p>Depending on which Platform you use (e.g., MTurk, Prolific), you will want to include different Embedded Data fields to capture the participants' Platform ID and enable a smoother payment process.</p>
     <p>These Embedded Data elements should be placed at the <strong>top</strong> of your <span class="kw-sub-menu">Survey Flow</span>, before any blocks, so the value is recorded before the participant begins the survey.</p>
-    <p>This will be explained in more detail in <a href="#url-parameters">Section 4: Survey Flow - URL Parameters</a>.</p>
+    <p>This will be explained in more detail in <a href="#url-parameters">Section 7: Survey Flow - URL Parameters</a>.</p>
   </div>
 </div>
 
@@ -3142,7 +4025,7 @@ Strongly&lt;br&gt;agree</code>
     
     <p>The "Edit count" menu will appear once you check the <span class="kw-ui">Evenly Present Elements</span> option.</p>
     
-    <p>If you previewed your survey, the Randomizer will have already started counting those — resetting ensures the count starts fresh with real participants. This is easy to forget, so it is included in the Pre-Launch Checklist in <a href="#pre-launch-checklist">Section 8: Pre-Launch Checklist</a>.</p>
+    <p>If you previewed your survey, the Randomizer will have already started counting those — resetting ensures the count starts fresh with real participants. This is easy to forget, so it is included in the Pre-Launch Checklist in <a href="#pre-launch-checklist">Section 9: Pre-Launch Checklist</a>.</p>
       
     <div class="carousel-wrap">
       <div class="carousel" id="carousel-reset-count">
@@ -3453,7 +4336,7 @@ You will be redirected back to Prolific once you proceed to the next page.</code
 
 <p>This will allow you to refer to this value elsewhere, which is useful for more complicated surveys.</p>
 
-<p>This will create a "duplicate" column in your <span class="kw-data">Data File</span>. You can remove the less sensible one in your working file. One column will be the Embedded Data column and the other will be the randomized order of the Randomizer (which you will get if you download the randomized order, see <a href="#downloading-data">Section 9: Downloading Your Data</a> for more details.</p>
+<p>This will create a "duplicate" column in your <span class="kw-data">Data File</span>. You can remove the less sensible one in your working file. One column will be the Embedded Data column and the other will be the randomized order of the Randomizer (which you will get if you download the randomized order, see <a href="#downloading-data">Section 10: Downloading Your Data</a> for more details.</p>
 
 <p>In the screenshot above, this would be the column <span class="kw-data">FL_7_DO</span>, since <span class="kw-data">FL_7</span> is the Flow ID of the Randomizer and <span class="kw-data">DO</span> means Display Order. In this case, this column will contain the values: <span class="kw-data">FL_8, FL_9, FL_10</span>, which are the IDs for the Embedded Data elements for the conditions. You can verify that this column matches the one that was automatically generated for the <span class="kw-data">condition</span> Embedded Data element. Below is a screenshot of these columns in Excel.</p>
 <div class="img-container-wrap">
@@ -3490,7 +4373,7 @@ You will be redirected back to Prolific once you proceed to the next page.</code
   <button class="screenshot-expand" onclick="openLightbox(this.previousElementSibling.id)">⤢</button>
 </div>
 
-<p>If you don't want to fully randomize the order of items, but have specific orders that you want to randomly assign participants to see, you would create a condition Embedded Data element like above and use Branch Logic, which will be described in the next section — <a href="#order-conditions">Section 4: Survey Flow - Order Conditions</a>.</p>
+<p>If you don't want to fully randomize the order of items, but have specific orders that you want to randomly assign participants to see, you would create a condition Embedded Data element like above and use Branch Logic, which will be described in the next section — <a href="#order-conditions">Section 7: Survey Flow - Order Conditions</a>.</p>
 
 
 <hr class="section-divider" id="conditions" />
@@ -3981,917 +4864,10 @@ this.getQuestionTextContainer().innerText = "Do you like " + conditionText + "?"
 
 </section>
 
-
-<!-- ── Section 5: Survey Appearance ── -->
-<section class="section" id="custom-css">
-<div class="section-label">Section 5</div>
-<h2>Custom CSS</h2>
-
-<p><span class="kw-ui">Toolbar</span> → <span class="kw-ui">Look and Feel</span> → <span class="kw-ui">Style</span> → <span class="kw-ui">Custom CSS</span> → <span class="kw-ui">edit</span> (to expand the CSS Editor)</p>
-
-<p>CSS controls the visual appearance of your survey, including fonts, spacing, button styles, etc.</p>
-
-<p>When it comes to changing the appearance of <span class="kw-concept">Questions</span>, anything you can do with CSS can also be done with JavaScript. The choice will depend on your personal preference, comfort level, and which you find easier to implement for your specific survey — if you have many <span class="kw-concept">Questions</span> that you want to apply the same CSS ruleset to, you might find it easier to use CSS than put the JavaScript into each one. It's totally up to you!</p>
-
-<p>Below are the cases where additional CSS code is needed, beyond what already comes with the Survey Template.</p>
-
-<ul class="ul-indent no-gap">
-  <li>Matrix Table Questions</li>
-  <li>Matrix Table Questions with less than 3 statements</li>
-  <li>Matrix Table Questions with less than 3 scale points</li>
-  <li>Form Field Questions</li>
-</ul>
-
-<hr class="section-divider" id="css-basics" />
-<h3>CSS Basics</h3>
-
-<p>This is <em>not</em> intended to be a tutorial in CSS. Rather, this section is just to introduce you to the terminology so you can understand this section.</p>
-
-<h4>Format</h4>
-
-<p>CSS rulesets are formatted like this:</p>
-
-<div class="code-snippet">
-<code class="language-css">selector_1, selector_2, ... selector_n {
-  property: value;
-  property_2: value_2;
-  ...
-  property_n: value_n;
-}</code>
-</div>
-
-<h4>Whitespace</h4>
-
-<p>Whitespace in the <span class="kw-data">selector</span> is <em><strong>important</strong></em>!</p>
-
-<div class="code-snippet-comp">
-<code class="language-css">.question.question-content {
-  color: blue;
-}</code>
-<span>≠</span>
-<code class="language-css">.question .question-content {
-  color: blue;
-}</code>
-</div>
-
-<p>So, don't add or remove spaces unless you know what you are doing!</p>
-
-<h4>!important</h4>
-
-<p>If you find something isn't working, try adding <code> !important</code> to the value of the property, just before the semi-colon, like this:
-
-<p><code>color: #232323;</code> → <code>color: #232323 !important;</code></p>
-
-<p>If there are multiple rulesets affecting the appearance of an element, the <code> !important</code> says that <em>this</em> value takes precedence.</p>
-
-<hr class="section-divider" id="css-target" />
-
-<h3>How to Apply only to a Specific Question</h3>
-
-<p>In general, these CSS rulesets are intended to apply to <em>every</em> applicable element. So, if you define a ruleset for a specific Question Type, then it'll apply to <em>every</em> <span class="kw-concept">Question</span> of that type.</p>
-
-<p>However, you can also apply rulesets only to specific questions. You can do that with JavaScript (more on this in <a href="#js-add-css">Section 6: JavaScript - Adding CSS</a>) or by using a <span class="kw-concept">Question</span>'s <span class="kw-data">internal Qualtrics ID</span> and CSS.</p>
-
-<p>Finding out the <span class="kw-data">internal ID</span> of a <span class="kw-concept">Question</span> is super easy! In the <span class="kw-sub-menu">Builder Toolbar</span>:</p>
-<p><span class="kw-ui">Tools</span> → <span class="kw-ui">Show internal IDs</span></p>
-
-<p>Yep, that's it! Now you'll see the internal ID right there in the <span class="kw-sub-menu">Builder</span>. It will always be of the form QID##.</p>
-
-<div class="img-container-wrap"><img src="https://i.imgur.com/DHSLGSA.png"></div>
-
-<p>Then, if you want a specific CSS ruleset to only target that question, all you have to do is add <code>#question-</code> followed by the unique ID (in the screenshot above, it's <code>QID18</code>) to the beginning of the line, like so:</p>
-
-<div class="code-snippet-comp">
-<code class="language-css">.question {
-  color: blue;
-}</code>
-<span>➔</span>
-<code class="language-css">#question-QID18.question {
-  color: blue;
-}</code>
-</div>
-
-<div class="callout note">
-  <div class="callout-header">
-    <span class="callout-icon">📝</span><span class="callout-label" style="color:var(--note-icon)"><span class="label-keyword">Note</span></span>
-  </div>
-  <div class="callout-body">
-    <p>I have written the CSS rulesets in this guide and the Survey Template specifically so this will work. That's why they all begin with <code>.question</code>. If you try to write your own code and find that it works by itself by doesn't work when you add the <span class="kw-data">internal ID</span>, trying putting a space between the <span class="kw-data">internal ID</span> and the beginning of your code.</p>
-  </div>
-</div>
-
-<hr class="section-divider" id="css-multi-target" />
-
-<h3>How to Apply to Multiple Specific Questions</h3>
-
-<p>You can also list multiple IDs together to apply the ruleset to multiple questions. Just put the <span class="kw-data">internal IDs</span> (each preceded by <code>#question-</code>) as a comma-separated list within the <code>:is()</code> selector, like so:</p>
-
-<div class="code-snippet">
-<code class="language-css">:is(#question-QID18, #question-QID3, #question-QID177).question {
-  color: blue;
-}</code>
-</div>
-
-
-<hr class="section-divider" id="css-exclude" />
-
-<h3>How to Apply to All <em>Except</em> Specific Question(s)</h3>
-
-<p>What if you want to apply the ruleset to all <em>but</em> a specific question or questions? You can do that, too! Just put the <span class="kw-data">internal IDs</span> as a comma-separated list within the <code>:not()</code> selector, like so:</p>
-
-<div class="code-snippet">
-<code class="language-css">:not(#question-QID18, #question-QID3, #question-QID177).question {
-  color: blue;
-}</code>
-</div>
-
-
-<hr class="section-divider" id="css-matrix-tables" />
-
-<h3>Matrix Tables Rulesets</h3>
-
-<p>For whatever reason Qualtrics still hasn't figured out the proper way to style Matrix Table questions.</p>
-
-
-<p>I <em><strong>strongly</strong></em> urge you to use my custom CSS if you use Matrix Table Questions.</p>
-
-<p>Some things to note:</p>
-
-<ol class="ul-inline">
-  
-  <li>If your Matrix Table has <em>less than 3</em> statements, you probably <em>shoudn't</em> shade every other row
-    <ul>
-      <li>If you <em>only</em> have Matrix Table Questions with less than 3 statements, just remove this code from the <span class="kw-sub-menu">Look and Feel</span> CSS:
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code class="language-css">.question.matrix.table .matrix-content > :where(.matrix-row:nth-child(odd)) :is(.matrix-statement-header, .statement-wrapper) {
-  background: color-mix(in srgb, #eaeaea 50%, transparent);
-}</code>
-</div>
-      </li>
-      <li>If you have a mixture, then you should make sure the above rule only applies to the Questions with 3+ statements, using the <code>:is()</code> or <code>:not()</code> selectors described earlier</li>
-    </ul>
-  </li>
-  
-  <li>If your Matrix Table has <em>less than 3</em> scale points (e.g., Yes / No), you probably <em>shoudn't</em> shade every other row on the <em>mobile</em> view (because Matrix Tables turn into MC Questions for mobile)
-    <ul>
-      <li>If you <em>only</em> have Matrix Table Questions with less than 3 scale points, just remove this code from the <span class="kw-sub-menu">Look and Feel</span> CSS:
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code class="language-css">.question.matrix.table .matrix-accordion .foldout-items .likert-input:nth-child(odd):not(:hover) {
-  background: color-mix(in srgb, #eaeaea 50%, transparent);
-}</code>
-</div>
-  </li>
-    <li>If you have a mixture, then you should make sure the above rule only applies to the Questions with 3+ scale points, using the <code>:is()</code> or <code>:not()</code> selectors described earlier</li>
-    </ul>  
-  </li>
- 
-</ol>
-
-<p>Now, the most annoying part about Matrix Tables — they need <em>individual</em> adjusting. The exact values will depend on:
-</p>
-
-<ul class="ul-indent">
-  <li>The length of your statements</li>
-  <li>The number of response options</li>
-</ul>
-
-<p>This is the what I used for the Paranormal Beliefs scale in the Survey Template:</p>
-
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code class="language-css">#question-QID18 .matrix-content {
-  grid-template-columns: minmax(6.25rem, 55%) 1fr !important;
-  max-width: 900px !important;
-}</code>
-</div>
-
-<p>Basically, you want to adjust the <span class="kw-data">max-width</span> property to make the entire table bigger or smaller and the <span class="kw-data">grid-template-columns</span> to adjust the ratio of space the statements and radio buttons take up.</p>
-
-<p>The <span class="kw-data">grid-template-columns</span> is:
-<ol class="ul-indent no-gap">
-  <li>What % of the width do you want the statements to take up?</li>
-  <li>What % of the width do you want the radio buttons to take up?</li>
-</ol></p>
-
-<p>They decided, from some reason, to use this:</p>
-
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code class="language-css">.matrix-content {
-  grid-template-columns: minmax(6.25rem, 23%) 1fr;
-}</code>
-</div>
-
-<p>Which says:</p>
-
-<ol class="ul-indent no-gap">
-  <li>The statements should take up between a minimum of 6.25rem and a <em>maximum</em> of 23% of the width of the table</li>
-  <li>The scale points should take up the rest of the width (that's what <code>1fr</code> means)</li>
-</ol>
-
-<p>23% for the statements is ridiculous, so it's the 23% that we want to change.</p>
-
-<p>Just play around with the numbers until it looks nice. Some more examples are provided below.</p>
-
-<div class="carousel-wrap">
-  <div class="carousel" id="carousel-matrix-table-examples">
-    <div class="carousel-track">
-
-      <div class="carousel-slide">
-        <img src="https://i.imgur.com/nwdCr95.png" alt="Moral Reasoning Item with default styling." />
-        <div class="slide-caption">Moral Reasoning Item with default styling</div>
-      </div>
-
-      <div class="carousel-slide">
-        <img src="https://i.imgur.com/klC4KB4.png" alt="Moral Reasoning Item with custom styling." />
-        <div class="slide-caption">Moral Reasoning Item with custom styling, specifically:<br>
-        grid-template-columns: minmax(6.25rem, 75%) 1fr<br>
-        max-width: 820px</div>
-      </div>
-      
-      <div class="carousel-slide">
-        <img src="https://i.imgur.com/NkB52zP.png" alt="Paranormal Beliefs Scale with custom styling." />
-        <div class="slide-caption">Paranormal Beliefs Scale with custom styling, specifically:<br>
-         grid-template-columns: minmax(6.25rem, 55%) 1fr<br>
-         max-width: 900px</div>
-      </div>
-
-    </div>
-
-    <button class="carousel-btn prev" onclick="carouselMove('carousel-matrix-table-examples', -1)">‹</button>
-    <button class="carousel-btn next" onclick="carouselMove('carousel-matrix-table-examples', 1)">›</button>
-    <button class="carousel-expand" onclick="openCarouselLightbox('carousel-matrix-table-examples')">⤢</button>
-  </div>
-
-  <div class="carousel-dots" id="carousel-matrix-table-examples-dots"></div>
-</div>
-
-
-<hr class="section-divider" id="css-form-fields" />
-<h3>Form Fields</h3>
-
-<p>One of the <em>few</em> things about Qualtrics' New Design that I don't like is what they did to Form Field questions. However, it's easy enough to fix with CSS.</p>
-
-
-<p>If you are using these for numeric responses, you can make the textboxes identical to the text entry ones. Just put this in the custom CSS in <span class="kw-sub-menu">Look and Feel</span>.</p>
-
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code class="language-css">.question.form .text-input {
-	text-align: right !important;
-	width: 55px !important;
-	padding: 5px !important;
-	vertical-align: middle !important;
-}</code>
-</div>
-
-<p>The last thing that needs fixing is just to adjust the width of the labels so the textboxes line up. You can either do this here, using the <code>:is()</code> selector or use JavaScript on the particular question. Just fiddle with the width until it looks right.</p>
-
-<p>This is what I used for the Ice Cream Question in the Survey Template:</p>
-
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code class="language-css">#question-QID26.question.form .choice-label label {
-  width: 120px;
-}</code>
-</div>
-
-
-<div class="screenshot-wrap">
-  <div class="screenshot-placeholder" id="screenshot-form-field-labels">
-   <img src="https://i.imgur.com/avnXySx.png" alt="Aligning the textboxes for Form Field Questions." />
-    <span>Screenshot: Aligning the textboxes for Form Field Questions.</span>
-  </div>
-</div>
-
-</section>
-
-<!-- ── Section 6: JavaScript ── -->
-<section class="section" id="javascript">
-<div class="section-label">Section 6</div>
-<h2>JavaScript</h2>
-
-<p>JavaScript can be used to style <span class="kw-concept">Questions</span> using CSS or for more functional things, like auto-advancing the page, inserting new HTML elements (i.e., text), etc.</p>
-
-<p>Although Qualtrics does provide a <a href="https://api.qualtrics.com/82bd4d5c331f1-qualtrics-java-script-question-api-class" target="_blank">Guide</a> it is, quite frankly, terrible. Even I get confused trying to read it.</p>
-
-<hr class="section-divider" id="js-timing-functions" />
-
-<h3>Onload, OnReady, OnUnload</h3>
-
-<p><span class="kw-ui">Builder Panel</span> → <span class="kw-ui">Question behavior</span> → <span class="kw-ui">JavaScript</span> (alll the way at the bottom)</p>
-
-<p>If you already have JavaScript on the <span class="kw-concept">Question</span>, you'll see a little <img  style="margin-bottom:-5px;" src="https://i.imgur.com/RkEUchq.png"> in the top-right corner. You can also click on this to open the JavaScript Editor.</p>
-
-<p>The first thing to note is what you see when you open the JavaScript Editor for a <span class="kw-concept">Question</span>:</p>
-
-<div class="screenshot-wrap">
-  <div class="screenshot-placeholder" id="screenshot-javascript-editor">
-   <img src="https://i.imgur.com/P5xJzqv.pngg" alt="JavaScript Editor" />
-    <span>Screenshot: JavaScript Editor</span>
-  </div>
-  <button class="screenshot-expand" onclick="openLightbox(this.previousElementSibling.id)">⤢</button>
-</div>
-
-  
-<p>You'll see 3 <code>functions</code> already inside:</p>
-
-<ol class="ul-indent">
-  <li><span class="kw-data">addOnload</span></li>
-  <li><span class="kw-data">addOnReady</span></li>
-  <li><span class="kw-data">addUnload</span></li>
-</ol>
-  
-<p>Each of these <code>functions</code> executes its code (what's written between the curly braces <code>{}</code>) at specific points in time. So, it's <em><strong>imperative</strong></em> that you put your code in the right one, otherwise it won't execute when it's supposed to or it may not even work at all.</p>
-
-<p>Pay attention to these functions — you should <strong>not</strong> have multiple lines that say:</p>
-
-<p><code>Qualtrics.SurveyEngine.addOnload(function()</code></p>
-
-<p>Instead, put all code that should be in the <span class="kw-data">addOnload</span> function within the curly braces <code>{}</code> for that function.</p>
-
-<p>It's fine to <em>delete</em> any function you aren't using or you can leave them — whatever you prefer. I always leave them in case I want to add more code later. But don't fret if you accidentally delete one.</p>
-
-<p>There is also the <span class="kw-data">addOnPageSubmit</span> function, which is not included by default.</p>
-
-
-<hr class="section-divider" id="js-insert-text" />
-
-<h3>Add Text Before/After Text Boxes</h3>
-
-<p>This section will provide the JavaScript for inserting text around textboxes. Just make sure you use the correct code for your Question Type.</p>
-
-<p>Inclined individuals will note that all we're doing is creating HTML objects and inserting them into the page with JavaScript.</p>
-
-<div class="img-container-wrap"><img src="https://i.imgur.com/DNhwpUm.png"></div>
-
-<div class="callout note">
-  <div class="callout-header">
-    <span class="callout-icon">📝</span><span class="callout-label" style="color:var(--note-icon)"><span class="label-keyword">Note</span></span>
-  </div>
-      <div class="callout-body">
-        
-        <p>In the <span class="kw-ui">Builder</span>, you will not be able to see the text you inserted with JavaScript. You may find this annoying and it may also confuse your collaborators.</p>
-        
-        <p>This is one reason why naming your <span class="kw-concept">Block</span> and your <span class="kw-concept">Question</span> is so important — because if the <em>entire</em> question text is inserted with JavaScript, it will look blank in the <span class="kw-ui">Builder</span>.</p>
-  
-  <p>However, you can easily see the text by previewing the <span class="kw-concept">Question</span> or the <span class="kw-concept">Block</span>. See the screenshots below.</p>
-  
-  <div class="carousel-wrap">
-  <div class="carousel" id="carousel-text-entry-javascript">
-    <div class="carousel-track">
-
-      <div class="carousel-slide">
-        <img src="https://i.imgur.com/IgTCnt3.png" alt="View of the Builder for a Text Entry Question with text inserted with JavaScript" />
-        <div class="slide-caption">View of the Builder for a Text Entry Question with text inserted with JavaScript</div>
-      </div>
-
-      <div class="carousel-slide">
-        <img src="https://i.imgur.com/Czo0yAL.png" alt="Preview of a Text Entry Question with text inserted with JavaScript" />
-        <div class="slide-caption">Preview of a Text Entry Question with text inserted with JavaScript</div>
-      </div>
-
-    </div>
-
-    <button class="carousel-btn prev" onclick="carouselMove(this.parentElement.id, -1)">‹</button>
-    <button class="carousel-btn next" onclick="carouselMove(this.parentElement.id, 1)">›</button>
-    <button class="carousel-expand" onclick="openCarouselLightbox(this.parentElement.id)">⤢</button>
-  </div>
-
-  <div class="carousel-dots" id="carousel-text-entry-javascript-dots"></div>
-</div>
-  
-      </div>
-</div>
-    
-    
-<div class="callout best-practice">
-  <div class="callout-header">
-    <span class="callout-icon">✅</span><span class="callout-label" style="color:var(--bp-icon)"><span class="label-keyword">Best Practice</span></span>
-  </div>
-  <div class="callout-body">
-    <p>In your <span class="kw-data">Data File</span> the Question Text will be <strong>blank</strong> <em>unless</em> you add the text to your Question (like normal) and surround it with a <code>div</code> set to not be displayed in the <span class="kw-ui">HTML View</span>, like so:</p>
-    
-    <p><code>&lt;div style="display:none;"&gt;0.875 is the same as __ / 8&lt;/div&gt;</code></p>
-    
-    <p>This is really easy to do and I highly recommend it — this way you'll have a record of the question text in your <span class="kw-data">Data File</span>.</p>
-    
-    <div class="screenshot-wrap">
-      <div class="screenshot-placeholder" id="screenshot-text-entry-html">
-        <img src="https://i.imgur.com/LMUBA5y.png" alt="HTML View of a Text Entry Question, with Question Text in a div which won't be displayed to participants." />
-        <span>HTML View of a Text Entry Question, with Question Text in a div which won't be displayed to participants.</span>
-      </div>
-      <button class="screenshot-expand" onclick="openLightbox(this.previousElementSibling.id)">⤢</button>
-    </div>
-  </div>
-</div>
-
-
-<hr class="section-divider" id="js-insert-text-te" />
-
-<h4>Text Entry Questions</h4>
-
-<p>Add this JavaScript to the <span class="kw-data">addOnload</span> function of <em>each</em> question you want to add text to.</p>
-
-<p>Note that this assumes you have the custom CSS in the above section. If you don't, see the next code block.</p>
-
-<p>You only need to change (at most) the first two lines (that start with <code>var</code>).</p>
-
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code>// whitespace will be preserved, so if you need to, 
-// you can add spaces to adjust the space between the label and the textbox
-// Insert your text between the quotation marks "" in the 2 lines below:
-var beforeText = "";
-var afterText = "";
-
-var input = this.getQuestionContainer().querySelector(".text-input");
-	
-if (beforeText) {
-	var beforeSpan = document.createElement("SPAN");
-	beforeSpan.innerText = beforeText;
-	beforeSpan.classList.add("spanBefore");
-	input.parentElement.insertBefore(beforeSpan, input);
-}
-
-if (afterText) {
-	var afterSpan = document.createElement("SPAN");
-	afterSpan.innerText = afterText;
-	afterSpan.classList.add("spanAfter");
-	input.after(afterSpan);
-}</code>
-</div>
-
-<p>For the example above, this is what I used (note the space at the end of <code>beforeText</code> and the beginning of <code>afterText</code>):</p>
-
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code>var beforeText = "0.875 is the same as ";
-var afterText = " / 8";
-</code>
-</div>
-
-<p>If you don't have the accompanying CSS (specifically, the <code>.beforeSpan</code> and <code>.afterSpan</code> rulesets) use this:</p>
-
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code>// whitespace will be preserved, so if you need to, 
-// you can add spaces to adjust the space between the label and the textbox
-// Insert your text between the quotation marks "" in the 2 lines below:
-var beforeText = "";
-var afterText = "";
-
-var input = this.getQuestionContainer().querySelector(".text-input");
-	
-if (beforeText) {
-	var beforeSpan = document.createElement("SPAN");
-	beforeSpan.innerText = beforeText;
-	beforeSpan.style.whiteSpace = "pre";
-	beforeSpan.style.verticalAlign = "middle";
-	beforeSpan.style.marginRight = "6px";
-	input.parentElement.insertBefore(beforeSpan, input);
-}
-
-if (afterText) {
-	var afterSpan = document.createElement("SPAN");
-	afterSpan.innerText = afterText;
-	afterSpan.style.whiteSpace = "pre";
-	afterSpan.style.verticalAlign = "middle";
-	afterSpan.style.marginLeft = "6px";
-	input.after(afterSpan);
-}</code>
-</div>
-
-<hr class="section-divider" id="js-insert-text-ff" />
-<h4>Form Field Questions</h4>
-
-<div class="screenshot-wrap">
-  <div class="screenshot-placeholder" id="screenshot-ff-preview">
-    <img src="https://i.imgur.com/5FTVsML.png" alt="Example of a Form Field Question with text inserted with JavaScript" />
-   <span>Preview of a Form Field Question with text inserted with JavaScript</span>
-  </div>
-</div>
-
-<p>Add this JavaScript to the <span class="kw-data">addOnload</span> function of <em>each</em> question you want to add text to.</p>
-
-<p>Since Form Fields already have a label, this is only if you want text <em>after</em> the textbox.</p>
-
-<p>This will assume you want the <em>same</em> text after each textbox in a Form Field question. This seems like the most likely use case, but I may add a more general version later/on request.</p>
-
-<p>Note that this assumes you have the CSS ruleset in the above section. If you don't, see the next code block.</p>
-
-<p>You only need to change the <code>var afterText = "";</code> line.</p>
-
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code>// whitespace will be preserved, so if you need to, 
-// you can add spaces to adjust the space between the label and the textbox
-// insert your text between the quotation marks "" in the line below:
-var afterText = "";
-
-var ul = this.getQuestionContainer().querySelector("ul.choices");
-
-Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
-	var afterSpan = document.createElement("SPAN");
-	afterSpan.innerText = afterText;
-	afterSpan.classList.add("spanAfter");
-	input.after(afterSpan);
-});</code>
-</div>
-
-<p>If you don't have the accompanying CSS (specifically, <code>.afterSpan</code> ruleset) use this:</p>
-
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code>// whitespace will be preserved, so if you need to, 
-// you can add spaces to adjust the space between the label and the textbox
-// insert your text between the quotation marks "" in the line below:
-var afterText = "";
-
-var ul = this.getQuestionContainer().querySelector("ul.choices");
-
-Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
-	var afterSpan = document.createElement("SPAN");
-	afterSpan.innerText = afterText;
-	afterSpan.style.whiteSpace = "pre";
-  afterSpan.style.verticalAlign = "middle";
-  afterSpan.style.marginRight = "6px";
-	input.after(afterSpan);
-});</code>
-</div>
-
-<hr class="section-divider" id="js-auto-focus" />
-
-<h3>Auto-Focus the Text Box</h3>
-
-<p>Add this JavaScript to the <span class="kw-data">addOnReady</span> function if you want the textbox to be auto-focused, so the respondent can start typing right away.</p>
-
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code>setTimeout(() => {
-  const input = this.getQuestionContainer().querySelector('.text-input');
-  if (input) input.focus();
-}, 0);</code>
-</div>
-
-<p>For a more generic function that will work on the <em>first</em> textbox element on the page (in case you have multiple questions and the items are randomized), add this to the <span class="kw-data">addOnReady</span> function of <em>one</em> question (not all of them!).</p>
-
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code>setTimeout(() => {
-  const input = document.querySelector('.question .text-input');
-  if (input) input.focus();
-}, 0);</code>
-</div>
-  
-  
-  
-<hr class="section-divider" id="js-auto-submit" />
-
-<h3>Auto-Submit</h3>
-
-<p>Use this code to auto-submit a page once a respondent has selected a response for each question.</p>
-  
-<div class="callout note">
-  <div class="callout-header">
-    <span class="callout-icon">📝</span><span class="callout-label" style="color:var(--note-icon)"><span class="label-keyword">Note</span></span>
-  </div>
-      <div class="callout-body">
-     <p>Although you <em>can</em> hide the "Next" button from participants, I would advise against it — it's best to have a fallback for if the auto-submit fails.</p></div>
-</div>
-
-<hr class="section-divider" id="js-auto-submit-single" />
-
-<h4>One Question per Page</h4>
-
-<p>This code is for questions with either Radio Buttons or Checkboxes, where there's only <strong>ONE</strong> question on the page.</p>
-
-<p>Note that here, there is code in <span class="kw-data">addOnload</span> and <span class="kw-data">addOnUnload</span> and <span class="kw-data">top level</span> code <em>outside</em> the functions. For that reason, I have wrapped the entire block in an IIFE. So, you need to copy & paste the <strong><em>entire</em></strong> block of code, overwriting the default function definitions in the JavaScript Editor. Note that you can add additional code to the functions like normal after you do this — the important part is having the whole block wrapped in <code class="language-javascript">(function() { ... code block ... })();</code>.</p>
-  
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code>(function() {
-	// global variables
-	var container; // question container
-	var handleChange; // function to handle change event
-	
-	Qualtrics.SurveyEngine.addOnload(function()
-	{
-		/*Place your JavaScript here to run when the page loads*/
-		var that = this;
-		
-		container = that.getQuestionContainer();
-		
-		var radioGroups = Array.from(container.querySelectorAll("div[role='radiogroup']"));
-		var idRegex = RegExp("^" + that.questionId + "(?:-|$)");
-	
-		// listens for radio buttons to be selected (i.e., "change" event)
-		// immediately submits the page if an option has been selected
-	
-		handleChange = (event) => {
-			if(event.target && ["checkbox","radio"].includes(event.target.type) && event.target.name.match(idRegex)) {
-				if (radioGroups.every(group => group.querySelector("span.selected"))) {
-					that.clickNextButton();
-				}
-			}
-		};
-		container.addEventListener("change", handleChange);
-		
-	});
-		
-		
-	Qualtrics.SurveyEngine.addOnReady(function()
-	{
-		/*Place your JavaScript here to run when the page is fully displayed*/
-		
-	});
-	
-	Qualtrics.SurveyEngine.addOnUnload(function()
-	{
-		/*Place your JavaScript here to run when the page is unloaded*/
-		// remove the listener
-		if (container && handleChange) {
-			container.removeEventListener("change", handleChange);
-		}
-	});
-})();
-</code>
-</div>
-
-
-<hr class="section-divider" id="js-auto-submit-multiple" />
-
-<h4>Multiple Questions per Page</h4>
-
-<p>This code can be used for pages which contain more than one Multiple Choice and/or Matrix Table Questions, as long as they have Radio Buttons or Checkboxes.</p>
-
-<p>But only put this code on <strong>ONE</strong> question on the page, not all of them!</p>
-
-<p>And just like the above, this <em><strong>entire</strong></em> block of code should be pasted in the JavaScript Editor, overwriting the default code that's already in there.</p>
-
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code>(function() {
-	// global variables
-	var container; // page question container
-	var handleChange; // function to handle change event
-	
-	Qualtrics.SurveyEngine.addOnload(function()
-	{
-		/*Place your JavaScript here to run when the page loads*/
-		var that = this;
-		
-		container = document.querySelector(".questions-container");
-		
-		// listens for "change" events
-		// immediately submits the page if all questions have been answered
-		handleChange = (event) => {
-			// note that these are defined in handleChange to allow for questions to have Display Logic
-			var radioGroups = Array.from(container.querySelectorAll("div[role='radiogroup']:not(.hidden)"));
-			
-			if(event.target && ["checkbox","radio"].includes(event.target.type)) {
-				if (radioGroups.every(group => group.querySelector("span.selected"))) {
-					that.clickNextButton();
-				}
-			}
-		};
-		
-		container.addEventListener("change", handleChange);
-	
-	});
-	
-	Qualtrics.SurveyEngine.addOnReady(function()
-	{
-		/*Place your JavaScript here to run when the page is fully displayed*/
-	
-	});
-	
-	Qualtrics.SurveyEngine.addOnUnload(function()
-	{
-		/*Place your JavaScript here to run when the page is unloaded*/
-		// remove the listener
-		if (container && handleChange) {
-			container.removeEventListener("change", handleChange);
-		}
-	});
-})();</code>
-</div>
-
-
-<div class="callout note">
-  <div class="callout-header"><span class="callout-icon">📝</span><span class="callout-label" style="color:var(--note-icon)"><span class="label-keyword">Note</span></span></div>
-  <div class="callout-body">
-    <p>Inclined individuals will note that I have set up auto-submit for the Demographics section in the Survey Template, even though there are Text Entry Questions <em>and</em> Multiple Choice Questions with dropdowns.</p>
-   
-   <p>In this case, I think it's fine because the questions are <em>not</em> randomized. The dropdowns also need <em>individual</em> <code>mutation observers</code> because standard <code>event listeners</code> cannot detect the selection. That's why I'm omitting this from the guide — but those more familiar with JavaScript may wish to take a look.</p>
-   
-   <p>However, I would advise against this for your main questions.</p>
-  </div>
-</div>
-
-
-<hr class="section-divider" id="js-add-css" />
-<h3>Adding CSS</h3>
-
-<p>You can either do this with CSS in the custom CSS section of <span class="kw-sub-menu">Look and Feel</span> <em>OR</em> you can use JavaScript to apply a CSS ruleset to a <em>single</em> question.</p>
-
-<p>Recall that these are the caseswhere additional CSS code is needed, beyond what already comes with the Survey Template:</p>
-  
-<ul class="ul-indent no-gap">
-  <li>Matrix Table Questions</li>
-  <li>Matrix Table Questions with less than 3 statements</li>
-  <li>Matrix Table Questions with less than 3 scale points</li>
-  <li>Form Field Questions</li>
-</ul>
-
-<hr class="section-divider" id="js-add-css-basics" />
-<h4>Basics</h4>
-
-<p>If you know how to write CSS or have a CSS ruleset already written, then adding custom CSS to a <span class="kw-concept">Question</span> with JavaScript is a cinch.</p>
-
-<p>Say you have the following CSS ruleset:</p>
-
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code>#question-QID18 .matrix-content {
-	grid-template-columns: minmax(6.25rem, 55%) 1fr !important;
-	max-width: 900px !important;
-}</code>
-</div>
-
-
-<p>(Recall that this is what we used to adjust the Paranormal Beliefs scale in the CSS section.)</p>
-
-<p>Then, all we have to do is use JavaScript to create an HTML <code>style</code> element, put the CSS ruleset inside it, and append it to the page.</p>
-
-<p>Simply put this in the <span class="kw-data">addOnload</span> function:</p>
-
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code>var style = document.createElement("STYLE");
-style.innerHTML = `
-#question-` + this.questionId + ` .matrix-content {
-	grid-template-columns: minmax(6.25rem, 55%) 1fr !important;
-	max-width: 900px !important;
-}
-`
-this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
-</div>
-
-<p>For a more general form:</p>
-
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code>var style = document.createElement("STYLE");
-style.innerHTML = `
-#question-` + this.questionId + ` [REST OF SELECTORS] {
-	property: value;
-}
-`
-this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
-</div>
-
-<p>Then just change <code>[REST OF SELECTORS]</code> and add as many <code>property: value;</code> lines as needed / desired.</p>
-
-<p>Hopefully this helps explain why I said you can either use CSS or JavaScript — because it's basically the same thing!</p>
-
-<hr class="section-divider" id="js-add-css-matrix-table" />
-<h4>Matrix Tables</h4>
-
-<p>Add this to <span class="kw-data">addOnload</span> for <em>each</em> Matrix Table Question and fiddle with <code>900</code> and the <code>55%</code> in the code below until it looks right:</p>
-
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code>var style = document.createElement("STYLE");
-style.innerHTML = `
-#question-` + this.questionId + ` .matrix-content {
-	grid-template-columns: minmax(6.25rem, 55%) 1fr !important;
-	max-width: 900px !important;
-}
-`
-this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
-</div>
-
-<p>Recall that you can adjust the width of the table itself (the <code>max-width</code> property) and that the <code>grid-template-columns</code> property means:</p>
-<ol class="ul-indent no-gap">
-  <li>The % of the width you want the statements to take up</li>
-  <li>The % of the width you want the radio buttons to take up</li>
-</ol>
-
-<hr class="section-divider" id="js-add-css-form-field" />
-<h4>Form Fields</h4>
-
-<p>All you have to do for Form Fields is adjust the label width, making it the same so the textboxes line up.</p>
-
-<p>Add this to <span class="kw-data">addOnload</span> and fiddle with the <code>120</code> below until the text boxes line up:</p>
-
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code>var style = document.createElement("STYLE");
-style.innerHTML = `
-#question-` + this.questionId + ` .choice-label {
-	width: 120px !important;
-}
-`
-this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
-</div>
-
-<div class="screenshot-wrap">
-  <div class="screenshot-placeholder" id="screenshot-form-field-labels-rep">
-   <img src="https://i.imgur.com/avnXySx.png" alt="Aligning the textboxes for Form Field Questions." />
-    <span>Screenshot: Aligning the textboxes for Form Field Questions.</span>
-  </div>
-</div>
-
-
-<hr class="section-divider" id="js-two-part-qs" />
-
-<h4>Two-Part Questions</h4>
-
-<p>In my opinion, the best way to do a two-part question where the response to the previous question is "locked" in, is to <em>simulate</em> Display Logic.</p>
-
-<p>In other words, we're going to create two <em>separate</em> (but identical) <span class="kw-concept">Questions</span>. On the first page, they only see the first <span class="kw-concept">Question</span>. And on the second page, they see <em>both</em> <span class="kw-concept">Questions</span>.</p>
-
-<p>Then we can Carry Forward their response and add JavaScript to disable the <span class="kw-concept">Question</span>, so they can't change it.</p>
-
-<p>This makes sure:</p>
-
-<ul class="ul-indent no-gap">
-  <li>We don't somehow corrupt their previous answer</li>
-  <li>We don't lose the RT data for the first response</li>
-  <li>We have separate RT data for the second response</li>
-</ul>
-
-<h5>Text Entry Questions</h5>
-
-<p>This is <em>easiest</em> to do for Text Entry Questions.</p>
-
-<ol class="ul-inline no-gap">
-  <li>Fully configure the <span class="kw-concept">Block</span> for the first question</li>
-    <li>
-      <span class="kw-menu">Copy</span> the <span class="kw-concept">Block</span>
-      <ul class="gap-1" type="a">
-        <li>For the repeated first question, add their response to the <em>real</em> first question as a <span class="kw-menu">Default Choice</span>:<br>
-        Builder Panel ⟶  Question Behavior ⟶  Default choices ⟶  Survey Question ⟶  (select the question) ⟶  (select the option which shows the text of the question)</li>
-        <li>Add the following JavaScript to the <span class="kw-data">onLoad</span> function:
-<div class="code-snippet">
-<button class="copy-btn" onclick="copyCode(this)">Copy</button>
-<code>var input = this.getQuestionContainer().querySelector(".text-input");
-input.disabled = true;
-input.style.webkitUserSelect = "none";
-input.style.msUserSelect = "none";
-input.style.mozUserSelect = "none";
-input.style.userSelect = "none";
-// optional - make it look locked in
-input.style.color = "grey";
-input.style.backgroundColor = "#e5e5e5";</code>
-</div>
-        </li>
-        <li>Add your follow-up question below</li>
-      </ul>
-    </li>
-    
-</ol>
-
-
-
-<div class="carousel-wrap">
-  <div class="carousel" id="carousel-two-part-locked-in-te">
-    <div class="carousel-track">
-
-      <div class="carousel-slide">
-        <img src="https://i.imgur.com/QBGVJQT.png" alt="View of the Builder for a Two-Part Text Entry Question" />
-        <div class="slide-caption">Screenshot: View of the Builder for a Two-Part Text Entry Question</div>
-      </div>
-
-      <div class="carousel-slide">
-        <img src="https://i.imgur.com/MttyNEy.png" alt="Default Choice Menu - Carry Forward Answer" />
-        <div class="slide-caption">Screenshot: Default Choice Menu — Carry Forward Answer</div>
-      </div>
-
-    </div>
-
-    <button class="carousel-btn prev" onclick="carouselMove(this.parentElement.id, -1)">‹</button>
-    <button class="carousel-btn next" onclick="carouselMove(this.parentElement.id, 1)">›</button>
-    <button class="carousel-expand" onclick="openCarouselLightbox(this.parentElement.id)">⤢</button>
-  </div>
-
-  <div class="carousel-dots" id="carousel-two-part-locked-in-te-dots"></div>
-</div>
-
-<h5>Multiple Choice Questions</h5>
-
-<p>(to do)</p>
-
-
-</section>
-
-<!-- ── Section 7: Common Gotchas ── -->
+<!-- ── Section 8: Common Gotchas ── -->
 
 <section class="section" id="common-gotchas">
-<div class="section-label">Section 7</div>
+<div class="section-label">Section 8</div>
 
 <h2>Common Gotchas</h2>
 
@@ -4933,9 +4909,9 @@ input.style.backgroundColor = "#e5e5e5";</code>
   
 </section>
 
-<!-- ── Section 8: Pre-Launch Checklist ── -->
+<!-- ── Section 9: Pre-Launch Checklist ── -->
 <section class="section" id="pre-launch-checklist">
-<div class="section-label">Section 8</div>
+<div class="section-label">Section 9</div>
 <h2>Pre-Launch Checklist</h2>
 
 <p>Before you distribute your survey, work through the following checklist.</p>
@@ -5004,9 +4980,9 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 </section>
 
-<!-- ── Section 9: Downloading & Managing Your Data ── -->
+<!-- ── Section 10: Downloading & Managing Your Data ── -->
 <section class="section" id="downloading-data">
-<div class="section-label">Section 9</div>
+<div class="section-label">Section 10</div>
 <h2>Downloading &amp; Managing Your Data</h2>
 
 <p>Once data collection is complete — or even during, if you want to check your results so far — you can export your <span class="kw-data">Data File</span> from Qualtrics.</p>
@@ -5083,9 +5059,9 @@ input.style.backgroundColor = "#e5e5e5";</code>
 
 </section>
 
-<!-- ── Section 10: Understanding Your Data File ── -->
+<!-- ── Section 11: Understanding Your Data File ── -->
 <section class="section" id="data-file">
-<div class="section-label">Section 10</div>
+<div class="section-label">Section 11</div>
 <h2>Understanding Your Data File</h2>
 
 <p>Before you export your data, it helps to know what you're looking at. Qualtrics data files can look intimidating at first — this section walks you through the structure so you're not caught off guard.</p>
@@ -5502,7 +5478,7 @@ span.spanBefore {
 <div class="code-snippet">
 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.te .text-input {
-	text-align: right !important;
+	text-align: right;
 }</code>
 </div>
 </li>
@@ -5585,7 +5561,7 @@ span.spanBefore {
 <div class="code-snippet">
 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code class="language-css">.question.form .text-input {
-	text-align: right !important;
+	text-align: right;
 	width: 55px !important;
 	padding: 5px !important;
 	vertical-align: middle !important;
@@ -5740,7 +5716,7 @@ this.getQuestionContainer().insertAdjacentElement("beforebegin", style);</code>
   
 <h3 class="gap-2">Other JavaScript</h3>
 
-<p>Non-CSS related JavaScript.</p>
+<p>Functional (non-CSS related) JavaScript.</p>
 
 <hr class="section-divider" id="code-bank-js-gen-add-text" />
 
@@ -5921,22 +5897,20 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 	Qualtrics.SurveyEngine.addOnload(function()
 	{
 		/*Place your JavaScript here to run when the page loads*/
-		var that = this;
-		
-		container = that.getQuestionContainer();
-		
-		var radioGroups = Array.from(container.querySelectorAll("div[role='radiogroup']"));
-		var idRegex = RegExp("^" + that.questionId + "(?:-|$)");
 	
-		// listens for radio buttons to be selected (i.e., "change" event)
+		container = document.querySelector(".questions-container");
+		
+		var choices = Array.from(container.querySelectorAll(".question:not(.hidden) :is(.choices, .matrix-row)"));
+	
+		// listens for radio buttons to be selected / checkbox to be checked (i.e., "change" event)
 		// immediately submits the page if an option has been selected
 	
-		handleChange = (event) => {
-			if(event.target && ["checkbox","radio"].includes(event.target.type) && event.target.name.match(idRegex)) {
-				if (radioGroups.every(group => group.querySelector("span.selected"))) {
-					that.clickNextButton();
-				}
+		handleChange = () => {
+			if (choices.every(choice => choice.querySelector("span.selected"))) {
+				const btn = document.querySelector("#next-button");
+			  if (btn) btn.click();
 			}
+			
 		};
 		container.addEventListener("change", handleChange);
 		
@@ -5957,11 +5931,11 @@ Array.from(ul.querySelectorAll(".text-input")).forEach(input => {
 			container.removeEventListener("change", handleChange);
 		}
 	});
-})();</code>
+})();
+</code>
 </div>
-<div class="small-note warn"><strong>Note:</strong> You can add additional code to the <span class="kw-data">addOnload</span>, <span class="kw-data">addOnReady</span>, or <span class="kw-data">addOnUnload</span> functions like you normally would. The key here is that everything is wrapped in an IIFE <code class="language-javascript">(function() { ... })();</code>. So, just move any existing code into the correct function after copying and pasting the above.</div>
+<div class="small-note warn"><strong>Note:</strong> You can add additional code to the <span class="kw-data">addOnload</span>, <span class="kw-data">addOnReady</span>, or <span class="kw-data">addOnUnload</span> functions like you normally would. The key here is that everything is wrapped in an IIFE <code class="language-javascript">(function() {  })();</code>. So, just move any existing code into the correct function after copying and pasting the above.</div>
 </li>
-
 
 <li><h5 id="code-bank-js-gen-auto-submit-multi" class="gap-1">Pages with Multiple Questions</h5>
 <ul class="ul-indent no-gap">
@@ -5971,37 +5945,36 @@ Replace <em><strong>everything</strong></em> in the JavaScript Editor of <em><st
 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <code>(function() {
 	// global variables
-	var container; // page question container
+	var container; // question container
 	var handleChange; // function to handle change event
 	
 	Qualtrics.SurveyEngine.addOnload(function()
 	{
 		/*Place your JavaScript here to run when the page loads*/
-		var that = this;
-		
+	
 		container = document.querySelector(".questions-container");
 		
-		// listens for "change" events
-		// immediately submits the page if all questions have been answered
-		handleChange = (event) => {
-			// note that these are defined in handleChange to allow for questions to have Display Logic
-			var radioGroups = Array.from(container.querySelectorAll("div[role='radiogroup']:not(.hidden)"));
-			
-			if(event.target && ["checkbox","radio"].includes(event.target.type)) {
-				if (radioGroups.every(group => group.querySelector("span.selected"))) {
-					that.clickNextButton();
-				}
+		var choices = Array.from(container.querySelectorAll(".question:not(.hidden) :is(.choices, .matrix-row)"));
+	
+		// listens for radio buttons to be selected / checkbox to be checked (i.e., "change" event)
+		// immediately submits the page if an option has been selected
+	
+		handleChange = () => {
+			if (choices.every(choice => choice.querySelector("span.selected"))) {
+				const btn = document.querySelector("#next-button");
+			  if (btn) btn.click();
 			}
+			
 		};
-		
 		container.addEventListener("change", handleChange);
-	
+		
 	});
-	
+		
+		
 	Qualtrics.SurveyEngine.addOnReady(function()
 	{
 		/*Place your JavaScript here to run when the page is fully displayed*/
-	
+		
 	});
 	
 	Qualtrics.SurveyEngine.addOnUnload(function()
@@ -6012,9 +5985,10 @@ Replace <em><strong>everything</strong></em> in the JavaScript Editor of <em><st
 			container.removeEventListener("change", handleChange);
 		}
 	});
-})();</code>
+})();
+</code>
 </div>
-<div class="small-note warn"><strong>Note:</strong> You can add additional code to the <span class="kw-data">addOnload</span>, <span class="kw-data">addOnReady</span>, or <span class="kw-data">addOnUnload</span> functions like you normally would. The key here is that everything is wrapped in an IIFE <code class="language-javascript">(function() { ... })();</code>. So, just move any existing code into the correct function after copying and pasting the above.</div>
+<div class="small-note warn"><strong>Note:</strong> You can add additional code to the <span class="kw-data">addOnload</span>, <span class="kw-data">addOnReady</span>, or <span class="kw-data">addOnUnload</span> functions like you normally would. The key here is that everything is wrapped in an IIFE <code class="language-javascript">(function() {  })();</code>. So, just move any existing code into the correct function after copying and pasting the above.</div>
 </li>
 
 </ul>
